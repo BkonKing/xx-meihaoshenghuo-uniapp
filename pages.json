@@ -1,0 +1,311 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "app-plus": {
+          "titleNView": {
+            "type": "transparent",
+            "searchInput": {
+              "backgroundColor": "rgba(231, 231, 231,.7)",
+              "borderRadius": "16px",
+              "placeholder": "请输入地址 如：大钟寺",
+              "disabled": true,
+              "placeholderColor": "#606266"
+            },
+            "buttons": [{
+              "fontSrc": "/static/iconfont.ttf",
+              "text": "\ue79d",
+              "fontSize": "27",
+              "color": "#383838",
+              "redDot": true
+            }, {
+              "fontSrc": "/static/iconfont.ttf",
+              "text": "\ue819",
+              "fontSize": "26",
+              "color": "#383838",
+              "float": "right"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom",
+        // 下拉刷新
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/steward/notice/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "公告通知",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "buttons": [{
+              "text": "全部已读",
+              "fontSize": "16",
+              "width": "auto"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/notice/details",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "通知详情",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "buttons": [{
+              "type": "share"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/repairs/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "报事报修",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "buttons": [{
+              "type": "home"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/repairs/list",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "我的报事报修",
+            "titleAlign": "center",
+            "backgroundColor": "#fff"
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/repairs/details",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "居家保修",
+            "titleAlign": "center",
+            "backgroundColor": "#fff"
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/free-service/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "免费服务",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "buttons": [{
+              "type": "home"
+            }]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/steward/free-service/list",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "我的免费预约",
+            "backgroundColor": "#fff"
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/life/index",
+      "style": {}
+    }, {
+      "path": "pages/neighbours/index",
+      "style": {}
+    }, {
+      "path": "pages/personage/index",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      }
+    }, {
+      "path": "pages/steward/call-property/index",
+      "style": {
+        "navigationBarTitleText": "呼叫物业",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/convenience-phone/index",
+      "style": {
+        "navigationBarTitleText": "便民电话",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/questionnaire/my",
+      "style": {
+        "navigationBarTitleText": "我的问卷投票",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/questionnaire/details",
+      "style": {
+        "navigationBarTitleText": "投票",
+        "navigationBarBackgroundColor": "#fff",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [{
+              "type": "share"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/questionnaire/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "问卷投票",
+            "buttons": [{
+              "type": "home"
+            }]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/steward/convenience-phone/index",
+      "style": {
+        "navigationBarTitleText": "便民电话",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/complain/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "投诉表扬",
+            "buttons": [{
+              "type": "home"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/steward/complain/details",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    }
+
+    , {
+      "path": "pages/steward/visitor/invite",
+      "style": {
+        "navigationBarTitleText": "访客通行证"
+      }
+    }, {
+      "path": "pages/steward/visitor/invite-list",
+      "style": {
+        "navigationBarTitleText": "访客邀约记录",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/visitor/visitor-list",
+      "style": {
+        "navigationBarTitleText": "访客",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    },
+    {
+      "path": "pages/steward/visitor/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "访客邀约",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "buttons": [{
+              "type": "share"
+            }, {
+              "type": "home"
+            }]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/steward/complain/list",
+      "style": {
+        "navigationBarTitleText": "我的投诉表扬",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/steward/free-service/details",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    }, {
+      "path": "pages/personage/information/index",
+      "style": {
+        "navigationBarTitleText": "我的资料",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#333",
+    "color": "#8F8F94",
+    "selectedColor": "#f33e54",
+    "list": [{
+        "pagePath": "pages/home/index",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/homeactive.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/life/index",
+        "iconPath": "static/tabbar/guanzhu.png",
+        "selectedIconPath": "static/tabbar/guanzhuactive.png",
+        "text": "生活"
+      },
+      {
+        "pagePath": "pages/steward/index",
+        "iconPath": "static/tabbar/guanzhu.png",
+        "selectedIconPath": "static/tabbar/guanzhuactive.png",
+        "text": "管家"
+      },
+      {
+        "pagePath": "pages/neighbours/index",
+        "iconPath": "static/tabbar/news.png",
+        "selectedIconPath": "static/tabbar/newsactive.png",
+        "text": "邻里"
+      },
+      {
+        "pagePath": "pages/personage/index",
+        "iconPath": "static/tabbar/me.png",
+        "selectedIconPath": "static/tabbar/meactive.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

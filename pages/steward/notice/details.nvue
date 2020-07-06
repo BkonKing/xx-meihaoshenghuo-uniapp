@@ -1,0 +1,30 @@
+<template>
+	<scroll-view class="tf-padding-base">
+		<text style="font-size: 36rpx;text-align: center;margin-bottom: 30rpx;color: #333;">{{title}}</text>
+    <text style="font-size: 28rpx;text-align: center;margin-bottom: 20rpx;color: #BCBCBC;">{{time}}</text>
+    <text style="font-size: 28rpx;line-height: 42rpx;color: #666;">
+      {{content}}
+    </text>
+	</scroll-view>
+</template>
+
+<script>
+	export default {
+		onLoad(params) {
+      console.log(params)
+       this.id = params.id
+		},
+    data() {
+      return {
+        id: '',
+        title: '标题标题标题标题标题标题标题标题标题',
+        time: '2020-06-06  12:12',
+        content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
+      }
+    },
+	}
+</script>
+
+<style lang="scss">
+
+</style>

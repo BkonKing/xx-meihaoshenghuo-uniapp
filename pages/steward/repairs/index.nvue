@@ -1,0 +1,145 @@
+<template>
+  <scroll-view class="tf-padding-base">
+    <alert type="warning" content="您有正在进行中的报事报修，点击查看进度>>"></alert>
+    <form @submit="formSubmit">
+      <view class="uni-form-item uni-column">
+        <view class="form-label">选择类型</view>
+        <radioBtn :data="items" @change="radioChange"></radioBtn>
+      </view>
+      <view class="uni-form-item uni-column">
+        <view class="form-label">内容描述</view>
+        <textarea
+          class="uni-input"
+          name="input"
+          placeholder="请描述具体内容"
+          auto-height
+          style="min-height: 150rpx"
+        />
+      </view>
+      <view class="uni-form-item uni-column">
+        <view class="form-label">图片上传</view>
+        <uImg
+          ref="upimg"
+          :canUploadFile="true"
+          :limit="limitNum"
+          :uploadFileUrl="uploadFileUrl"
+          :heaer="header"
+          :fileKeyName="name"
+          :uImgList.sync="uImgList"
+          @uploadSuccess="uploadSuccess"
+        ></uImg>
+      </view>
+      <view class="tf-padding-base">
+        <button type="primary" form-type="submit">提交</button>
+      </view>
+    </form>
+  </scroll-view>
+</template>
+
+<script>
+import alert from "../../components/alert/index.nvue";
+import radioBtn from "../../components/radio/index.nvue";
+import uImg from "@/components/uploadImg/uploadImg.vue";
+const toast = msg => {
+  uni.showToast({
+    title: msg,
+    icon: "none"
+  });
+};
+export default {
+  components: {
+    alert,
+    radioBtn,
+    uImg
+  },
+  //点击导航栏 buttons 时触发
+  onNavigationBarButtonTap(e) {
+    console.log(e);
+    const index = e.index;
+    if (index === 0) {
+      uni.navigateTo({
+        url: "/pages/steward/repairs/list"
+      });
+    }
+  },
+  data() {
+    return {
+      radio: "radio1",
+      current: "",
+      items: [
+        {
+          value: "USA",
+          name: "美国"
+        },
+        {
+          value: "CHN",
+          name: "中国",
+          checked: "true"
+        },
+        {
+          value: "BRA",
+          name: "巴西"
+        },
+        {
+          value: "JPN",
+          name: "日本"
+        },
+        {
+          value: "ENG",
+          name: "英国"
+        },
+        {
+          value: "FRA",
+          name: "法国"
+        }
+      ],
+      msg: "",
+      length: 140,
+      placeholder: "欢迎反馈任何意见和问题,您的反馈也是我们产品的动力哦",
+      limitNum: 1,
+      uploadFileUrl: "", //替换成你的后端接收文件地址
+      name: "", //上传的名字
+      header: {
+        // 如果需要header，请上传
+      },
+      uImgList: []
+    };
+  },
+
+  methods: {
+    formSubmit: function(e) {
+      console.log(
+        "form发生了submit事件，携带数据为：" + JSON.stringify(e.detail.value)
+      );
+      var formdata = e.detail.value;
+      uni.showModal({
+        content: "表单数据内容：" + JSON.stringify(formdata),
+        showCancel: false
+      });
+    },
+    uploadSuccess(result) {
+      if (result.statusCode == 200) {
+        //上传成功的回调处理
+        toast("上传成功");
+      } else {
+        toast("上传失败");
+      }
+    },
+    //上传方法的调用
+    upFile() {
+      this.$refs.upimg.upload();
+    },
+    radioChange(value) {
+      this.current = value;
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.uni-form-item {
+  border-bottom-width: 1px;
+  border-bottom-color: #eee;
+  border-bottom-style: solid;
+}
+</style>

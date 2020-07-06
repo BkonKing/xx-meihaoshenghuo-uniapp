@@ -1,0 +1,45 @@
+<template>
+  <scroll-view>
+    <view class="tf-bg tf-padding-base tf-mb-base">
+      <text class="tf-article-title tf-center">XXXX美好生活家园</text>
+      <text class="tf-text tf-mb-base">家园介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
+      <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :number="item.number"
+        :avatar="item.avatar"></phone-card>
+    </view>
+    <view class="tf-padding-base">
+      <text class="tf-module-title">常见问题</text>
+      <view>
+        <text class="tf-subhead-title">1.门禁二维码打不开门？</text>
+        <text class="tf-auxiliary-content">智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。</text>
+      </view>
+    </view>
+  </scroll-view>
+</template>
+
+<script>
+  import phoneCard from '../../components/phone-card/phone-card.nvue'
+  export default {
+    components: {
+      phoneCard
+    },
+    data() {
+      return {
+        phoneList: [{
+            name: '物业热线1',
+            avatar: '/static/app-icon.png',
+            number: '15050505050',
+            info: '24小时在线',
+          },
+          {
+            name: '物业热线1',
+            avatar: '/static/app-icon.png',
+            number: '15050505050',
+            info: '',
+          }
+        ]
+      };
+    }
+  }
+</script>
+
+<style lang="scss"></style>

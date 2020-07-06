@@ -1,0 +1,57 @@
+<template>
+	<uni-nav-bar>
+		<view slot="left">
+			<button class="room_btn" v-if="status">
+				<text class="tf-icon">&#xe906;</text>
+				<text class="tf-text">{{name}}</text>
+			</button>
+			<button class="room_btn room_btn_unattestation" v-else type="plain">
+				<text class="tf-icon">&#xe7a5;</text>
+				<text class="tf-text">请认证房间号</text>
+			</button>
+		</view>
+		<view slot="right" style="width: 120rpx;flex-direction: row;">
+			<text class="tf-icon" style="width: 24px;font-size: 22px;color: #383838;">&#xe819;</text>
+			<text class="tf-icon" style="width: 24px;font-size: 22px;color: #383838;">&#xe79d;</text>
+		</view>
+	</uni-nav-bar>
+</template>
+
+<script>
+	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+	export default {
+		components: {
+			uniNavBar
+		},
+		props: {
+			status: {
+				type: Number,
+				default: 0
+			},
+			name: {
+				type: String,
+				default: ''
+			}
+		},
+		data() {
+			return {
+
+			};
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.room_btn {
+		height: 30px;
+		line-height: 30px;
+		border-radius: 20px;
+		border-color: $uni-border-color;
+		background-color: $uni-bg-color;
+	}
+		
+	.room_btn_unattestation {
+		background-color: #000;
+		color: #fff;
+	}
+</style>

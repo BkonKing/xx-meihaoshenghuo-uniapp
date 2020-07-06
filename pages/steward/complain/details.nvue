@@ -1,0 +1,56 @@
+<template>
+  <scroll-view class="tf-padding-base">
+    <userInfo name="园博园他" avatar="../../../static/app-icon.png" time="2020.05.02"></userInfo>
+    <text class="tf-auxiliary-content tf-mb-base">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text>
+    <view class="image-box">
+      <image class="image" v-for="(item,i) in imageList" :key="i" :src="item.src" mode="aspectFill"></image>
+    </view>
+    <view class="reply-box tf-padding-base">
+      <text class="tf-text">社区回复：</text>
+      <text class="tf-auxiliary-content">
+        回复内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+      </text>
+    </view>
+  </scroll-view>
+</template>
+
+<script>
+  import userInfo from '../../components/user-info/index.nvue'
+  export default {
+    components: {
+      userInfo
+    },
+    data() {
+      return {
+        imageList:[
+          {src: '/static/app-icon.png'},
+          {src: '/static/app-icon.png'},
+          {src: '/static/app-icon.png'},
+          {src: '/static/app-icon.png'},
+        ]
+      };
+    },
+    onLoad(params) {
+      const {
+        id,
+        type
+      } = params
+      uni.setNavigationBarTitle({
+        title: type ? '表扬' : '投诉'
+      })
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .image {
+    width: 170rpx;
+    height: 170rpx;
+    margin-bottom: 10rpx;
+    margin-right: 7.5rpx;
+  }
+  .reply-box {
+    background-color: $uni-bg-color-grey;
+    border-radius: $uni-border-radius-base;
+  }
+</style>

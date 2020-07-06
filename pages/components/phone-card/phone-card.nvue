@@ -1,0 +1,85 @@
+<template>
+  <view class="tf-padding-base phone-box tf-mb-base">
+    <view class="phone-info">
+      <view class="tf-row-vertical-center">
+        <image v-if="avatar" :src="avatar" mode="aspectFit" class="tf-avatar"></image>
+        <text class="tf-article-title">{{name}}</text>
+      </view>
+      <view class="tf-row-vertical-center" @tap="makePhoneCall(item.number)">
+        <text class="phone-number">{{number}}</text>
+        <text class="tf-icon">{{icon_phone}}</text>
+      </view>
+    </view>
+    <text class="phone-footer tf-padding-sm" v-if="info">
+      {{info}}
+    </text>
+  </view>
+</template>
+
+<script>
+  const stringProp = {
+    type: String,
+    default: ''
+  }
+  import { icon_phone } from '../../const/icon.js'
+  export default {
+    name: 'phone-card',
+    props: {
+      avatar: stringProp,
+      name: stringProp,
+      number: stringProp,
+      info: stringProp,
+    },
+    data() {
+      return {
+        icon_phone
+      }
+    },
+    methods: {
+      makePhoneCall(phoneNumber) {
+        uni.makePhoneCall({
+            phoneNumber
+        });
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .phone-box {
+    width: 710rpx;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .phone-footer {
+    width: 680rpx;
+    background-color: $uni-bg-color;
+    border-radius: 5px;
+    font-size: $uni-font-size-sm;
+    color: $uni-text-color-grey;
+    margin-top: $uni-spacing-col-base;
+  }
+  
+  .tf-avatar {
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+  }
+  .phone-info {
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 80rpx;
+  }
+  .phone-number {
+    font-size: $uni-font-size-base;
+    color: $uni-text-color-grey;
+    margin-right: $uni-spacing-row-base;
+  }
+  .tf-icon {
+    font-size: 40rpx;
+    color: $uni-text-color;
+  }
+  .tf-row-vertical-center {
+    height: 80rpx;
+  }
+</style>

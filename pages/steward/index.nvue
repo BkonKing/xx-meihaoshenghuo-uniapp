@@ -1,0 +1,67 @@
+<template>
+  <view>
+    <placeholderNavBar></placeholderNavBar>
+    <page-nav-bar :status="1" name="123"></page-nav-bar>
+    <ImageList :list="list"></ImageList>
+    <swiperInform></swiperInform>
+  </view>
+</template>
+
+<script>
+  import pageNavBar from "../components/page-nav-bar/index.nvue"
+  import ImageList from "../components/image-list/index.nvue"
+  import swiperInform from "../components/swiper-inform/index.nvue"
+  import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
+  export default {
+    components: {
+      pageNavBar,
+      placeholderNavBar,
+      ImageList,
+      swiperInform
+    },
+    data() {
+      return {
+        list: [{
+          src: '/static/logo.png',
+          name: '公告通知',
+          url: '/pages/steward/notice/index'
+        }, {
+          src: '/static/logo.png',
+          name: '报事报修',
+          url: '/pages/steward/repairs/index'
+        }, {
+          src: '/static/logo.png',
+          name: '免费服务',
+          url: '/pages/steward/free-service/index'
+        }, {
+          src: '/static/logo.png',
+          name: '访客邀约',
+          url: '/pages/steward/visitor/index'
+        }, {
+          src: '/static/logo.png',
+          name: '投诉表扬',
+          url: '/pages/steward/complain/index'
+        }, {
+          src: '/static/logo.png',
+          name: '小区活动',
+          url: '/pages/neighbours/index'
+        }, {
+          src: '/static/logo.png',
+          name: '问卷投票',
+          url: '/pages/steward/questionnaire/index'
+        }, {
+          src: '/static/logo.png',
+          name: '呼叫物业',
+          url: '/pages/steward/call-property/index'
+        }, {
+          src: '/static/logo.png',
+          name: '便民电话',
+          url: '/pages/steward/convenience-phone/index'
+        }, ]
+      };
+    }
+  }
+</script>
+
+<style>
+</style>

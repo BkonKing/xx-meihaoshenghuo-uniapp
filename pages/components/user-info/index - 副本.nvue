@@ -1,0 +1,28 @@
+<template>
+  <view class="tf-row-space-between">
+    <view class="tf-row-space-between tf-mb-base">
+      <image class="tf-avatar tf-mr-base" :src="avatar" mode="aspectFit"></image>
+      <slot name="left">
+        <view style="justify-content: space-between;">
+          <text class="tf-text">{{name}}</text>
+          <text class="tf-text">{{time}}</text>
+        </view>
+      </slot>
+    </view>
+    <slot name="right"></slot>
+  </view>
+</template>
+
+<script>
+  const stringProp = {
+    type: String,
+    default: ''
+  }
+  export default {
+    props: {
+      avatar: stringProp,
+      name: stringProp,
+      time: stringProp
+    }
+  }
+</script>

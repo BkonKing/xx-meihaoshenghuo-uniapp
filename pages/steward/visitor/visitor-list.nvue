@@ -1,0 +1,72 @@
+<template>
+  <scroll-view class="tf-padding-base tf-bg">
+    <!--    <recycle-list for="(item, i) in data">
+        <cell-slot :key="i"> -->
+    <view v-for="(item, i) in data" :key="i">
+      <view class="list-item tf-padding-base tf-row-space-between">
+        <view class="tf-row">
+          <text class="tf-text">{{item.name}}</text>
+          <text class="tf-text">{{item.money}}</text>
+          <text class="tf-text">{{item.content}}</text>
+          <text class="tf-text">{{item.name}}</text>
+        </view>
+        <view class="tf-row">
+          <text class="icon" @tap="edit">&#xe811;</text>
+          <text class="icon" @tap="remove">&#xe811;</text>
+        </view>
+      </view>
+    </view>
+    <!--      </cell-slot>
+      </recycle-list> -->
+    <button @tap="add">新增访客</button>
+  </scroll-view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        items: ['待来访', '已过期', '已到访'],
+        current: 0,
+
+        data: [{
+          id: 1,
+          type: 1,
+          status: 1,
+          name: '关于暴雨天气',
+          day: '06-06',
+          content: '100人参与',
+          money: 111
+        }, {
+          id: 1,
+          type: 1,
+          status: 1,
+          name: '关于暴雨天气',
+          day: '06-06',
+          content: '100人参与',
+          money: 111
+        }]
+
+      }
+    },
+    methods: {
+      remove() {
+        uni.showToast({
+          title: '删除成功'
+        })
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .list-item {
+    width: 710rpx;
+    background-color: #fff;
+    border-radius: $uni-border-radius-lg;
+    margin-bottom: 20rpx;
+  }
+  .tf-text {
+    margin-right: 10rpx;
+  }
+</style>

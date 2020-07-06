@@ -1,0 +1,99 @@
+<template>
+  <view class="alert-box" :class="`alert-box--${type}`">
+    <text class="tf-icon alert-box__icon" :class="`alert-box__content--${type}`">{{icon[type]}}</text>
+    <text class="alert-box__content" :class="`alert-box__content--${type}`">
+      {{content}}
+    </text>
+  </view>
+</template>
+
+<script>
+  import {
+    success,
+    error,
+    warning_fill,
+    info
+  } from "../../const/icon.js"
+  export default {
+    props: {
+      type: {
+        type: String,
+        default: 'info',
+        validator: function(value) {
+          // 这个值必须匹配下列字符串中的一个
+          return ['success', 'warning', 'error', 'info'].indexOf(value) !== -1
+        }
+      },
+      content: {
+        type: String,
+        default: ''
+      }
+    },
+    data() {
+      return {
+        icon: {
+          success,
+          error,
+          warning: warning_fill,
+          info,
+        }
+      }
+    },
+  }
+</script>
+
+<style lang="scss" scoped>
+  .alert-box {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 710rpx;
+    height: 60rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    border-radius: $uni-border-radius-lg;
+  }
+  
+  .alert-box__icon {
+    width: 40rpx;
+  }
+
+  .alert-box__content {
+    width: 640rpx;
+    font-size: $uni-font-size-base;
+  }
+
+  .alert-box--success {
+    background-color: $uni-bg-color-success;
+  }
+
+  .alert-box--warning {
+    background-color: $uni-bg-color-error;
+  }
+
+  .alert-box--error {
+    background-color: $uni-bg-color-error;
+  }
+
+  .alert-box--info {
+    background-color: $uni-bg-color-grey;
+  }
+
+  .alert-box__content--success {
+    color: $uni-color-success;
+  }
+
+  .alert-box__content--warning {
+    color: $uni-color-error;
+  }
+
+  .alert-box__content--error {
+    color: $uni-color-error;
+  }
+
+  .alert-box__content--info {
+    color: $uni-text-color-grey;
+  }
+</style>

@@ -1,0 +1,35 @@
+<template>
+  <view>
+    <tfList :data="longList"></tfList>
+  </view>
+</template>
+
+<script>
+  import tfList from './components/list.nvue'
+  export default {
+    components: {
+      tfList
+    },
+    data() {
+      return {
+        longList: [{
+          id: 1,
+          type: 1,
+          status: 1,
+          title: '关于暴雨天气温馨提示水电费水电费水电费水电费',
+          day: '06-06',
+          content: '100人参与',
+          money: 111
+        }]
+      };
+    },
+    // 点击导航栏 buttons 时触发
+    onNavigationBarButtonTap({index}) {
+      if (index === 0) {
+        uni.navigateTo({
+          url: '/pages/steward/questionnaire/my?type=1'
+        })
+      }
+    }
+  }
+</script>

@@ -1,0 +1,25 @@
+<template>
+  <tfList :data="longList"></tfList>
+</template>
+
+<script>
+  import tfList from './components/list.nvue'
+  export default {
+    components: {
+      tfList
+    },
+    data() {
+      return {
+        longList: [{
+          id: 1,
+          type: 1,
+          status: 1,
+          title: '关于暴雨天气温馨提示水电费水电费水电费水电费',
+          day: '06-06',
+          content: '100人参与',
+          money: 111
+        }]
+      };
+    }
+  }
+</script>

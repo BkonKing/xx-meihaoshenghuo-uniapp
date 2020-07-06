@@ -1,0 +1,20 @@
+<template>
+  <view :style="{ height: iStatusBarHeight + 'px'}"></view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        iStatusBarHeight: 0
+      }
+    },
+    created() {
+      this.iStatusBarHeight = uni.getSystemInfoSync().statusBarHeight
+    }
+  }
+</script>
+
+<style>
+
+</style>

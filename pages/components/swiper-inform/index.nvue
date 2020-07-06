@@ -1,0 +1,57 @@
+<template>
+	<view class="notice tf-padding-base" v-if="noticeList.length">
+		<swiper class="swiper-nav" :circular="true" :vertical="true" :autoplay="true" :interval="5000" :duration="1000">
+			<swiper-item @touchmove.stop='stopTouchMove' v-for="(item,index) in noticeList" :key="index">
+				<view class="swiper-nav-item tf-padding-sm">
+				  <text class="swiper-item-content">{{item.content}}</text>
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			noticeList: {
+				type: Array,
+				default: () => [{
+						content: 123123123
+					},
+					{
+						content: 'ffffffffffffffffff'
+					}
+				]
+			}
+		},
+		data() {
+			return {
+
+			};
+		}
+	}
+</script>
+
+<style lang="scss">
+	.notice {
+		width: 750rpx;
+	}
+
+	.swiper-nav {
+		width: 710rpx;
+		height: 60rpx;
+		border-radius: 10rpx;
+		background-color: #f7e7e7;
+	}
+  
+  .swiper-nav-item {
+    width: 710rpx;
+    height: 40rpx;
+  }
+
+	.swiper-item-content {
+		font-size: 28rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+	}
+</style>

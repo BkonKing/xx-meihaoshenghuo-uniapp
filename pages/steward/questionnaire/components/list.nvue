@@ -1,0 +1,87 @@
+<template>
+  <scroll-view class="tf-bg tf-padding-base">
+    <!--    <recycle-list for="(item, i) in data">
+      <cell-slot :key="i"> -->
+    <view v-for="(item, i) in data" :key="i" class="list-item" @tap="jump(item)">
+      <view class="list-image">
+        <text></text>
+      </view>
+      <view class="tf-padding-base">
+        <text class="tf-module-title">{{item.title}}</text>
+        <view class="list-info">
+          <view class="tf-row-vertical-center">
+            <text class="coin" v-if="item.money">+{{item.money}}</text>
+            <text class="participate-tatus" :class="item.status ? 'participate-tatus--proceed' : 'participate-tatus--end'">{{item.content}}</text>
+          </view>
+          <text class="tf-auxiliary-content">{{item.day}}</text>
+        </view>
+      </view>
+    </view>
+    <!--      </cell-slot>
+    </recycle-list> -->
+  </scroll-view>
+</template>
+
+<script>
+  export default {
+    props: {
+      data: {
+        type: Array,
+        default: () => []
+      }
+    },
+    methods: {
+      jump(item) {
+        const url = `/pages/steward/questionnaire/details?id=${item.id}`
+        uni.navigateTo({
+          url
+        })
+      },
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .list-item {
+    width: 710rpx;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: $uni-border-radius-lg;
+  }
+
+  .list-image {
+    width: 177.6rpx;
+    height: 177.6rpx;
+    background-color: $uni-bg-color-grey;
+    border-top-left-radius: $uni-border-radius-lg;
+    border-bottom-left-radius: $uni-border-radius-lg;
+  }
+  .tf-module-title {
+    width: 486.4rpx;
+    lines: 2;
+    text-overflow: ellipsis;
+  }
+  .list-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .participate-tatus {
+    font-size: $uni-font-size-base;
+  }
+  .participate-tatus--proceed {
+    color: $uni-color-error;
+  }
+  .participate-tatus--end {
+    color: $uni-text-color-grey;
+  }
+  .coin {
+    font-size: $uni-font-size-base;
+    height: 40rpx;
+    border-radius: 20rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    color: #fff;
+    margin-right: $uni-spacing-row-base;
+    background-color: $uni-bg-color-warning;
+  }
+</style>

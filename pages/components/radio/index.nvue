@@ -1,0 +1,59 @@
+<template>
+  <view class="radio-btn-group">
+    <view class="radio-btn__item tf-padding-sm" v-for="(item, i) in data" :key="i" :class="{'radio-btn--active': value === item.value}" @tap="change(item.value)" :style="{'border-radius': `${radius}rpx`}">
+      <text class="radio-btn__text" :class="{'radio-btn__text--active': value === item.value}">{{item.name}}</text>
+    </view>
+  </view>
+</template>
+
+<script>
+  export default {
+    props: {
+      data: {
+        type: Array,
+        default: () => []
+      },
+      radius: {
+        type: Number,
+        default: 6
+      }
+    },
+    data() {
+      return {
+        value: ''
+      }
+    },
+    methods: {
+      change(value) {
+        this.value = value
+        this.$emit('change', value)
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.radio-btn-group {
+  flex-direction: row;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.radio-btn__item {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $uni-text-color;
+  border-radius: $uni-border-radius-base;
+  margin-right: $uni-spacing-col-sm;
+}
+.radio-btn__text {
+  font-size: $uni-font-size-base;
+  color: $uni-text-color;
+}
+.radio-btn--active {
+  border-color: $uni-color-primary;
+  background-color: $uni-color-primary;
+}
+.radio-btn__text--active {
+  color: #fff;
+}
+</style>

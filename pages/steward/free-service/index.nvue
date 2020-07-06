@@ -1,0 +1,87 @@
+<template>
+  <scroll-view class="tf-padding-base">
+    <uni-search-bar placeholder="请输入关键字搜索" @confirm="search" @input="input" ></uni-search-bar>
+    <tfRadio :data="items" :radius="30" @change="changeType"></tfRadio>
+    <service-card :data="serviceList"></service-card>
+    <uni-popup ref="popup" type="dialog">底部弹出 Popup</uni-popup>
+  </scroll-view>
+</template>
+
+<script>
+  import serviceCard from './components/service-card.nvue'
+  import uniSearchBar from '@/components/uni-search-bar/uni-search-bar.vue'
+  import tfRadio from '../../components/radio/index.nvue'
+  export default {
+    components: {
+      serviceCard,
+      uniSearchBar,
+      tfRadio
+    },
+    data() {
+      return {
+        checkType: 1,
+        items: [
+          {
+            name: '人工服务(11)',
+            value: 1
+          },
+          {
+            name: '借用服务(13)',
+            value: 2
+          }
+        ],
+        serviceList: [{
+            type: 1,
+            name: '按摩(60岁以上老人)',
+            info: 1
+          },
+          {
+            type: 0,
+            name: '充电宝',
+            info: 0
+          }
+        ]
+      };
+    },
+    methods: {
+      changeType(value) {
+        this.checkType = value
+      }
+    },
+    onNavigationBarButtonTap({index}) {
+      if (index === 0) {
+        uni.navigateTo({
+          url: '/pages/steward/free-service/list'
+        })
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+
+  .placeholder {
+    font-family: iconfont !important;
+    color: $uni-text-color-grey;
+  }
+
+  .check-type {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: $uni-spacing-col-base;
+    margin-bottom: $uni-spacing-col-base;
+  }
+
+  .check-type__box {
+    font-size: $uni-font-size-base;
+    margin-right: $uni-spacing-row-base;
+    height: 30px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+  }
+
+  .check-type--checked {
+    color: $uni-text-color-inverse;
+    background-color: $uni-bg-color-primary;
+  }
+</style>

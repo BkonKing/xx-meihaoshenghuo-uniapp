@@ -1,0 +1,46 @@
+<template>
+	<!-- 不带边框并矩形显示 -->
+	<view class="tf-row-wrap tf-padding-base" style="width: 750rpx;">
+		<view class="grid-item tf-flex-center" @tap="jump(item.url)" v-for="(item, index) in list" :key="index">
+			<imageItem :src="item.src" :name="item.name"></imageItem>
+		</view>
+	</view>
+</template>
+
+<script>
+	import imageItem from './components/image.nvue'
+	export default {
+		components: {
+			imageItem
+		},
+		props: {
+			column: {
+				type: Number,
+				default: 5
+			},
+			list: {
+				type: Array,
+				default: () => []
+			}
+		},
+		data() {
+			return {
+				
+			};
+		},
+		methods: {
+			jump(url) {
+				uni.navigateTo({
+					url
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+.grid-item {
+	width: 142rpx;
+	margin-bottom: 20rpx;
+}
+</style>

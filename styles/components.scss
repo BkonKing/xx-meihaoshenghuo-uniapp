@@ -1,0 +1,96 @@
+/* 列表*/
+  .tf-list {
+    width: 750rpx;
+    background-color: #fff;
+  }
+  
+  // .tf-list:after {
+  //   position: absolute;
+  //   z-index: 10;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 1px;
+  //   content: '';
+  //   -webkit-transform: scaleY(.5);
+  //   transform: scaleY(.5);
+  //   background-color: $uni-text-color-grey;
+  // }
+  
+  // .tf-list::before {
+  //   position: absolute;
+  //   z-index: 10;
+  //   right: 0;
+  //   top: 0;
+  //   left: 0;
+  //   height: 1px;
+  //   content: '';
+  //   -webkit-transform: scaleY(.5);
+  //   transform: scaleY(.5);
+  //   background-color: $uni-text-color-grey;
+  // }
+  
+  .tf-list-cell {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+  }
+  
+  .tf-list-cell-hover {
+    background-color: #eee;
+  }
+  
+  .tf-list-cell-left {
+    font-size: 28rpx;
+  }
+  
+  .tf-list-cell-right {
+    flex-direction: row !important;
+  }
+  
+  // .tf-list-cell-right:after {
+  //   font-family: iconfont;
+  //   font-size: $uni-font-size-sm;
+  //   color: $uni-text-color-grey;
+  //   content: '\e856';
+  //   position: absolute;
+  //   top: 8rpx;
+  //   right: -15rpx;
+  // }
+  
+  // .tf-list-cell::after {
+  //   position: absolute;
+  //   z-index: 3;
+  //   right: 0;
+  //   bottom: 0;
+  //   left: 30rpx;
+  //   height: 1px;
+  //   content: '';
+  //   transform: scaleY(.5);
+  //   background-color: #c8c7cc;
+  // }
+  
+  /*卡片视图 */
+  .tf-card {
+    background-color: #fff;
+    border-radius: 8rpx;
+    // position: relative;
+    box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, .3);
+  }
+  .tf-card-footer,
+  .tf-card-header {
+    position: relative;
+    padding: 20rpx 30rpx;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tf-card-header {
+    font-size: 36rpx;
+  }
+  .tf-card-footer {
+    color: #6d6d72;
+  }
+  .tf-card-content {
+    padding: 40rpx 0;
+  }

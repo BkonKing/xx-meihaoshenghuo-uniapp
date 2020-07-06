@@ -1,0 +1,81 @@
+<template>
+  <scroll-view style="background-color: #f8f8f8;">
+    <recycle-list class="tf-padding-base" for="(item, i) in longList">
+      <cell-slot :key="i">
+        <view class="notice-list-item tf-padding-base" @tap="jump(item)">
+          <view class="notice-list-item__header">
+            <text class="notice-list-item__header--title">{{item.title}}</text>
+            <text class="notice-list-item__header--day">{{item.day}}</text>
+          </view>
+          <view>
+            <text class="notice-content">{{item.content}}</text>
+          </view>
+        </view>
+      </cell-slot>
+    </recycle-list>
+  </scroll-view>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        longList: [{
+          id: 1,
+          statues: 1,
+          title: '关于暴雨天气温馨提示sdfasdfasd水电费水电费',
+          day: '06-06',
+          content: '尊敬的各位业户：\n福州市气象台于2020年06月05日08时40分发布暴雨市气象台于2020年06月05日08时40分发布暴雨市气象台于2020年06月05日08时40分发布暴雨',
+        }]
+      };
+    },
+    methods: {
+      jump(item) {
+        const url = `/pages/steward/notice/details?id=${item.id}`
+        uni.navigateTo({
+          url
+        })
+      },
+    },
+    //点击导航栏 buttons 时触发
+    onNavigationBarButtonTap({index}) {
+      if (index === 0) {
+        console.log(123)
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+  .notice-list-item {
+    width: 710rpx;
+    height: 158rpx;
+    background-color: #fff;
+  }
+
+  .notice-list-item__header {
+    width: 670rpx;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .notice-list-item__header--title {
+    width: 550rpx;
+    font-size: 32rpx;
+    lines: 1;
+    text-overflow: ellipsis;
+  }
+
+  .notice-list-item__header--day {
+    width: 100rpx;
+    font-size: 28rpx;
+    text-align: right;
+  }
+  .notice-content {
+    font-size: 28rpx;
+    line-height: 42rpx;
+    color: #666;
+    lines: 2;
+    text-overflow: ellipsis;
+  }
+</style>

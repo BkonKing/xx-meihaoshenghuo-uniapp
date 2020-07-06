@@ -1,0 +1,7 @@
+export const success = '\ue77d'
+export const error = '\ue781'
+export const warning_fill = '\ue8af'
+export const info = '\ue783'
+export const icon_setting = '\ue7a3'
+export const icon_message = '\ue79d'
+export const icon_phone = '\ue913'

@@ -1,0 +1,171 @@
+<template>
+  <view class="tf-bg-white">
+    <view class="divider">
+      <text class="tf-module-name tf-padding-base">邀约设置</text>
+      <view class="tf-list">
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            来访日期
+          </text>
+          <view class="tf-list-cell-right">
+            <picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+              <text class="tf-text">{{date}}</text>
+            </picker>
+            <!-- <text class="tf-icon">&#xe856;</text> -->
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            进出次数
+          </text>
+          <view class="tf-list-cell-right">
+            <picker mode="selector" :range="array" :value="number" @change="bindDateChange">
+              <text class="tf-text">{{number}}</text>
+            </picker>
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            同行人数
+          </text>
+          <view class="tf-list-cell-right">
+            <input type="number" style="text-align: right;" />
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            来访目的
+          </text>
+          <view class="tf-list-cell-right">
+            <input style="text-align: right;" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="tf-row-space-between">
+        <text class="tf-module-name tf-padding-base">访客信息</text>
+        <button class="visitor-btn" :plain="true">选择访客</button>
+      </view>
+      <view class="tf-list">
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            访客姓名
+          </text>
+          <view class="tf-list-cell-right">
+            <input style="text-align: right;" />
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            性别
+          </text>
+          <view class="tf-list-cell-right">
+            <picker mode="selector" :range="sexArray" :value="sex" @change="bindDateChange">
+              <text class="tf-text">{{sex}}</text>
+            </picker>
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            手机号码
+          </text>
+          <view class="tf-list-cell-right">
+            <input type="number" style="text-align: right;" />
+          </view>
+        </view>
+        <view class="tf-list-cell">
+          <text class="tf-list-cell-left">
+            车牌号
+          </text>
+          <view class="tf-list-cell-right">
+            <input style="text-align: right;" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <button @tap="sendInvite">发起邀约</button>
+  </view>
+</template>
+
+<script>
+  export default {
+    data() {
+      const currentDate = this.getDate({
+        format: true
+      })
+      return {
+        title: 'picker',
+        array: ['当日一次', '当日二次', '当日三次', '当日四次'],
+        sex: '男',
+        sexArray: ['男', '女'],
+        index: 0,
+        date: currentDate,
+        time: '12:01',
+        number: '当日一次'
+      }
+    },
+    computed: {
+      startDate() {
+        return this.getDate('start');
+      },
+      endDate() {
+        return this.getDate('end');
+      }
+    },
+    //点击导航栏 buttons 时触发
+    onNavigationBarButtonTap({index}) {
+      if (index === 0) {
+        uni.navigateTo({
+          url: '/pages/steward/visitor/invite-list'
+        })
+      } else if (index === 1) {
+        uni.navigateTo({
+          url: '/pages/steward/visitor/visitor-list'
+        })
+      }
+    },
+    methods: {
+      bindPickerChange: function(e) {
+        console.log('picker发送选择改变，携带值为', e.target.value)
+        this.index = e.target.value
+      },
+      bindDateChange: function(e) {
+        this.date = e.target.value
+      },
+      bindTimeChange: function(e) {
+        this.time = e.target.value
+      },
+      getDate(type) {
+        const date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+
+        if (type === 'start') {
+          year = year - 60;
+        } else if (type === 'end') {
+          year = year + 2;
+        }
+        month = month > 9 ? month : '0' + month;;
+        day = day > 9 ? day : '0' + day;
+        return `${year}-${month}-${day}`;
+      },
+      sendInvite() {
+        uni.navigateTo({
+          url: '/pages/steward/visitor/invite'
+        })
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+.visitor-btn {
+  height: 70rpx;
+  font-size: $uni-font-size-base;
+  line-height: 70rpx;
+  margin-left: 0;
+  margin-right: 20rpx;
+}
+</style>
