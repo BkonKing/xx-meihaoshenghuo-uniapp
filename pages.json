@@ -46,10 +46,12 @@
             "titleText": "公告通知",
             "titleAlign": "center",
             "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17",
             "buttons": [{
               "text": "全部已读",
               "fontSize": "16",
-              "width": "auto"
+              "width": "120"
             }]
           }
         }
@@ -62,6 +64,8 @@
             "titleText": "通知详情",
             "titleAlign": "center",
             "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17",
             "buttons": [{
               "type": "share"
             }]
@@ -267,9 +271,9 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
   },
   "tabBar": {
     "borderStyle": "black",

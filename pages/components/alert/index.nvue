@@ -1,5 +1,6 @@
 <template>
-  <view class="alert-box" :class="`alert-box--${type}`">
+  <view class="alert-box">
+    <view class="alert-bg" :class="`alert-box--${type}`"></view>
     <text class="tf-icon alert-box__icon" :class="`alert-box__content--${type}`">{{icon[type]}}</text>
     <text class="alert-box__content" :class="`alert-box__content--${type}`">
       {{content}}
@@ -45,24 +46,30 @@
 <style lang="scss" scoped>
   .alert-box {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex: 1;
+    height: 88rpx;
+    padding: 26rpx 30rpx;
+    border-radius: $uni-border-radius-sm;
+  }
+  
+  .alert-bg {
+    position: absolute;
+    left: 0;
     width: 710rpx;
-    height: 60rpx;
-    padding-top: 10rpx;
-    padding-bottom: 10rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-    border-radius: $uni-border-radius-lg;
+    height: 88rpx;
+    opacity: 0.2;
+    border-radius: $uni-border-radius-sm;
   }
   
   .alert-box__icon {
-    width: 40rpx;
+    width: 36rpx;
+    font-size: 36rpx;
   }
 
   .alert-box__content {
-    width: 640rpx;
-    font-size: $uni-font-size-base;
+    font-size: 26rpx;
   }
 
   .alert-box--success {

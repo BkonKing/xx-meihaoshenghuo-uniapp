@@ -38,6 +38,9 @@
   .tf-padding-base {
   	padding: 20rpx;
   }
+  .tf-padding-lg {
+  	padding: 30rpx;
+  }
   .tf-padding-between-base {
   	padding: 0 20rpx;
   }
@@ -77,18 +80,28 @@
   .tf-bg-white {
     background-color: #fff;
   }
+  /* 文章间距*/
+  .tf-article-box {
+    background-color: #fff;
+    padding: 50rpx;
+  }
   /* 文章标题*/
   .tf-article-title {
-    flex-direction: row;
-    justify-content: center;
-    font-size: $uni-font-size-lg;
-    margin-bottom: $uni-spacing-col-lg;
+    font-size: 38rpx;
+    color: $uni-text-color;
+    font-weight: 500;
+    line-height: 58rpx;
+  }
+  /* 文章信息*/
+  .tf-article-info {
+    font-size: 30rpx;
+    color: $uni-text-color-grey;
   }
   /* 文章内容*/
   .tf-article-content {
-    line-height: 42rpx;
     font-size: $uni-font-size-base;
-    color: $uni-text-color-grey;
+    color: #666;
+    line-height: 58rpx;
   }
   /* 副标题*/
   .tf-subhead-title {
@@ -147,4 +160,12 @@
   /* 圆角*/
   .tf-radius-base {
     border-radius: $uni-border-radius-base;
+  }
+  /* 徽章角标*/
+  .tf-badge {
+    background-color: #fff !important;
+    width: 34rpx !important;
+    height: 24rpx !important;
+    line-height: 26rpx !important;
+    font-size: 18rpx !important;
   }

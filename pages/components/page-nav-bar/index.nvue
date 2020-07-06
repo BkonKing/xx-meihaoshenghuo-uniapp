@@ -1,7 +1,7 @@
 <template>
 	<uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
 		<view slot="left">
-			<view class="tf-row-vertical-center room_btn" v-if="!status">
+			<view class="tf-row-vertical-center room_btn" v-if="status">
 				<text class="tf-icon">&#xe906;</text>
 				<text class="tf-text">{{name}}</text>
 			</view>
@@ -13,15 +13,18 @@
 		<view slot="right" style="flex-direction: row;">
 			<text class="tf-icon">&#xe819;</text>
 			<text class="tf-icon" style="margin-left: 32rpx;">&#xe832;</text>
+      <uni-badge class="tf-badge" text="26" type="error" :inverted="true" v-if="status"></uni-badge>
 		</view>
 	</uni-nav-bar>
 </template>
 
 <script>
 	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+  import uniBadge from "@/components/uni-badge/uni-badge.vue"
 	export default {
 		components: {
-			uniNavBar
+			uniNavBar,
+      uniBadge
 		},
 		props: {
 			status: {

@@ -1,19 +1,19 @@
 <template>
-  <scroll-view style="background-color: #f8f8f8;">
-    <recycle-list class="tf-padding-base" for="(item, i) in longList">
+  <view class="tf-bg">
+   <recycle-list class="tf-padding-base" for="(item, i) in longList">
       <cell-slot :key="i">
-        <view class="notice-list-item tf-padding-base" @tap="jump(item)">
-          <view class="notice-list-item__header">
-            <text class="notice-list-item__header--title">{{item.title}}</text>
-            <text class="notice-list-item__header--day">{{item.day}}</text>
+        <!-- <view class="tf-padding-base" v-for="(item, i) in longList"> -->
+        <text class="list-item--day">{{item.day}}</text>
+        <view class="tf-card" @tap="jump(item)">
+          <view class="tf-card-header">
+            <text class="tf-card-header__title">{{item.title}}</text>
           </view>
-          <view>
-            <text class="notice-content">{{item.content}}</text>
-          </view>
+          <text class="tf-card-content">{{item.content}}</text>
         </view>
-      </cell-slot>
+        <!-- </view> -->
+     </cell-slot>
     </recycle-list>
-  </scroll-view>
+  </view>
 </template>
 
 <script>
@@ -38,7 +38,9 @@
       },
     },
     //点击导航栏 buttons 时触发
-    onNavigationBarButtonTap({index}) {
+    onNavigationBarButtonTap({
+      index
+    }) {
       if (index === 0) {
         console.log(123)
       }
@@ -46,35 +48,15 @@
   }
 </script>
 
-<style lang="scss">
-  .notice-list-item {
-    width: 710rpx;
-    height: 158rpx;
-    background-color: #fff;
+<style lang="scss" scoped>
+  .list-item--day {
+    font-size: 24rpx;
+    text-align: center;
+    color: $uni-text-color-grey;
+    margin-bottom: $uni-spacing-row-base;
   }
 
-  .notice-list-item__header {
-    width: 670rpx;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .notice-list-item__header--title {
-    width: 550rpx;
-    font-size: 32rpx;
-    lines: 1;
-    text-overflow: ellipsis;
-  }
-
-  .notice-list-item__header--day {
-    width: 100rpx;
-    font-size: 28rpx;
-    text-align: right;
-  }
-  .notice-content {
-    font-size: 28rpx;
-    line-height: 42rpx;
-    color: #666;
+  .tf-card-content {
     lines: 2;
     text-overflow: ellipsis;
   }

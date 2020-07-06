@@ -1,11 +1,11 @@
 <template>
-  <view class="tf-bg">
+  <view class="tf-bg" :style="{ height: height }">
     <placeholderNavBar></placeholderNavBar>
     <view class="header-bg"></view>
     <page-nav-bar :status="1" name="123"></page-nav-bar>
     <swiperInform></swiperInform>
     <ImageList :list="list"></ImageList>
-    <view class="tf-row-center">
+    <view class="tf-flex-center tf-flex-item">
       <view class="key-box">
         <view class="key-box__box">
           <text class="tf-icon key-icon">&#xe83f;</text>
@@ -27,8 +27,13 @@
       ImageList,
       swiperInform
     },
+    onLoad() {
+    	const res = uni.getSystemInfoSync();
+    	this.height = `${res.windowHeight}px`;
+    },
     data() {
       return {
+        height: 'auto',
         list: [{
           src: '/static/logo.png',
           name: '公告通知',
@@ -87,7 +92,7 @@
     align-items: center;
     width: 280rpx;
     height: 280rpx;
-    border-radius: 50%;
+    border-radius: 130rpx;
     background-color: #ffdbd9;
   }
 
@@ -96,7 +101,7 @@
     z-index: 1;
     width: 260rpx;
     height: 260rpx;
-    border-radius: 50%;
+    border-radius: 130rpx;
     background-image: linear-gradient(to bottom right, $uni-bg-color-error, $uni-color-error);
   }
   .key-icon {

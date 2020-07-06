@@ -87,5 +87,8 @@
     border-bottom-style: solid;
     border-bottom-color: $uni-color-divider !important;
   }
+  .uni-page-body {
+    flex: 1;
+  }
   
 </style>
