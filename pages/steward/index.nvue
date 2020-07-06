@@ -1,9 +1,17 @@
 <template>
-  <view>
+  <view class="tf-bg">
     <placeholderNavBar></placeholderNavBar>
+    <view class="header-bg"></view>
     <page-nav-bar :status="1" name="123"></page-nav-bar>
-    <ImageList :list="list"></ImageList>
     <swiperInform></swiperInform>
+    <ImageList :list="list"></ImageList>
+    <view class="tf-row-center">
+      <view class="key-box">
+        <view class="key-box__box">
+          <text class="tf-icon key-icon">&#xe83f;</text>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -57,11 +65,44 @@
           src: '/static/logo.png',
           name: '便民电话',
           url: '/pages/steward/convenience-phone/index'
-        }, ]
+        }, {}]
       };
     }
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    height: 344rpx;
+    background-image: linear-gradient(to right, $uni-bg-color-error, $uni-color-error);
+  }
+
+  .key-box {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 280rpx;
+    height: 280rpx;
+    border-radius: 50%;
+    background-color: #ffdbd9;
+  }
+
+  .key-box__box {
+    position: absolute;
+    z-index: 1;
+    width: 260rpx;
+    height: 260rpx;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom right, $uni-bg-color-error, $uni-color-error);
+  }
+  .key-icon {
+    font-size: 160rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 260rpx;
+  }
 </style>

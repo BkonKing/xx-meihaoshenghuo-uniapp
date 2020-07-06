@@ -1,17 +1,15 @@
 <template>
-	<view class="notice tf-padding-base" v-if="noticeList.length">
-		<swiper class="swiper-nav" :circular="true" :vertical="true" :autoplay="true" :interval="5000" :duration="1000">
-			<swiper-item @touchmove.stop='stopTouchMove' v-for="(item,index) in noticeList" :key="index">
-				<view class="swiper-nav-item tf-padding-sm">
-				  <text class="swiper-item-content">{{item.content}}</text>
-				</view>
-			</swiper-item>
-		</swiper>
-	</view>
+	<swiper class="swiper-nav tf-margin-base" :circular="true" :vertical="true" :autoplay="true" :interval="5000" :duration="1000">
+		<swiper-item @touchmove.stop='stopTouchMove' v-for="(item,index) in noticeList" :key="index" class="tf-row">
+      <text class="tf-icon swiper-item-content tf-ml-base tf-mr-base">&#xe82d;</text>
+			<text class="swiper-item-content">{{item.content}}</text>
+		</swiper-item>
+	</swiper>
 </template>
 
 <script>
 	export default {
+    name: 'swiper-inform',
 		props: {
 			noticeList: {
 				type: Array,
@@ -32,26 +30,22 @@
 	}
 </script>
 
-<style lang="scss">
-	.notice {
-		width: 750rpx;
-	}
-
+<style lang="scss" scoped>
 	.swiper-nav {
-		width: 710rpx;
-		height: 60rpx;
-		border-radius: 10rpx;
-		background-color: #f7e7e7;
+		height: 88rpx;
+		border-radius: $uni-border-radius-sm;
+		background-color: #fff;
+    opacity:0.6;
 	}
-  
-  .swiper-nav-item {
-    width: 710rpx;
-    height: 40rpx;
-  }
 
 	.swiper-item-content {
-		font-size: 28rpx;
-    height: 40rpx;
-    line-height: 40rpx;
+		font-size: 26rpx;
+    color: $uni-color-error;
+    height: 88rpx;
+    line-height: 88rpx;
 	}
+  
+  .tf-icon {
+    font-size: 44rpx;
+  }
 </style>

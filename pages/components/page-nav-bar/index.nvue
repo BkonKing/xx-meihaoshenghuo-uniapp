@@ -1,18 +1,18 @@
 <template>
-	<uni-nav-bar>
+	<uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
 		<view slot="left">
-			<button class="room_btn" v-if="status">
+			<view class="tf-row-vertical-center room_btn" v-if="!status">
 				<text class="tf-icon">&#xe906;</text>
 				<text class="tf-text">{{name}}</text>
-			</button>
-			<button class="room_btn room_btn_unattestation" v-else type="plain">
+			</view>
+			<view class="tf-row-vertical-center room_btn" v-else>
 				<text class="tf-icon">&#xe7a5;</text>
-				<text class="tf-text">请认证房间号</text>
-			</button>
+				<text class="tf-text" style="text-decoration: underline;">请认证房间号</text>
+			</view>
 		</view>
-		<view slot="right" style="width: 120rpx;flex-direction: row;">
-			<text class="tf-icon" style="width: 24px;font-size: 22px;color: #383838;">&#xe819;</text>
-			<text class="tf-icon" style="width: 24px;font-size: 22px;color: #383838;">&#xe79d;</text>
+		<view slot="right" style="flex-direction: row;">
+			<text class="tf-icon">&#xe819;</text>
+			<text class="tf-icon" style="margin-left: 32rpx;">&#xe832;</text>
 		</view>
 	</uni-nav-bar>
 </template>
@@ -45,13 +45,16 @@
 	.room_btn {
 		height: 30px;
 		line-height: 30px;
-		border-radius: 20px;
-		border-color: $uni-border-color;
-		background-color: $uni-bg-color;
 	}
 		
 	.room_btn_unattestation {
-		background-color: #000;
 		color: #fff;
 	}
+  .tf-icon {
+    font-size: 44rpx;
+    color: #fff;
+  }
+  .tf-text {
+    color: #fff;
+  }
 </style>

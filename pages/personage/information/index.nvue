@@ -1,6 +1,7 @@
 <template>
   <view>
-    <uni-segmented-control style="background-color: #fff;" :current="current" :values="items" @clickItem="onClickItem" style-type="text" active-color="#EB5841"></uni-segmented-control>
+    <uni-segmented-control style="background-color: #fff;" :current="current" :values="items" @clickItem="onClickItem"
+      style-type="text" active-color="#EB5841"></uni-segmented-control>
     <scroll-view class="tf-bg tf-padding-base">
       <view class="content">
         <view v-if="current === 0">
@@ -30,10 +31,71 @@
           </uni-list>
         </view>
         <view v-if="current === 1">
-          选项卡2的内容
+          <view class="house-owner tf-card tf-padding-base tf-mb-base">
+            <text class="house-owner-current">当前房产</text>
+            <view class="tf-row-space-between">
+              <view class="tf-row">
+                <text class="house-user house-user--owner">
+                  业主业主
+                </text>
+                <view>
+                  <text class="house-name">XXXX美好生活家园</text>
+                  <text class="house-address">5栋1单元1001</text>
+                </view>
+              </view>
+              <view class="tf-row-vertical-center">
+                <text>ren</text>
+                <text>4</text>
+              </view>
+            </view>
+          </view>
+          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+            <text class="house-user house-user--relation">
+              业主业主
+            </text>
+            <view>
+              <text class="house-name">XXXX美好生活家园</text>
+              <text class="house-address">5栋1单元1001</text>
+            </view>
+          </view>
+          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+            <text class="house-user house-user--tenant">
+              业主业主
+            </text>
+            <view>
+              <text class="house-name">XXXX美好生活家园</text>
+              <text class="house-address">5栋1单元1001</text>
+            </view>
+          </view>
+          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+            <text class="house-user house-user--relation">
+              业主业主
+            </text>
+            <view>
+              <text class="house-name">XXXX美好生活家园</text>
+              <text class="house-address">5栋1单元1001</text>
+            </view>
+          </view>
         </view>
-        <view v-if="current === 2">
-          选项卡3的内容
+        <view class="tf-flex-item" v-if="current === 2">
+          <ms-dropdown-menu>
+            <!-- <ms-dropdown-item v-model="value2" :list="list"></ms-dropdown-item> -->
+            <ms-dropdown-item v-model="value" :list="list">
+              <template v-slot:title>
+                <view class="title">自定义title</view>
+              </template>
+            </ms-dropdown-item>
+          </ms-dropdown-menu>
+          <view class="tf-card tf-mt-base tf-padding-base">
+            <text class="house-address tf-card-header-left">XXXX美好生活家园 5栋1单元1002</text>
+            <view class="tf-row-space-between">
+              <uni-tag class="user-role" text="业主" type="error" :inverted="true" size="small"></uni-tag>
+              <text>哈哈哈</text>
+              <text>(本人)</text>
+              <text>女</text>
+              <text>12312312312</text>
+            </view>
+          </view>
         </view>
       </view>
     </scroll-view>
@@ -44,18 +106,36 @@
   import uniSegmentedControl from "@/components/uni-segmented-control/uni-segmented-control.vue"
   import uniList from "@/components/uni-list/uni-list.vue"
   import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
-  import tfSelect from '@/components/select/select.vue';  
+  import uniTag from '@/components/uni-tag/uni-tag.vue'
+  import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue'
+  import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue'
   export default {
     components: {
       uniSegmentedControl,
       uniList,
       uniListItem,
-      tfSelect
+      uniTag,
+      msDropdownMenu,
+      msDropdownItem
     },
     data() {
       return {
         items: ['基础信息', '房产信息', '成员信息'],
-        current: 0
+        current: 0,
+        value: 0,
+        list: [{
+            text: 'item1',
+            value: 0
+          },
+          {
+            text: 'item2',
+            value: 1
+          },
+          {
+            text: 'item3',
+            value: 2
+          }
+        ]
       };
     },
     methods: {
@@ -68,6 +148,54 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .house-owner {
+    border-width: 3rpx;
+    border-color: #EB5841;
+    padding-top: 0;
+  }
 
+  .house-owner-current {
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: -50rpx;
+    font-size: 20rpx;
+    text-align: center;
+    margin-bottom: $uni-spacing-col-base;
+    // color: #fff;
+  }
+
+  .house-user {
+    width: 88rpx;
+    padding: 0 20rpx;
+    height: 88rpx;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24rpx;
+    margin-right: $uni-spacing-row-base;
+  }
+
+  .house-user--owner {
+    background-image: linear-gradient(to top left, #EB5841, #F9866B);
+  }
+
+  .house-user--relation {
+    background-image: linear-gradient(to top left, #FFC017, #FFA110);
+  }
+
+  .house-user--tenant {
+    background-image: linear-gradient(to top left, #45D5DA, #31B4B9);
+  }
+
+  .house-name {
+    font-size: 30rpx;
+    color: $uni-text-color;
+  }
+
+  .house-address {
+    font-size: 30rpx;
+    color: $uni-text-color-grey;
+  }
 </style>

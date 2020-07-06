@@ -1,7 +1,7 @@
 <template>
 	<view class="tf-flex-center" @tap="jump(url)">
 		<image class="round-image" :src="src"></image>
-		<text class="tf-text list-item-name">{{name}}</text>
+		<text class="list-item-name">{{name}}</text>
 	</view>
 </template>
 
@@ -30,11 +30,11 @@
 .round-image {
 	width: 60rpx;
 	height: 60rpx;
-	border-radius: 30rpx;
-	margin-bottom: 10rpx;
+	margin-bottom: $uni-spacing-row-base;
 	align-items: center;
 }
 .list-item-name {
-	// font-size: 14rpx;
+	font-size: 24rpx;
+  color: $uni-text-color;
 }
 </style>

@@ -53,6 +53,9 @@
   .tf-mr-base {
     margin-right: $uni-spacing-col-base;
   }
+  .tf-margin-base {
+    margin: $uni-spacing-row-base;
+  }
   
   .tf-icon {
   	font-family: iconfont !important;
@@ -140,4 +143,8 @@
   /* 分割线*/
   .tf-divider-line {
     
+  }
+  /* 圆角*/
+  .tf-radius-base {
+    border-radius: $uni-border-radius-base;
   }

@@ -26,6 +26,9 @@ $uni-bg-color-success: #55ff7f;
 $uni-bg-color-warning: #ffc017;
 $uni-bg-color-error: #f9866b;
 
+/* 渐变颜色 */
+$uni-bg-br-gradient: linear-gradient(to bottom right, $uni-bg-color-error, $uni-color-error);
+
 /* 文字基本颜色 */
 $uni-text-color:#222;//基本色
 $uni-text-color-inverse:#fff;//反色
@@ -45,7 +48,7 @@ $uni-border-color:#c8c7cc;
 /* 尺寸变量 */
 
 /* 文字尺寸 */
-$uni-font-size-sm:24upx;
+$uni-font-size-sm:10rpx;
 $uni-font-size-base:28upx;
 $uni-font-size-lg:32upx;
 
@@ -61,9 +64,9 @@ $uni-border-radius-lg: 12upx;
 $uni-border-radius-circle: 50%;
 
 /* 水平间距 */
-$uni-spacing-row-sm: 10px;
-$uni-spacing-row-base: 20upx;
-$uni-spacing-row-lg: 30upx;
+$uni-spacing-row-sm: 10rpx;
+$uni-spacing-row-base: 20rpx;
+$uni-spacing-row-lg: 30rpx;
 
 /* 垂直间距 */
 $uni-spacing-col-sm: 8upx;

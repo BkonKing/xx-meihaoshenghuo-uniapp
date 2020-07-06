@@ -1,6 +1,6 @@
 <template>
 	<!-- 不带边框并矩形显示 -->
-	<view class="tf-row-wrap tf-padding-base" style="width: 750rpx;">
+	<view class="tf-row-wrap tf-bg-white tf-margin-base tf-radius-base">
 		<view class="grid-item tf-flex-center" @tap="jump(item.url)" v-for="(item, index) in list" :key="index">
 			<imageItem :src="item.src" :name="item.name"></imageItem>
 		</view>
@@ -39,8 +39,12 @@
 </script>
 
 <style lang="scss" scoped>
+.tf-row-wrap {
+  padding: 40rpx 20rpx;
+  justify-content: space-around;
+}
 .grid-item {
-	width: 142rpx;
+	width: 130rpx;
 	margin-bottom: 20rpx;
 }
 </style>
