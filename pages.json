@@ -31,7 +31,7 @@
         }
       }
     }, {
-      "path": "pages/steward/index",
+      "path": "pages/butler/index",
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom",
@@ -39,7 +39,7 @@
         "enablePullDownRefresh": true
       }
     }, {
-      "path": "pages/steward/notice/index",
+      "path": "pages/butler/notice/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -57,7 +57,7 @@
         }
       }
     }, {
-      "path": "pages/steward/notice/details",
+      "path": "pages/butler/notice/details",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -73,7 +73,7 @@
         }
       }
     }, {
-      "path": "pages/steward/repairs/index",
+      "path": "pages/butler/repairs/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -87,7 +87,7 @@
         }
       }
     }, {
-      "path": "pages/steward/repairs/list",
+      "path": "pages/butler/repairs/list",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -98,7 +98,7 @@
         }
       }
     }, {
-      "path": "pages/steward/repairs/details",
+      "path": "pages/butler/repairs/details",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -109,7 +109,7 @@
         }
       }
     }, {
-      "path": "pages/steward/free-service/index",
+      "path": "pages/butler/free-service/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -124,7 +124,7 @@
       }
     },
     {
-      "path": "pages/steward/free-service/list",
+      "path": "pages/butler/free-service/list",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -147,25 +147,25 @@
         "navigationStyle": "custom"
       }
     }, {
-      "path": "pages/steward/call-property/index",
+      "path": "pages/butler/call-property/index",
       "style": {
         "navigationBarTitleText": "呼叫物业",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/convenience-phone/index",
+      "path": "pages/butler/convenience-phone/index",
       "style": {
         "navigationBarTitleText": "便民电话",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/questionnaire/my",
+      "path": "pages/butler/questionnaire/my",
       "style": {
         "navigationBarTitleText": "我的问卷投票",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/questionnaire/details",
+      "path": "pages/butler/questionnaire/details",
       "style": {
         "navigationBarTitleText": "投票",
         "navigationBarBackgroundColor": "#fff",
@@ -178,7 +178,7 @@
         }
       }
     }, {
-      "path": "pages/steward/questionnaire/index",
+      "path": "pages/butler/questionnaire/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -191,13 +191,13 @@
       }
     },
     {
-      "path": "pages/steward/convenience-phone/index",
+      "path": "pages/butler/convenience-phone/index",
       "style": {
         "navigationBarTitleText": "便民电话",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/complain/index",
+      "path": "pages/butler/complain/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -209,32 +209,32 @@
         }
       }
     }, {
-      "path": "pages/steward/complain/details",
+      "path": "pages/butler/complain/details",
       "style": {
         "navigationBarTitleText": ""
       }
     }
 
     , {
-      "path": "pages/steward/visitor/invite",
+      "path": "pages/butler/visitor/invite",
       "style": {
         "navigationBarTitleText": "访客通行证"
       }
     }, {
-      "path": "pages/steward/visitor/invite-list",
+      "path": "pages/butler/visitor/invite-list",
       "style": {
         "navigationBarTitleText": "访客邀约记录",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/visitor/visitor-list",
+      "path": "pages/butler/visitor/visitor-list",
       "style": {
         "navigationBarTitleText": "访客",
         "navigationBarBackgroundColor": "#fff"
       }
     },
     {
-      "path": "pages/steward/visitor/index",
+      "path": "pages/butler/visitor/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -251,13 +251,13 @@
       }
     },
     {
-      "path": "pages/steward/complain/list",
+      "path": "pages/butler/complain/list",
       "style": {
         "navigationBarTitleText": "我的投诉表扬",
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/steward/free-service/details",
+      "path": "pages/butler/free-service/details",
       "style": {
         "navigationBarTitleText": ""
       }
@@ -268,7 +268,19 @@
         "navigationBarBackgroundColor": "#fff"
       }
     }
-  ],
+      ,{
+            "path" : "pages/personage/order-form/index",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/login/index",
+            "style" : {
+              "app-plus": {
+                "autoBackButton": false
+              }
+            }
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",
@@ -293,7 +305,7 @@
         "text": "生活"
       },
       {
-        "pagePath": "pages/steward/index",
+        "pagePath": "pages/butler/index",
         "iconPath": "static/tabbar/guanzhu.png",
         "selectedIconPath": "static/tabbar/guanzhuactive.png",
         "text": "管家"

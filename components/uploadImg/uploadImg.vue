@@ -2,11 +2,14 @@
 	<view>
 		<view class="upload-imgs">
 			<view class="upload-single" v-for="(item, index) in list" :key="index" >
-				<image class="upload-image" :src="item" :data-src="item" mode="aspectFill" @tap="previewImg" />
-				<view class="upload-del" @tap="deleteItem(index)">x</view> 
+        <view class="upload-image__box tf-bg"></view>
+				<image class="upload-image__box" :src="item" :data-src="item" mode="aspectFill" @tap="previewImg" />
+				<text class="upload-del" @tap="deleteItem(index)">-</text> 
 			</view>
-			<view v-if="limit>list.length" class="upload-single upload-addNew" @tap="chooseFile">
-				<text class="upload-add">+</text>
+			<view v-if="limit>list.length" class="upload-single" @tap="chooseFile">
+        <view class="upload-image__box tf-bg upload-addNew">
+          <text class="upload-add">+</text>
+        </view>
 			</view>
 		</view>
 		<view v-if="showLimit" class="upload-num">
@@ -211,9 +214,10 @@
 	}
 	.upload-del {
 		position: absolute;
-		width: 35rpx;
-		height: 35rpx;
-		background-color: $uni-bg-color-error;
+		width: 34rpx;
+		height: 34rpx;
+		background-color: $uni-color-error;
+    border-radius:50%;
 		color: #fff;
 		top: 0;
 		text-align: center;
@@ -223,21 +227,28 @@
 		z-index: 100;
 	}
 	.upload-single {
-		position: relative;
-		width: 157.5rpx;
-		height: 157.5rpx;
-		border-width: 2rpx;
-    border-style: solid;
-    border-color: $uni-border-color;
-		margin: 10rpx;
+		width: 124rpx;
+		height: 124rpx;
+		// border-width: 2rpx;
+    // border-style: solid;
+    // border-color: $uni-border-color;
+		margin: 0 10rpx 10rpx 0;
 	}
+  .upload-image__box {
+    position: absolute;
+    top: 20rpx;
+    left: 0;
+    width: 114rpx;
+    height: 114rpx;
+    background-color: $uni-bg-color;
+  }
 	.upload-addNew {
 		justify-content: center;
 		align-items: center;	
 	}
-	.upload-image {
-		width: 155.5rpx;
-	}
+  .upload-add {
+    font-size: 40rpx;
+  }
 	.upload-num{
 		flex-direction: row;
 		font-size: $uni-font-size-sm;

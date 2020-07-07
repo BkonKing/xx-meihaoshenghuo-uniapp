@@ -32,7 +32,7 @@
     },
     methods: {
       jump(item) {
-        const url = `/pages/steward/questionnaire/details?id=${item.id}`
+        const url = `/pages/butler/questionnaire/details?id=${item.id}`
         uni.navigateTo({
           url
         })

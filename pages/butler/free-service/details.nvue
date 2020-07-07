@@ -23,7 +23,7 @@
 <script>
   import {
     status
-  } from '../../const/repairs.js'
+  } from '../../const/butler.js'
   import timeline from '@/components/timeline/timeLine.vue'
   import timelineItem from '@/components/timeline/timelineItem.vue'
   export default {

@@ -4,7 +4,7 @@
     <view class="header-bg"></view>
     <page-nav-bar :status="1" name="123"></page-nav-bar>
     <swiperInform></swiperInform>
-    <ImageList :list="list"></ImageList>
+    <ImageList :list="appList"></ImageList>
     <view class="tf-flex-center tf-flex-item">
       <view class="key-box">
         <view class="key-box__box">
@@ -20,6 +20,7 @@
   import ImageList from "../components/image-list/index.nvue"
   import swiperInform from "../components/swiper-inform/index.nvue"
   import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
+  import { queryAllApp } from '@/api/butler/butler.js'
   export default {
     components: {
       pageNavBar,
@@ -30,46 +31,51 @@
     onLoad() {
     	const res = uni.getSystemInfoSync();
     	this.height = `${res.windowHeight}px`;
+      // queryAllApp().then(res => {
+      //   if (res.success) {
+      //     this.appList = res.data.records
+      //   }
+      // })
     },
     data() {
       return {
         height: 'auto',
-        list: [{
-          src: '/static/logo.png',
-          name: '公告通知',
-          url: '/pages/steward/notice/index'
+        appList: [{
+          icon_image: '/static/logo.png',
+          application: '公告通知',
+          url: '/pages/butler/notice/index'
         }, {
-          src: '/static/logo.png',
-          name: '报事报修',
-          url: '/pages/steward/repairs/index'
+          icon_image: '/static/logo.png',
+          application: '报事报修',
+          url: '/pages/butler/repairs/index'
         }, {
-          src: '/static/logo.png',
-          name: '免费服务',
-          url: '/pages/steward/free-service/index'
+          icon_image: '/static/logo.png',
+          application: '免费服务',
+          url: '/pages/butler/free-service/index'
         }, {
-          src: '/static/logo.png',
-          name: '访客邀约',
-          url: '/pages/steward/visitor/index'
+          icon_image: '/static/logo.png',
+          application: '访客邀约',
+          url: '/pages/butler/visitor/index'
         }, {
-          src: '/static/logo.png',
-          name: '投诉表扬',
-          url: '/pages/steward/complain/index'
+          icon_image: '/static/logo.png',
+          application: '投诉表扬',
+          url: '/pages/butler/complain/index'
         }, {
-          src: '/static/logo.png',
-          name: '小区活动',
+          icon_image: '/static/logo.png',
+          application: '小区活动',
           url: '/pages/neighbours/index'
         }, {
-          src: '/static/logo.png',
-          name: '问卷投票',
-          url: '/pages/steward/questionnaire/index'
+          icon_image: '/static/logo.png',
+          application: '问卷投票',
+          url: '/pages/butler/questionnaire/index'
         }, {
-          src: '/static/logo.png',
-          name: '呼叫物业',
-          url: '/pages/steward/call-property/index'
+          icon_image: '/static/logo.png',
+          application: '呼叫物业',
+          url: '/pages/butler/call-property/index'
         }, {
-          src: '/static/logo.png',
-          name: '便民电话',
-          url: '/pages/steward/convenience-phone/index'
+          icon_image: '/static/logo.png',
+          application: '便民电话',
+          url: '/pages/butler/convenience-phone/index'
         }, {}]
       };
     }

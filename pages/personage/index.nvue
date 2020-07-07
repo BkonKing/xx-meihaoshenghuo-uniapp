@@ -61,7 +61,7 @@
           </view>
         </view>
       </view>
-      <view class="tf-padding-base tf-bg-white tf-mb-base" style="border-radius: 8rpx;">
+      <view class="tf-padding-base tf-bg-white tf-mb-base" style="border-radius: 8rpx;" @tap="goOrder">
         <text class="module-title">我的订单</text>
         <view class="tf-row">
           <view class="order-box tf-flex-item tf-flex-center">
@@ -132,6 +132,11 @@
       goInformation() {
         uni.navigateTo({
           url: '/pages/personage/information/index'
+        })
+      },
+      goOrder() {
+        uni.navigateTo({
+          url: '/pages/personage/order-form/index'
         })
       }
     }

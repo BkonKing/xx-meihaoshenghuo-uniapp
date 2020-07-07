@@ -117,11 +117,11 @@
     onNavigationBarButtonTap({index}) {
       if (index === 0) {
         uni.navigateTo({
-          url: '/pages/steward/visitor/invite-list'
+          url: '/pages/butler/visitor/invite-list'
         })
       } else if (index === 1) {
         uni.navigateTo({
-          url: '/pages/steward/visitor/visitor-list'
+          url: '/pages/butler/visitor/visitor-list'
         })
       }
     },
@@ -153,7 +153,7 @@
       },
       sendInvite() {
         uni.navigateTo({
-          url: '/pages/steward/visitor/invite'
+          url: '/pages/butler/visitor/invite'
         })
       }
     }

@@ -54,7 +54,7 @@ export default {
   onNavigationBarButtonTap({index}) {
     if (index === 0) {
       uni.navigateTo({
-        url: "/pages/steward/complain/list"
+        url: "/pages/butler/complain/list"
       });
     }
   },

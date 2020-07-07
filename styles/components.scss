@@ -57,7 +57,10 @@
   }
   .tf-card-footer,
   .tf-card-header {
+    flex-direction: row !important;
+    justify-content: space-between !important;
     padding: 30rpx 0;
+    align-items: center !important;
     border-bottom-width: 2rpx !important;
     border-bottom-style: solid;
     border-bottom-color: $uni-color-divider !important;
@@ -65,8 +68,20 @@
   .tf-card-header__title {
     font-size: 30rpx;
     color: $uni-text-color;
+    font-weight: 500;
     lines: 1;
     text-overflow: ellipsis;
+  }
+  .tf-card-header__status {
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    border-top-left-radius: 30rpx;
+    border-bottom-left-radius: 30rpx;
+    text-align: center;
+    color: #fff;
+    background-color: $uni-color-error;
   }
   .tf-card-header-left {
     padding: 20rpx 10rpx;

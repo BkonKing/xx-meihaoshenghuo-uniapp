@@ -4,7 +4,7 @@
     <form @submit="formSubmit">
       <view class="tf-card">
         <text class="tf-card-header">选择类型</text>
-        <view class="tf-card-content">
+        <view class="tf-card-content" style="padding-bottom: 10rpx;">
           <radioBtn :data="items" @change="radioChange"></radioBtn>
         </view>
       </view>
@@ -13,7 +13,7 @@
         <view class="tf-card-content">
           <textarea
             class="uni-input"
-            name="input"
+            name="content"
             placeholder="请描述具体内容"
             auto-height
             style="min-height: 150rpx"
@@ -30,12 +30,12 @@
             :uploadFileUrl="uploadFileUrl"
             :heaer="header"
             :fileKeyName="name"
-            :uImgList.sync="uImgList"
+            :uImgList.sync="images"
             @uploadSuccess="uploadSuccess"
           ></uImg>
         </view>
       </view>
-      <button class="tf-mt-base" type="primary" form-type="submit">提交</button>
+      <button class="tf-mt-base" type="warn" form-type="submit">提交</button>
     </form>
   </view>
 </template>
@@ -44,6 +44,7 @@
 import alert from "../../components/alert/index.nvue";
 import radioBtn from "../../components/radio/index.nvue";
 import uImg from "@/components/uploadImg/uploadImg.vue";
+import { addRepair } from '@/api/butler/butler.js';
 const toast = msg => {
   uni.showToast({
     title: msg,
@@ -58,18 +59,16 @@ export default {
   },
   //点击导航栏 buttons 时触发
   onNavigationBarButtonTap(e) {
-    console.log(e);
     const index = e.index;
     if (index === 0) {
       uni.navigateTo({
-        url: "/pages/steward/repairs/list"
+        url: "/pages/butler/repairs/list"
       });
     }
   },
   data() {
     return {
-      radio: "radio1",
-      current: "",
+      category_id: "",
       items: [
         {
           value: "USA",
@@ -97,6 +96,7 @@ export default {
           name: "法国"
         }
       ],
+      images: [],
       msg: "",
       length: 140,
       placeholder: "欢迎反馈任何意见和问题,您的反馈也是我们产品的动力哦",
@@ -106,20 +106,19 @@ export default {
       header: {
         // 如果需要header，请上传
       },
-      uImgList: []
     };
   },
 
   methods: {
     formSubmit: function(e) {
-      console.log(
-        "form发生了submit事件，携带数据为：" + JSON.stringify(e.detail.value)
-      );
-      var formdata = e.detail.value;
-      uni.showModal({
-        content: "表单数据内容：" + JSON.stringify(formdata),
-        showCancel: false
-      });
+      const { content } = e.detail.value;
+      this.addRepair({
+        content,
+        images: this.images,
+        category_id: this.category_id,
+        project_id: '2',
+        house_id: '1'
+      })
     },
     uploadSuccess(result) {
       if (result.statusCode == 200) {
@@ -134,7 +133,14 @@ export default {
       this.$refs.upimg.upload();
     },
     radioChange(value) {
-      this.current = value;
+      this.category_id = value;
+    },
+    addRepair(data) {
+      addRepair(data).then(res => {
+        if (res.success) {
+          
+        }
+      })
     }
   }
 };
@@ -150,5 +156,6 @@ export default {
   }
   .uni-input {
     font-size: $uni-font-size-base !important;
+    padding: 0;
   }
 </style>

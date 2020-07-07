@@ -27,7 +27,7 @@
     onNavigationBarButtonTap({index}) {
       if (index === 0) {
         uni.navigateTo({
-          url: '/pages/steward/questionnaire/my?type=1'
+          url: '/pages/butler/questionnaire/my?type=1'
         })
       }
     }

@@ -2,12 +2,13 @@
 	<!-- 不带边框并矩形显示 -->
 	<view class="tf-row-wrap tf-bg-white tf-margin-base tf-radius-base">
 		<view class="grid-item tf-flex-center" @tap="jump(item.url)" v-for="(item, index) in list" :key="index">
-			<imageItem :src="item.src" :name="item.name"></imageItem>
+			<imageItem :src="item.icon_image" :name="item.application"></imageItem>
 		</view>
 	</view>
 </template>
 
 <script>
+  import { appPages } from '../../const/butler.js'
 	import imageItem from './components/image.nvue'
 	export default {
 		components: {
@@ -25,13 +26,13 @@
 		},
 		data() {
 			return {
-				
+				appPages
 			};
 		},
 		methods: {
 			jump(url) {
 				uni.navigateTo({
-					url
+					url: appPages[url] || url
 				})
 			}
 		}

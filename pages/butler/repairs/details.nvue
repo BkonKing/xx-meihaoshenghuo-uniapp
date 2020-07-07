@@ -1,0 +1,102 @@
+<template>
+  <view class="tf-padding-base tf-bg">
+    <view class="tf-card">
+      <view class="tf-card-header">
+        <text class="tf-card-header__title">内容描述</text>
+        <text class="tf-card-header__status">{{statusText[status]}}</text>
+      </view>
+      <text class="tf-card-content">{{content}}</text>
+      <view class="tf-image-box">
+        <image class="tf-image" v-for="(item, i) in images" :src="item.src" :key="i" mode="widthFix"></image>
+      </view>
+    </view>
+    <tfTimeline class="tf-bg-white tf-mt-base tf-padding-base" :options="timelineList">
+    </tfTimeline>
+    <button v-if="status !== '5'" class="tf-mt-base" type="warn" :plain="true">撤销提报</button>
+  </view>
+</template>
+
+<script>
+  import {
+    status
+  } from '../../const/butler.js'
+  import {
+    getRepairInfo
+  } from '@/api/butler/butler.js'
+  import timeline from '@/components/timeline/timeLine.vue'
+  import timelineItem from '@/components/timeline/timelineItem.vue'
+  import tfTimeline from '../../components/timeline/index.nvue'
+  export default {
+    components: {
+      timeline,
+      timelineItem,
+      tfTimeline
+    },
+    data() {
+      return {
+        statusText: status,
+        content: "厨房下水道堵了",
+        images: [
+          "https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg"],
+        status: "1",
+        ctime: "2020-06-03 16:35:26",
+        timelineList: [{
+          "id": "1",
+          "remark": "已提交，等待物业人员受理。",
+          "designee": "",
+          "mobile": "",
+          "ctime": "2020-06-03 16:35:26"
+        }],
+      };
+    },
+    onLoad() {
+       this.getRepairInfo()
+    },
+    methods: {
+      getRepairInfo() {
+        getRepairInfo({
+          projectId: '',
+          repairId: ''
+        }).then(res => {
+          if (res.success) {
+            const {
+              category,
+              content,
+              images,
+              status,
+              records
+            } = res.data
+            uni.setNavigationBarTitle({
+              title: category
+            })
+            this.status = status
+            this.imgList = images
+            this.timelineList = records
+            this.content = content
+          }
+        })
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .timelineItem__time {
+    font-size: 24rpx;
+    color: $uni-text-color-grey;
+    margin-bottom: $uni-spacing-col-sm;
+  }
+
+  .timelineItem__content {
+    font-size: 30rpx;
+    color: $uni-text-color;
+  }
+
+  .tf-card-content {
+    color: $uni-text-color;
+  }
+
+  .tf-image-box {
+    padding: 20rpx 0;
+  }
+</style>

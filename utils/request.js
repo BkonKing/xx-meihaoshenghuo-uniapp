@@ -18,25 +18,16 @@ const codeMessage = {
   504: '网关超时。',
 }
 
-const request = (options) => {
-  const {
-    url,
-    header,
-    ...options
-  } = options
-  const defHeader = {
-    'content-type': 'application/x-www-form-urlencoded'
-  }
-  header && Object.assign(defHeader, header)
-  return uni_request({
-    url,
-    defHeader,
-    timeout: 30000,
-    ...options
-  })
-}
+const baseURL = 'https://www.fastmock.site/mock/c30751817f92f0a4855537591d860a97/app/api/v1'
+const timeout = 30000
+
+const request = uni_request({
+  baseURL,
+  timeout
+})
 
 request.interceptors.request.use(async (config, ...args) => {
+  config.header['content-type'] = 'application/x-www-form-urlencoded'
   const token = uni.getStorageSync('token');
   if (token) {
     config.header.Authorization = 'Bearer ' + token // 修改请求头
@@ -45,23 +36,22 @@ request.interceptors.request.use(async (config, ...args) => {
   return config
 })
 
-request.interceptors.response.use((response, ...args) => { // 响应拦截器（可以设置多个, 同时可以也可以使用异步方法）
-  const {
-    data: res,
-    url
-  } = response // args[0] method args[1] url args[3] data
-  const { data: resData} = res
-  if (res.status === 401 || resData.code === '401') {
+request.interceptors.response.use(async (response, ...args) => { // 响应拦截器（可以设置多个, 同时可以也可以使用异步方法）
+  const { data: res } = response
+  // args[0] method args[1] url args[3] data
+  const url = args[1]
+  // console.log(res)
+  if (response.statusCode === 401 || res.code === 401) {
     const isGetToken = url.indexOf('getToken') !== -1;
-    const res = !isGetToken &&
-      (await getToken({
-        headers: {
-          Authorization: getStore({
-            name: 'refresh_token'
-          }),
-        },
-      }));
-    if (resData.success) {
+    // const res = !isGetToken &&
+    //   (await getToken({
+    //     headers: {
+    //       Authorization: getStore({
+    //         name: 'refresh_token'
+    //       }),
+    //     },
+    //   }));
+    if (res.data.success) {
       const {
         data: info
       } = res
@@ -88,17 +78,18 @@ request.interceptors.response.use((response, ...args) => { // 响应拦截器（
     }
     return false;
   }
-  if (!data.success) {
-    message.warning(data.message);
+  if (!res.success) {
+    message.warning(res.message);
   }
   return response
 })
 
-request. = async (...args) => { // 请求失败统一处理方法（可以也可以使用异步方法）
+request.onerror = async (...args) => { // 请求失败统一处理方法（可以也可以使用异步方法）
   const res = args[3]
   // console.log('网络请求失败了', `url为${args[1]}`)
   uni.showToast({
-    title: codeMessage[res.code]
+    icon: 'none',
+    title: res
   })
 }
 
