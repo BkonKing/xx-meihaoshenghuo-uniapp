@@ -11,7 +11,6 @@
     "app-plus" : {
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
-        "renderer" : "native",
         /* 5+App特有相关 */
         "modules" : {},
         /* 模块配置 */
@@ -37,7 +36,8 @@
             },
             /* ios打包配置 */
             "sdkConfigs" : {}
-        }
+        },
+        "nvueLaunchMode" : ""
     },
     "quickapp" : {},
     "mp-weixin" : {

@@ -6,7 +6,7 @@
     <swiperInform></swiperInform>
     <ImageList :list="appList"></ImageList>
     <view class="tf-flex-center tf-flex-item">
-      <view class="key-box">
+      <view class="key-box" @tap="goEntrance">
         <view class="key-box__box">
           <text class="tf-icon key-icon">&#xe83f;</text>
         </view>
@@ -78,6 +78,13 @@
           url: '/pages/butler/convenience-phone/index'
         }, {}]
       };
+    },
+    methods: {
+      goEntrance() {
+        uni.navigateTo({
+          url: '/pages/butler/entrance/index'
+        })
+      }
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class="header">
-			<image class="image" src="/static/images/login/LoginHeader.png" mode="aspectFill"></image>
+			<image class="image" src="/static/LoginHeader.png" mode="aspectFill"></image>
 		</view>
 		<view class="form">
 			<view class="title">
@@ -10,11 +10,11 @@
 			<view class="form-body">
 				<view class="form-input">
 					<input class="phone-input" maxlength="11" type="tel" placeholder="请输入您的手机号" />
-					<image class="input-image" src="/static/images/login/LoginSuccess.png"></image>
+					<image class="input-image" src="/static/LoginSuccess.png"></image>
 				</view>
 				<view class="form-input">
 					<input class="phone-input" maxlength="11" type="password" placeholder="请输入您的密码" />
-					<image class="input-image" src="/static/images/login/LoginPassword.png"></image>
+					<image class="input-image" src="/static/LoginPassword.png"></image>
 				</view>
 			</view>
 			<view class="forward">
@@ -23,8 +23,8 @@
 		</view>
 		<view class="handle">
 			<view class="remember" @click="changeRememberPasswrod">
-				<image class="remember-image" src="/static/images/login/nocheck.png" mode="aspectFill" v-if="!agree"></image>
-				<image class="remember-image" src="/static/images/login/check.png" mode="aspectFill" v-else></image>
+				<image class="remember-image" src="/static/nocheck.png" mode="aspectFill" v-if="!agree"></image>
+				<image class="remember-image" src="/static/check.png" mode="aspectFill" v-else></image>
 				<text class="remember-text">记住密码</text>
 			</view>
 			<view class="login">

@@ -280,6 +280,29 @@
               }
             }
         }
+        ,{
+            "path" : "pages/butler/entrance/index",
+            "style" : {
+              "app-plus": {
+                "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
+                "buttons": [
+                  {
+                    "fontSrc": "/static/iconfont.ttf",
+                    "text": "\ue79d",
+                    "fontSize": "27",
+                    "color": "#383838",
+                    "float": "right"
+                  }, {
+                    "fontSrc": "/static/iconfont.ttf",
+                    "text": "\ue819",
+                    "fontSize": "26",
+                    "color": "#383838",
+                    "float": "right"
+                  }
+                ]
+              }
+            }
+        }
     ],
   "globalStyle": {
     "navigationBarTextStyle": "black",

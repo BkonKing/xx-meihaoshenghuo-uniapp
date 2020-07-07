@@ -25,9 +25,11 @@
 
 <style lang="scss">
 	.dropdown-menu {
-		// white-space: nowrap;
+		display: flex;
+		overflow: auto;
+		white-space: nowrap;
 	}
-	.dropdown-item {
+	dropdown-item {
 		flex: 1;
 	}
 </style>

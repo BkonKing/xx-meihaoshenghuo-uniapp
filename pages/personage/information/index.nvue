@@ -107,8 +107,8 @@
   import uniList from "@/components/uni-list/uni-list.vue"
   import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
   import uniTag from '@/components/uni-tag/uni-tag.vue'
-  import msDropdownMenu from '@/components/ms-dropdown/dropdown-menu.vue'
-  import msDropdownItem from '@/components/ms-dropdown/dropdown-item.vue'
+  import msDropdownMenu from '@/components/dropdown/dropdown-menu.vue'
+  import msDropdownItem from '@/components/dropdown/dropdown-item.vue'
   export default {
     components: {
       uniSegmentedControl,

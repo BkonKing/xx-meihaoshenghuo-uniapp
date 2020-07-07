@@ -44,7 +44,7 @@
       if (token) {
         console.log(token);
       } else {
-        uni.navigateTo({
+        uni.reLaunch({
           url: '/pages/login/index'
         })
       }
