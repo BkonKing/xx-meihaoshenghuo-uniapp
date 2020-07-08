@@ -1,13 +1,10 @@
-<template recyclable>
+<template>
   <view class="tf-list-cell">
     <text class="tf-list-cell-left">
       {{title}}
     </text>
     <view class="tf-list-cell-right">
       <slot name="right"></slot>
-      <!-- <view  style="width: 500rpx;">
-        <slot name="right"></slot>
-      </view> -->
     </view>
     <uni-icons v-if="showArrow" :size="20" class="uni-icon-wrapper" color="#aaa" type="arrowright" />
   </view>

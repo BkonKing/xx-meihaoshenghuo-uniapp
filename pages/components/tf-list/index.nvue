@@ -1,4 +1,4 @@
-<template recyclable>
+<template>
   <view class="tf-list">
     <slot></slot>
   </view>
