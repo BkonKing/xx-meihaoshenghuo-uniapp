@@ -12,8 +12,8 @@
               ? activeColor
               : '#fff'
             : styleType === 'text'
-              ? '#000'
-              : activeColor}"
+              ? '#8f8f94'
+              : activeColor, 'font-size': index === currentIndex ? '34rpx' : '30rpx'}"
 			 class="segmented-control__text">{{ item }}</text>
 		</view>
 	</view>
@@ -77,7 +77,7 @@
 		box-sizing: border-box;
 		/* #endif */
 		flex-direction: row;
-		height: 36px;
+		height: 98rpx;
 		overflow: hidden;
 	}
 
@@ -117,7 +117,7 @@
 	}
 
 	.segmented-control__text {
-		font-size: 16px;
+		font-size: 30rpx;
 		line-height: 20px;
 		text-align: center;
 	}

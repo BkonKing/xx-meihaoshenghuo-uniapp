@@ -1,8 +1,8 @@
 <template>
-	<scroll-view class="tf-bg tf-padding-base">
+	<view class="tf-bg tf-padding-base">
 		<phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :number="item.number"
 		  :avatar="item.avatar"></phone-card>
-	</scroll-view>
+	</view>
 </template>
 
 <script>

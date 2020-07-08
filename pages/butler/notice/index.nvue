@@ -1,8 +1,8 @@
 <template>
   <view class="tf-bg">
-    <recycle-list class="tf-padding-base" for="(item, i) in noticeList">
+    <recycle-list for="(item, i) in noticeList">
       <cell-slot :key="i">
-        <!-- <view class="tf-padding-base" v-for="(item, i) in noticeList"> -->
+        <view class="tf-padding-base"">
         <text class="list-item--time">{{item.ctime}}</text>
         <view class="tf-card" @tap="jump(item)">
           <view class="tf-card-header" style="justify-content: flex-start;">
@@ -11,7 +11,7 @@
           </view>
           <text class="tf-card-content">{{item.content}}</text>
         </view>
-        <!-- </view> -->
+        </view>
       </cell-slot>
     </recycle-list>
   </view>

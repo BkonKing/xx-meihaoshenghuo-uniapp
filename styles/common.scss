@@ -5,7 +5,7 @@
   /* 水平方向，垂直居中*/
   .tf-row-vertical-center {
     flex-direction: row !important;
-    align-items: center;
+    align-items: center !important;
   }
   /* 水平方向，分布左右*/
   .tf-row-space-between {

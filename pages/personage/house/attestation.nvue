@@ -14,18 +14,18 @@
           <radioBtn :data="items" @change="radioChange"></radioBtn>
         </view>
       </view>
-      <uni-list style="background-color: #fff;border-radius: 8rpx;">
-        <uni-list-item title="真实姓名" :showArrow="false">
+      <tf-list>
+        <tf-list-item title="真实姓名" :showArrow="false">
           <template v-slot:right>
-            <input class="uni-input" />
+            <input class="tf-input"/>
           </template>
-        </uni-list-item>
-        <uni-list-item title="手机号" :showArrow="false">
+        </tf-list-item>
+        <tf-list-item title="手机号" :showArrow="false">
           <template v-slot:right>
-            <input class="uni-input" type="number" />
+            <input type="number" class="tf-input" />
           </template>
-        </uni-list-item>
-      </uni-list>
+        </tf-list-item>
+      </tf-list>
       <button class="tf-mt-base" type="warn" form-type="submit">提交</button>
     </form>
   </view>
@@ -95,7 +95,7 @@
   }
 
   .tf-input {
-    flex-direction: column;
+    text-align: right;
     font-size: $uni-font-size-base !important;
     padding: 0;
   }

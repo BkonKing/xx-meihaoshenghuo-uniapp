@@ -1,26 +1,42 @@
 <template>
-  <scroll-view>
-    <view class="tf-bg tf-padding-base tf-mb-base">
-      <text class="tf-article-title tf-center">XXXX美好生活家园</text>
-      <text class="tf-text tf-mb-base">家园介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
-      <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :number="item.number"
+  <view>
+    <view class="introduce-box tf-mb-base">
+      <image class="bg-image" src="/static/LoginHeader.png" mode="aspectFit"></image>
+      <view class="logo-badge">
+        <image src="../../../static/LoginSuccess.png" mode="aspectFit" class="logo-image"></image>
+      </view>
+      <text class="property-title">新乡美好生活家园</text>
+      <text class="property-content">家园介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
+    </view>
+    <view class="tf-bg tf-padding-base">
+      <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :tag="true" :number="item.number"
         :avatar="item.avatar"></phone-card>
     </view>
-    <view class="tf-padding-base">
-      <text class="tf-module-title">常见问题</text>
-      <view>
-        <text class="tf-subhead-title">1.门禁二维码打不开门？</text>
-        <text class="tf-auxiliary-content">智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。</text>
-      </view>
+    <view class="tf-bg-white">
+      <text class="module-title">常见问题</text>
+      <uni-collapse accordion="true">
+        <uni-collapse-item title="门禁二维码打不开门？">
+          <template v-slot:tag>
+            <text class="question-index-box">Q1</text>
+          </template>
+          <text class="question-content">
+            智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。
+          </text>
+        </uni-collapse-item>
+      </uni-collapse>
     </view>
-  </scroll-view>
+  </view>
 </template>
 
 <script>
   import phoneCard from '../../components/phone-card/phone-card.nvue'
+  import uniCollapse from '@/components/uni-collapse/uni-collapse.vue'
+  import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue'
   export default {
     components: {
-      phoneCard
+      phoneCard,
+      uniCollapse,
+      uniCollapseItem
     },
     data() {
       return {
@@ -42,4 +58,71 @@
   }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+  .introduce-box {
+    width: 750rpx;
+    height: 350rpx;
+    align-items: center;
+  }
+
+  .logo-badge {
+    width: 120rpx;
+    height: 120rpx;
+    padding: 10rpx;
+    margin: 30rpx 0;
+    border-width: 3rpx;
+    border-style: solid;
+    border-color: $uni-color-error;
+    border-radius: 50%;
+  }
+
+  .logo-image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+  }
+
+  .property-title {
+    font-size: 38rpx;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    margin-bottom: $uni-spacing-col-lg;
+  }
+
+  .property-content {
+    width: 490rpx;
+    font-size: 24rpx;
+    line-height: 44rpx;
+    color: #fff;
+  }
+
+  .bg-image {
+    position: absolute;
+    z-index: -1;
+    width: 750rpx;
+    height: 350rpx;
+  }
+  .module-title {
+    font-size: $uni-font-size-lg;
+    font-weight: bold;
+    color: $uni-text-color;
+    padding: $uni-spacing-col-base;
+  }
+  .question-index-box {
+    width: 72rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    font-size: 24rpx;
+    margin-right: $uni-spacing-col-base;
+    color: #fff;
+    background-color: $uni-icon-color-dark-grey;
+    text-align: center;
+  }
+  .question-content {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 54rpx;
+    padding: 10rpx 30rpx 60rpx;
+  }
+</style>

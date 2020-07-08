@@ -1,16 +1,18 @@
 <template>
-  <view class="tf-padding-base phone-box tf-mb-base">
-    <view class="phone-info">
+  <view class="tf-padding-base phone-box tf-mb-base" :style="{'padding-left': tag ? '0' : '20rpx'}">
+    <view class="phone-info" :class="{'phone-info__divider': info}">
       <view class="tf-row-vertical-center">
-        <image v-if="avatar" :src="avatar" mode="aspectFit" class="tf-avatar"></image>
-        <text class="tf-article-title">{{name}}</text>
+        <view v-if="tag" class="phone-name-tag">
+          <text class="phone-name-tag__text">{{name}}</text>
+        </view>
+        <text v-else class="phone-name">{{name}}</text>
       </view>
       <view class="tf-row-vertical-center" @tap="makePhoneCall(item.number)">
         <text class="phone-number">{{number}}</text>
         <text class="tf-icon">{{icon_phone}}</text>
       </view>
     </view>
-    <text class="phone-footer tf-padding-sm" v-if="info">
+    <text class="phone-footer" v-if="info" :style="{'padding-left': tag ? '20rpx' : '0'}">
       {{info}}
     </text>
   </view>
@@ -25,7 +27,10 @@
   export default {
     name: 'phone-card',
     props: {
-      avatar: stringProp,
+      tag: {
+        type: [Boolean, String, Number],
+        default: false
+      },
       name: stringProp,
       number: stringProp,
       info: stringProp,
@@ -47,33 +52,50 @@
 
 <style lang="scss" scoped>
   .phone-box {
-    width: 710rpx;
     border-radius: 5px;
     background-color: #fff;
   }
 
   .phone-footer {
-    width: 680rpx;
-    background-color: $uni-bg-color;
-    border-radius: 5px;
-    font-size: $uni-font-size-sm;
+    // background-color: $uni-bg-color;
+    // border-radius: 5px;
+    font-size: 24rpx;
     color: $uni-text-color-grey;
-    margin-top: $uni-spacing-col-base;
-  }
-  
-  .tf-avatar {
-    margin-left: 10rpx;
-    margin-right: 10rpx;
+    margin-top: $uni-spacing-col-lg;
+    line-height: 44rpx;
   }
   .phone-info {
     flex-direction: row;
     justify-content: space-between;
     line-height: 80rpx;
   }
+  .phone-info__divider {
+    border-bottom-width: 2rpx;
+    border-bottom-style: solid;
+    border-bottom-color: $uni-color-divider;
+  }
+  .phone-name {
+    font-size:30rpx;
+    color: $uni-text-color;
+  }
   .phone-number {
-    font-size: $uni-font-size-base;
-    color: $uni-text-color-grey;
+    font-size: 38rpx;
+    color: $uni-text-color;
     margin-right: $uni-spacing-row-base;
+  }
+  .phone-name-tag {
+    width:190rpx;
+    height: 60rpx;
+    padding-left: 30rpx;
+    font-size: 28rpx;
+    border-top-right-radius: 30rpx;
+    border-bottom-right-radius: 30rpx;
+    background-image: linear-gradient(to right,$uni-color-warning,$uni-bg-color-warning);
+  }
+  .phone-name-tag__text {
+    font-size: $uni-font-size-base;
+    line-height: 60rpx;
+    color: #fff;
   }
   .tf-icon {
     font-size: 40rpx;
