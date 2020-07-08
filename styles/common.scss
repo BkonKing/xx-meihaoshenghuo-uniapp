@@ -67,6 +67,26 @@
   .tf-text {
   	font-size: $uni-font-size-base;
   }
+  .tf-text-white {
+    color: #fff;
+  }
+  .tf-text-primary {
+    color: $uni-color-primary;
+  }
+  .tf-bg-primary {
+    background-color: $uni-color-primary;
+    color: #fff;
+  }
+  .tf-text-success {
+    color: $uni-color-success;
+  }
+  .tf-bg-success {
+    background-color: $uni-color-success;
+    color: #fff;
+  }
+  .tf-text-grey {
+    color: $uni-text-color-grey;
+  }
   .tf-center {
 		text-align: center;
 	}
@@ -168,4 +188,17 @@
     height: 24rpx !important;
     line-height: 26rpx !important;
     font-size: 18rpx !important;
+  }
+  /* 圆形标记*/
+  .tf-circle-tag--primary {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 10rpx;
+    background-color: $uni-color-primary;
+  }
+  .tf-circle-tag--success {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 10rpx;
+    background-color: $uni-color-success;
   }

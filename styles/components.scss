@@ -1,51 +1,4 @@
-/* 列表*/
-  .tf-list {
-    width: 750rpx;
-    background-color: #fff;
-  }
-  
-  .tf-list-cell {
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20rpx;
-  }
-  
-  .tf-list-cell-hover {
-    background-color: #eee;
-  }
-  
-  .tf-list-cell-left {
-    font-size: 28rpx;
-  }
-  
-  .tf-list-cell-right {
-    flex-direction: row !important;
-  }
-  
-  // .tf-list-cell-right:after {
-  //   font-family: iconfont;
-  //   font-size: $uni-font-size-sm;
-  //   color: $uni-text-color-grey;
-  //   content: '\e856';
-  //   position: absolute;
-  //   top: 8rpx;
-  //   right: -15rpx;
-  // }
-  
-  // .tf-list-cell::after {
-  //   position: absolute;
-  //   z-index: 3;
-  //   right: 0;
-  //   bottom: 0;
-  //   left: 30rpx;
-  //   height: 1px;
-  //   content: '';
-  //   transform: scaleY(.5);
-  //   background-color: #c8c7cc;
-  // }
-  
-  /*卡片视图 */
+/*卡片视图 */
   .tf-card {
     width: 710rpx;
     flex: 1;
@@ -68,7 +21,7 @@
   .tf-card-header__title {
     font-size: 30rpx;
     color: $uni-text-color;
-    font-weight: 500;
+    font-weight: bold;
     lines: 1;
     text-overflow: ellipsis;
   }

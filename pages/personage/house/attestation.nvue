@@ -1,0 +1,102 @@
+<template>
+  <view class="tf-bg tf-padding-base">
+    <form @submit="formSubmit">
+      <tf-list>
+        <tf-list-item title="房屋">
+          <template v-slot:right>
+            <input class="tf-input" placeholder="自动获得焦点" />
+          </template>
+        </tf-list-item>
+      </tf-list>
+      <view class="tf-card tf-mb-base">
+        <text class="tf-card-header" style="font-weight: normal;">认证类型</text>
+        <view class="tf-card-content" style="padding-bottom: 10rpx;">
+          <radioBtn :data="items" @change="radioChange"></radioBtn>
+        </view>
+      </view>
+      <uni-list style="background-color: #fff;border-radius: 8rpx;">
+        <uni-list-item title="真实姓名" :showArrow="false">
+          <template v-slot:right>
+            <input class="uni-input" />
+          </template>
+        </uni-list-item>
+        <uni-list-item title="手机号" :showArrow="false">
+          <template v-slot:right>
+            <input class="uni-input" type="number" />
+          </template>
+        </uni-list-item>
+      </uni-list>
+      <button class="tf-mt-base" type="warn" form-type="submit">提交</button>
+    </form>
+  </view>
+</template>
+
+<script>
+  import radioBtn from "../../components/radio/index.nvue";
+  import tfList from "../../components/tf-list/index.nvue"
+  import tfListItem from "../../components/tf-list/item.nvue"
+  export default {
+    components: {
+      radioBtn,
+      tfList,
+      tfListItem
+    },
+    data() {
+      return {
+        category_id: "",
+        items: [{
+            value: "USA",
+            name: "业主"
+          },
+          {
+            value: "CHN",
+            name: "业主成员"
+          },
+          {
+            value: "BRA",
+            name: "租户"
+          },
+          {
+            value: "JPN",
+            name: "租户成员"
+          }
+        ],
+      };
+    },
+
+    methods: {
+      formSubmit: function(e) {
+        const {
+          content
+        } = e.detail.value;
+      },
+      radioChange(value) {
+        this.category_id = value;
+      },
+      addRepair(data) {
+        addRepair(data).then(res => {
+          if (res.success) {
+
+          }
+        })
+      }
+    }
+  };
+</script>
+
+<style lang="scss" scoped>
+  .tf-card {
+    margin-top: $uni-spacing-col-lg;
+  }
+
+  .tf-card-header {
+    font-size: $uni-font-size-base !important;
+    font-weight: bold;
+  }
+
+  .tf-input {
+    flex-direction: column;
+    font-size: $uni-font-size-base !important;
+    padding: 0;
+  }
+</style>

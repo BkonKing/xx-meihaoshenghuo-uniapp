@@ -284,23 +284,39 @@
             "path" : "pages/butler/entrance/index",
             "style" : {
               "app-plus": {
-                "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
-                "buttons": [
-                  {
-                    "fontSrc": "/static/iconfont.ttf",
-                    "text": "\ue79d",
-                    "fontSize": "27",
-                    "color": "#383838",
-                    "float": "right"
-                  }, {
-                    "fontSrc": "/static/iconfont.ttf",
-                    "text": "\ue819",
-                    "fontSize": "26",
-                    "color": "#383838",
-                    "float": "right"
-                  }
-                ]
+                "titleNView": {
+                  "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
+                  "buttons": [
+                    {
+                      "fontSrc": "/static/iconfont.ttf",
+                      "text": "\ue791",
+                      "fontSize": "27",
+                      "color": "#fff",
+                      "float": "right"
+                    }, {
+                      "fontSrc": "/static/iconfont.ttf",
+                      "text": "\ue78c",
+                      "fontSize": "26",
+                      "color": "#fff",
+                      "float": "right"
+                    }
+                  ]
+                }
               }
+            }
+        }
+        ,{
+            "path" : "pages/butler/entrance/list",
+            "style" : {
+              "navigationBarTitleText": "开门历史",
+              "navigationBarBackgroundColor": "#fff"
+            }
+        }
+        ,{
+            "path" : "pages/personage/house/attestation",
+            "style" : {
+              "navigationBarTitleText": "房间认证",
+              "navigationBarBackgroundColor": "#fff"
             }
         }
     ],

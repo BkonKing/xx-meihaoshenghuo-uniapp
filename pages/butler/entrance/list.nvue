@@ -1,0 +1,44 @@
+<template>
+  <view class="tf-bg">
+    <uni-list style="background-color: #fff;">
+      <uni-list-item v-for="(item, i) in historyList" :key="i" :title="item.title" :showArrow="false">
+        <template v-slot:right>
+          <text class="history-time">{{item.ctime}}</text>
+        </template>
+      </uni-list-item>
+    </uni-list>
+  </view>
+</template>
+
+<script>
+  import uniList from "@/components/uni-list/uni-list.vue"
+  import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
+  export default {
+    components: {
+      uniList,
+      uniListItem,
+    },
+    data() {
+      return {
+        historyList: [{
+          "id": "1",
+          "title": "关于暴雨天气温馨提示",
+          "ctime": "2020-06-20 15:12:36"
+        }, {
+          "id": "2",
+          "title": "关于暴雨天气温馨提示2",
+          "ctime": "2020-06-21 15:12:36"
+        }]
+      };
+    },
+    onLoad() {},
+    methods: {}
+  }
+</script>
+
+<style lang="scss" scoped>
+  .history-time {
+    font-size: 30rpx;
+    color: $uni-text-color-grey;
+  }
+</style>

@@ -236,7 +236,7 @@
 
   .uni-list-item__content-title {
     font-size: $uni-font-size-base;
-    color: #3b4144;
+    color: #222;
     overflow: hidden;
   }
 

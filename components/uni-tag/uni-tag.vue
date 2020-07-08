@@ -166,7 +166,7 @@
 
 	.primary-uni-tag--inverted {
 		color: $uni-color-primary;
-		background-color: $uni-bg-color;
+		background-color: $uni-text-color-inverse;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: $uni-color-primary;
@@ -182,7 +182,7 @@
 
 	.success-uni-tag--inverted {
 		color: $uni-color-success;
-		background-color: $uni-bg-color;
+		background-color: $uni-text-color-inverse;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: $uni-color-success;
@@ -198,7 +198,7 @@
 
 	.warning-uni-tag--inverted {
 		color: $uni-color-warning;
-		background-color: $uni-bg-color;
+		background-color: $uni-text-color-inverse;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: $uni-color-warning;
@@ -214,7 +214,7 @@
 
 	.error-uni-tag--inverted {
 		color: $uni-color-error;
-		background-color: $uni-bg-color;
+		background-color: $uni-text-color-inverse;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: $uni-color-error;
@@ -222,7 +222,7 @@
 
 	.uni-tag--inverted {
 		color: $uni-text-color;
-		background-color: $uni-bg-color;
+		background-color: $uni-text-color-inverse;
 		border-width: 1rpx;
 		border-style: solid;
 		border-color: $uni-bg-color-grey;

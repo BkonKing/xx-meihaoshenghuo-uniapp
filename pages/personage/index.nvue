@@ -43,21 +43,21 @@
         <view class="tf-row">
           <view class="manage-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>待处理</text>
+            <text class="text-sm">待处理</text>
           </view>
           <view class="manage-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>待分派</text>
+            <text class="text-sm">待分派</text>
           </view>
         </view>
         <view class="tf-row">
           <view class="manage-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>待结案</text>
+            <text class="text-sm">待结案</text>
           </view>
           <view class="manage-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>已结案</text>
+            <text class="text-sm">已结案</text>
           </view>
         </view>
       </view>
@@ -66,23 +66,23 @@
         <view class="tf-row">
           <view class="order-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>待付款</text>
+            <text class="text-sm">待付款</text>
           </view>
           <view class="order-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>退换</text>
+            <text class="text-sm">退换</text>
           </view>
           <view class="order-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>待收货</text>
+            <text class="text-sm">待收货</text>
           </view>
           <view class="order-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>退换</text>
+            <text class="text-sm">退换</text>
           </view>
           <view class="order-box tf-flex-item tf-flex-center">
             <text></text>
-            <text>全部</text>
+            <text class="text-sm">全部</text>
           </view>
         </view>
       </view>
@@ -219,5 +219,8 @@
   }
   .order-box {
     height: 114rpx;
+  }
+  .text-sm {
+    font-size: 24rpx;
   }
 </style>

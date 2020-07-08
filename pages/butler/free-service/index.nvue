@@ -1,12 +1,25 @@
 <template>
-  <view>
-    <uni-search-bar placeholder="请输入关键字搜索" @confirm="search" @input="input" ></uni-search-bar>
-    <view class="tab-box">
-      <view class="">人工服务(11)</view>
-      <view class="">借用服务(13)</view>
+  <view :style="{ height: height }">
+    <uni-search-bar placeholder="请输入关键字搜索" @confirm="search" @input="input" style="background-color: #fff;"></uni-search-bar>
+    <view class="tf-bg tf-padding-base">
+      <view class="tab-btn-box">
+        <view class="tab-btn" style="border-color: #448fe4;" :class="{'tf-bg-primary': checkType === 1}" @tap="checkType = 1">
+          <text v-if="checkType !== 1" class="tf-circle-tag--primary" style="margin-right: 10rpx;"></text>
+          <view class="tab-btn__text-box tf-row">
+            <text class="tab-btn__text" :class="[checkType === 1 ? 'tf-text-white' : 'tf-text-primary']">人工服务</text>
+            <text class="tab-btn__text" :class="[checkType === 1 ? 'tf-text-white' : 'tf-text-grey']">(11)</text>
+          </view>
+        </view>
+        <view class="tab-btn" :class="{'tf-bg-success': checkType === 2}" style="border-color: #55b862;" @tap="checkType = 2">
+          <text v-if="checkType !== 2" class="tf-circle-tag--success" style="margin-right: 10rpx;"></text>
+          <view class="tab-btn__text-box tf-row">
+            <text class="tab-btn__text" :class="[checkType === 2 ? 'tf-text-white' : 'tf-text-success']">借用服务</text>
+            <text class="tab-btn__text" :class="[checkType === 2 ? 'tf-text-white' : 'tf-text-grey']">(11)</text>
+          </view>
+        </view>
+      </view>
+      <service-card :data="serviceList"></service-card>
     </view>
-    <service-card :data="serviceList"></service-card>
-    <uni-popup ref="popup" type="dialog">底部弹出 Popup</uni-popup>
   </view>
 </template>
 
@@ -33,6 +46,10 @@
           }
         ]
       };
+    },
+    onLoad() {
+    	const res = uni.getSystemInfoSync();
+    	this.height = `${res.windowHeight}px`;
     },
     methods: {
       
@@ -71,5 +88,26 @@
   .check-type--checked {
     color: $uni-text-color-inverse;
     background-color: $uni-bg-color-primary;
+  }
+  
+  .tab-btn-box {
+    flex-direction: row;
+    margin-bottom: $uni-spacing-row-lg;
+  }
+  
+  .tab-btn {
+    flex-direction: row;
+    align-items: center;
+    height: 66rpx;
+    line-height: 66rpx;
+    padding: 0 36rpx;
+    border-width: 2rpx;
+    border-style: solid;
+    border-color: #aaa;
+    border-radius: 33rpx;
+    margin-right: $uni-spacing-row-base;
+  }
+  .tab-btn__text {
+    font-size: 24rpx;
   }
 </style>

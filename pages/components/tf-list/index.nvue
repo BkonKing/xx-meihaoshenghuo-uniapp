@@ -1,0 +1,14 @@
+<template recyclable>
+  <view class="tf-list">
+    <slot></slot>
+  </view>
+</template>
+
+<style lang="scss" scoped>
+  .tf-list {
+    width: 710rpx;
+    background-color: #fff;
+    border-radius: 8rpx;
+  }
+</style>
+

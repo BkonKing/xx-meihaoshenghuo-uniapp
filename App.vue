@@ -57,7 +57,7 @@
 
 <style lang="scss">
   /*每个页面公共css */
-  /* #ifdef H5*/
+  /* #ifndef APP-NVUE*/
   * {
     box-sizing: border-box;
   }

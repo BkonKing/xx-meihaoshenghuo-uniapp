@@ -31,7 +31,7 @@
           </uni-list>
         </view>
         <view v-if="current === 1">
-          <view class="house-owner tf-card tf-padding-base tf-mb-base">
+          <view class="house-owner house-box">
             <text class="house-owner-current">当前房产</text>
             <view class="tf-row-space-between">
               <view class="tf-row">
@@ -49,7 +49,7 @@
               </view>
             </view>
           </view>
-          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+          <view class="house-box tf-row">
             <text class="house-user house-user--relation">
               业主业主
             </text>
@@ -58,7 +58,7 @@
               <text class="house-address">5栋1单元1001</text>
             </view>
           </view>
-          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+          <view class="house-box tf-row">
             <text class="house-user house-user--tenant">
               业主业主
             </text>
@@ -67,7 +67,7 @@
               <text class="house-address">5栋1单元1001</text>
             </view>
           </view>
-          <view class="tf-card tf-padding-base tf-row tf-mb-base">
+          <view class="house-box tf-row">
             <text class="house-user house-user--relation">
               业主业主
             </text>
@@ -76,23 +76,21 @@
               <text class="house-address">5栋1单元1001</text>
             </view>
           </view>
+          <button type="warn" @tap="addHouse">新增房产</button>
         </view>
         <view class="tf-flex-item" v-if="current === 2">
-          <ms-dropdown-menu>
-            <!-- <ms-dropdown-item v-model="value2" :list="list"></ms-dropdown-item> -->
-            <ms-dropdown-item v-model="value" :list="list">
-              <template v-slot:title>
-                <view class="title">自定义title</view>
-              </template>
-            </ms-dropdown-item>
-          </ms-dropdown-menu>
-          <view class="tf-card tf-mt-base tf-padding-base">
-            <text class="house-address tf-card-header-left">XXXX美好生活家园 5栋1单元1002</text>
-            <view class="tf-row-space-between">
-              <uni-tag class="user-role" text="业主" type="error" :inverted="true" size="small"></uni-tag>
+          <dropdown-menu>
+            <!-- <dropdown-item v-model="value2" :list="list"></dropdown-item> -->
+            <dropdown-item v-model="value" :list="list">
+            </dropdown-item>
+          </dropdown-menu>
+          <view class="tf-card tf-mt-base">
+            <text class="house-address tf-card-header">XXXX美好生活家园 5栋1单元1002</text>
+            <view class="tf-card-content tf-row">
+              <uni-tag class="user-role tf-mr-base" text="业主" type="error" :inverted="true" size="small"></uni-tag>
               <text>哈哈哈</text>
-              <text>(本人)</text>
-              <text>女</text>
+              <text class="tf-mr-base">(本人)</text>
+              <text class="tf-mr-base">女</text>
               <text>12312312312</text>
             </view>
           </view>
@@ -107,16 +105,16 @@
   import uniList from "@/components/uni-list/uni-list.vue"
   import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
   import uniTag from '@/components/uni-tag/uni-tag.vue'
-  import msDropdownMenu from '@/components/dropdown/dropdown-menu.vue'
-  import msDropdownItem from '@/components/dropdown/dropdown-item.vue'
+  import dropdownMenu from '@/components/dropdown/dropdown-menu.vue'
+  import dropdownItem from '@/components/dropdown/dropdown-item.vue'
   export default {
     components: {
       uniSegmentedControl,
       uniList,
       uniListItem,
       uniTag,
-      msDropdownMenu,
-      msDropdownItem
+      dropdownMenu,
+      dropdownItem
     },
     data() {
       return {
@@ -143,6 +141,11 @@
         if (this.current !== e.currentIndex) {
           this.current = e.currentIndex;
         }
+      },
+      addHouse() {
+        uni.navigateTo({
+          url: '/pages/personage/house/attestation'
+        })
       }
     }
   }
@@ -152,7 +155,7 @@
   .house-owner {
     border-width: 3rpx;
     border-color: #EB5841;
-    padding-top: 0;
+    padding-top: 0 !important;
   }
 
   .house-owner-current {
@@ -195,7 +198,14 @@
   }
 
   .house-address {
-    font-size: 30rpx;
+    font-size: 24rpx;
     color: $uni-text-color-grey;
+  }
+  
+  .house-box {
+    background-color: #fff;
+    border-radius: 8rpx;
+    padding: 40rpx 30rpx;
+    margin-bottom: $uni-spacing-col-lg;
   }
 </style>

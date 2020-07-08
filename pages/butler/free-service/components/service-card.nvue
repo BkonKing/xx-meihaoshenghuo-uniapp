@@ -1,26 +1,28 @@
 <template>
   <view style="flex-direction: row;justify-content: space-between;">
-    <view class="service-card tf-padding-base" v-for="(item, i) in data" :key="i" @tap="showService">
-      <view class="service-card-tag"></view>
+    <view class="service-card" :class="{'service-card--primary': item.info}" v-for="(item, i) in data" :key="i" @tap="showService">
+      <view class="service-card-tag" :class="{'service-card-tag--primary': item.info}"></view>
       <view class="service-card-content">
-        <text class="service-card-name">{{item.name}}</text>
-        <view v-if="item.type" class="service-card-info">{{item.info ? `正在排队${item.info}人` : '当前无人排队'}}</view>
-        <view v-else class="service-card-info">{{`剩余${item.info}个可借`}}</view>
+        <text class="service-card-name" :class="{'service-card-name--primary': item.info}">{{item.name}}</text>
+        <text v-if="item.type" class="service-card-info" :class="{'service-card-info--primary': item.info}">{{item.info ? `正在排队${item.info}人` : '当前无人排队'}}</text>
+        <text v-else class="service-card-info" :class="{'service-card-info--primary': item.info}">{{`剩余${item.info}个可借`}}</text>
       </view>
     </view>
-    <uni-popup ref="popup" type="dialog">
-      <image src="../../../../static/app-icon.png"></image>
-    </uni-popup>
+    <tfDialog ref="dialog" :title="title">
+      <template v-slot:content>
+        <view class="qr-box">
+          <image class="qr-img" src="/static/app-icon.png"></image>
+        </view>
+      </template>
+    </tfDialog>
   </view>
 </template>
 
 <script>
-  import uniPopup from '@/components/uni-popup/uni-popup.vue'
-  import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue'
+  import tfDialog from '../../../components/dialog/index.vue'
   export default {
     components: {
-      uniPopup,
-      uniPopupDialog
+      tfDialog
     },
     props: {
       data: {
@@ -28,10 +30,14 @@
         default: () => []
       }
     },
+    data() {
+      return {
+        title: '借用升降人字梯'
+      }
+    },
     methods: {
       showService() {
-        console.log(123123)
-        this.$refs.popup.open()
+        this.$refs.dialog.open()
       }
     }
   }
@@ -42,27 +48,59 @@
     flex-direction: row;
     align-items: center;
     width: 345rpx;
-    height: 120rpx;
-    margin-bottom: $uni-spacing-col-base;
-    border-width: 1px;
-    border-style: solid;
-    border-color: $uni-border-color;
-    border-radius: 5px;
+    height: 150rpx;
+    padding: 30rpx 20rpx;
+    margin-bottom: $uni-spacing-col-lg;
+    background-color: #f9f9fa;
+    border-radius: 10rpx;
   }
 
   .service-card-tag {
-    width: 40rpx;
-    height: 40rpx;
-    margin-right: $uni-spacing-row-sm;
-    background-color: rgba(242, 242, 242, 1);
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    margin-right: $uni-spacing-row-base;
+    background-color: #aaa;
+  }
+
+  .service-card--primary {
+    background-color: #fff;
+  }
+
+  .service-card-tag--primary {
+    background-color: $uni-color-primary;
   }
 
   .service-card-name {
-    font-size: $uni-font-size-base;
+    width: 265rpx;
+    font-size: 26rpx;
+    padding-bottom: 20rpx;
+    margin-bottom: 20rpx;
+    border-bottom-width: 2rpx;
+    border-bottom-style: dashed;
+    border-bottom-color: #aaa;
+    color: $uni-text-color-grey;
+  }
+
+  .service-card-name--primary {
+    color: $uni-text-color;
   }
 
   .service-card-info {
-    font-size: $uni-font-size-sm;
+    font-size: 24rpx;
     color: $uni-text-color-grey;
+  }
+
+  .service-card-info--primary {
+    color: $uni-color-error;
+  }
+  
+  .qr-box {
+    padding: 40rpx 70rpx;
+  }
+  
+  .qr-img {
+    width: 320rpx;
+    height: 320rpx;
   }
 </style>
