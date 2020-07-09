@@ -11,7 +11,7 @@
       <view class="tf-card tf-mb-base">
         <text class="tf-card-header" style="font-weight: normal;">认证类型</text>
         <view class="tf-card-content" style="padding-bottom: 10rpx;">
-          <radioBtn :data="items" @change="radioChange"></radioBtn>
+          <tf-radio-btn :data="items" @change="radioChange"></tf-radio-btn>
         </view>
       </view>
       <tf-list>
@@ -40,12 +40,12 @@
 </template>
 
 <script>
-  import radioBtn from "../../components/radio/index.nvue";
+  import tfRadioBtn from "../../components/tf-radio-btn/index.nvue";
   import tfList from "../../components/tf-list/index.nvue"
   import tfListItem from "../../components/tf-list/item.nvue"
   export default {
     components: {
-      radioBtn,
+      tfRadioBtn,
       tfList,
       tfListItem
     },

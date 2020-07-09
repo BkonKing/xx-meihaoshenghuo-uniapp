@@ -23,13 +23,9 @@
   import {
     getRepairInfo
   } from '@/api/butler/butler.js'
-  import timeline from '@/components/timeline/timeLine.vue'
-  import timelineItem from '@/components/timeline/timelineItem.vue'
   import tfTimeline from '../../components/timeline/index.nvue'
   export default {
     components: {
-      timeline,
-      timelineItem,
       tfTimeline
     },
     data() {
@@ -86,6 +82,10 @@
     color: $uni-text-color-grey;
     margin-bottom: $uni-spacing-col-sm;
   }
+  
+  .tf-card {
+    padding-right: 0 !important;
+  }
 
   .timelineItem__content {
     font-size: 30rpx;
@@ -94,9 +94,10 @@
 
   .tf-card-content {
     color: $uni-text-color;
+    padding-right: 30rpx;
   }
 
   .tf-image-box {
-    padding: 20rpx 0;
+    padding: 20rpx 30rpx 20rpx 0;
   }
 </style>

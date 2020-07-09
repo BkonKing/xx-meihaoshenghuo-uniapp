@@ -1,6 +1,6 @@
 <template>
   <view class="tf-bg tf-padding-base">
-    <tf-alert type="warning" content="您有正在进行中的报事报修，点击查看进度>>"></tf-alert>
+    <tf-alert type="warning" content="您有正在进行中的报事报修，点击查看进度>>" @tap="goRepairDetails"></tf-alert>
     <form @submit="formSubmit">
       <view class="tf-card">
         <text class="tf-card-header">选择类型</text>
@@ -140,6 +140,13 @@ export default {
         if (res.success) {
           
         }
+      })
+    },
+    goRepairDetails(id) {
+      console.log(123)
+      const url = `/pages/butler/repairs/details`
+      uni.navigateTo({
+        url
       })
     }
   }

@@ -3,7 +3,7 @@
     <form @submit="formSubmit">
       <view class="uni-form-item uni-column">
         <view class="form-label">选择类型</view>
-        <radioBtn :data="items" @change="radioChange"></radioBtn>
+        <tf-radio-btn :data="items" @change="radioChange"></tf-radio-btn>
       </view>
       <view class="uni-form-item uni-column">
         <view class="form-label">内容描述</view>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import radioBtn from "../../components/radio/index.nvue";
+import tfRadioBtn from "../../components/tf-radio-btn/index.nvue";
 import uImg from "@/components/uploadImg/uploadImg.vue";
 const toast = msg => {
   uni.showToast({
@@ -47,7 +47,7 @@ const toast = msg => {
 export default {
   components: {
     alert,
-    radioBtn,
+    tfRadioBtn,
     uImg
   },
   //点击导航栏 buttons 时触发

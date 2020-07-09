@@ -1,5 +1,5 @@
 <template>
-  <view class="alert-box">
+  <view class="alert-box" @click="onClick">
     <view class="alert-bg" :class="`alert-box--${type}`"></view>
     <text class="tf-icon alert-box__icon" :class="`alert-box__content--${type}`">{{icon[type]}}</text>
     <text class="alert-box__content" :class="`alert-box__content--${type}`">
@@ -40,6 +40,11 @@
         }
       }
     },
+    methods: {
+      onClick() {
+        this.$emit('click')
+      }
+    }
   }
 </script>
 
