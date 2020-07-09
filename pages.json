@@ -218,7 +218,9 @@
     , {
       "path": "pages/butler/visitor/invite",
       "style": {
-        "navigationBarTitleText": "访客通行证"
+        "navigationBarTitleText": "访客通行证",
+        "navigationBarBackgroundColor": "#1b1b1b",
+        "navigationBarTextStyle":"white"
       }
     }, {
       "path": "pages/butler/visitor/invite-list",
@@ -317,6 +319,38 @@
             "style" : {
               "navigationBarTitleText": "房间认证",
               "navigationBarBackgroundColor": "#fff"
+            }
+        }
+        ,{
+            "path" : "pages/butler/visitor/edit",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/personage/information/phone",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/personage/information/payment-code",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/personage/information/forget-payment-code",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/personage/information/login-password",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/personage/house/select-community",
+            "style" : {
+              "navigationBarTitleText": "选择小区"
+            }
+        }
+        ,{
+            "path" : "pages/personage/house/select-house",
+            "style" : {
+              "navigationBarTitleText": "选择房产"
             }
         }
     ],

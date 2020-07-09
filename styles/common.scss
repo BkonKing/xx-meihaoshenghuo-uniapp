@@ -62,10 +62,13 @@
   
   .tf-icon {
   	font-family: iconfont !important;
-    color: #bbb
+    // color: #bbb
   }
   .tf-text {
   	font-size: $uni-font-size-base;
+  }
+  .tf-text-lg {
+  	font-size: $uni-font-size-lg;
   }
   .tf-text-white {
     color: #fff;
@@ -201,4 +204,36 @@
     height: 20rpx;
     border-radius: 10rpx;
     background-color: $uni-color-success;
+  }
+  .tf-status-tag {
+    position: absolute !important;
+    right: 0;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    border-top-left-radius: 30rpx;
+    border-bottom-left-radius: 30rpx;
+    text-align: center;
+    color: #fff;
+    background-color: $uni-color-error;
+  }
+  /* 分割线*/
+  .tf-divider {
+    margin: 20rpx 0;
+    border-bottom-width: 2rpx !important;
+    border-bottom-style: solid;
+    border-bottom-color: $uni-color-divider !important;
+  }
+  
+  .tf-divider-dashed {
+    margin: 20rpx 0;
+    border-bottom-width: 2rpx !important;
+    border-bottom-style: dashed !important;
+    border-bottom-color: $uni-color-divider !important;
+  }
+  
+  .tf-h3 {
+    font-size: 52rpx;
+    font-weight: bold;
   }

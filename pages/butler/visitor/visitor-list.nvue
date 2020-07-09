@@ -6,45 +6,47 @@
       <view class="list-item tf-padding-base tf-row-space-between">
         <view class="tf-row">
           <text class="tf-text">{{item.name}}</text>
-          <text class="tf-text">{{item.money}}</text>
-          <text class="tf-text">{{item.content}}</text>
-          <text class="tf-text">{{item.name}}</text>
+          <text class="tf-text">{{item.sex}}</text>
+          <text class="tf-text tf-text-grey">{{item.content}}</text>
+          <text class="tf-text tf-text-grey">{{item.name}}</text>
         </view>
         <view class="tf-row">
-          <text class="icon" @tap="edit">&#xe811;</text>
-          <text class="icon" @tap="remove">&#xe811;</text>
+          <text class="tf-icon" @tap="jump(0)">{{icon_edit_square}}</text>
+          <text class="tf-icon icon--remove" @tap="remove">{{icon_delete}}</text>
         </view>
       </view>
     </view>
     <!--      </cell-slot>
       </recycle-list> -->
-    <button @tap="add">新增访客</button>
+    <button type="warn" @tap="jump(1)">新增访客</button>
   </scroll-view>
 </template>
 
 <script>
+  import { icon_delete, icon_edit_square } from '../../const/icon.js'
   export default {
     data() {
       return {
+        icon_delete,
+        icon_edit_square,
         items: ['待来访', '已过期', '已到访'],
         current: 0,
-
         data: [{
           id: 1,
           type: 1,
           status: 1,
-          name: '关于暴雨天气',
+          name: '闽123bb',
           day: '06-06',
-          content: '100人参与',
-          money: 111
+          content: '13312312312',
+          sex: '男'
         }, {
           id: 1,
           type: 1,
           status: 1,
-          name: '关于暴雨天气',
+          name: '闽123bb',
           day: '06-06',
-          content: '100人参与',
-          money: 111
+          content: '13312312312',
+          sex: '男'
         }]
 
       }
@@ -54,6 +56,12 @@
         uni.showToast({
           title: '删除成功'
         })
+      },
+      jump(type) {
+        const url = `/pages/butler/visitor/edit?type=${type}`
+        uni.navigateTo({
+          url: url
+        })
       }
     }
   }
@@ -61,12 +69,18 @@
 
 <style lang="scss" scoped>
   .list-item {
-    width: 710rpx;
+    align-items: center;
     background-color: #fff;
-    border-radius: $uni-border-radius-lg;
+    border-radius: $uni-border-radius-base;
     margin-bottom: 20rpx;
   }
   .tf-text {
     margin-right: 10rpx;
+  }
+  .tf-icon {
+    margin-left: $uni-spacing-row-sm;
+  }
+  .icon--remove {
+    color: $uni-color-error;
   }
 </style>

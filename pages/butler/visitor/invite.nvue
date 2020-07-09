@@ -1,34 +1,97 @@
 <template>
-	<view style="align-items: center;">
-		<view class="tf-card tf-mt-base tf-mb-base" style="width: 660rpx;">
-		  <view class="tf-card-header tf-flex-center tf-title">
-        <text>河南美好生活家园</text>
-        <text>5栋-1单元-1001</text>
-      </view>
-      <view class="tf-card-content tf-flex-center">
-        <view class="tf-row-space-between tf-mb-base">
-          <text class="tf-text">有效日期：</text>
-          <text class="tf-text">2020-06-15 12:00 ~ 14:00</text>
+  <view :style="{ height: height }">
+    <view class="shade"></view>
+    <view style="align-items: center;">
+      <view class="share-box">
+        <text class="tf-text-lg">5栋-1单元-1001</text>
+        <view class="qr-box">
+          <image class="qr-box__image" src="../../../static/app-icon.png"></image>
         </view>
-        <image style="width: 500rpx;" src="../../../static/app-icon.png"></image>
-        <text class="tf-center tf-text tf-mt-base">有效次数 1</text>
+        <text class="tf-text-grey">有效次数 1</text>
+        <text class="tf-text-grey">有效日期：2020-06-15 12:00 ~ 14:00</text>
+        <view class="tf-divider-dashed" style="width: 480rpx;"></view>
+        <text class="tf-text-lg">彭生生(10人) 女 15050505050</text>
       </view>
-      <view class="tf-card-footer tf-text tf-center">彭生生(10人)   女   15050505050</view>
-		</view>
-    <button>分享给访客</button>
-	</view>
+      <view class="share-name">
+        <text class="share-name__text">河南美好生活家园</text>
+      </view>
+      <button class="share-btn" type="warn">分享给访客</button>
+    </view>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				
-			};
-		}
-	}
+  export default {
+    onLoad() {
+    	const res = uni.getSystemInfoSync();
+    	this.height = `${res.windowHeight}px`;
+    },
+    data() {
+      return {
+        height: 'auto'
+      };
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
+  .shade {
+    position: absolute;
+    z-index: -999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #1b1b1b;
+  }
 
+  .share-box {
+    width: 620rpx;
+    margin: 80rpx 65rpx;
+    padding: 60rpx 0;
+    align-items: center;
+    background-color: #fff;
+    // box-shadow: 0 0 6rpx #f1c7c5;
+    border-width: 6rpx;
+    border-style: solid;
+    border-color: #f1c7c5;
+  }
+
+  .share-name {
+    position: absolute;
+    z-index: 999;
+    top: 38rpx;
+    left: 151rpx;
+    width: 436rpx;
+    height: 76rpx;
+    background-image: linear-gradient(-45deg, rgba(235, 88, 65, 1), rgba(249, 134, 107, 1));
+  }
+  
+  .share-name__text {
+    text-align: center;
+    line-height: 76rpx;
+    font-size: 30rpx;
+    color: #fff;
+  }
+  
+  .qr-box {
+    width: 480rpx; 
+    height: 480rpx;
+    margin: 40rpx 0;
+  }
+  
+  .qr-box__image {
+    width: 480rpx;
+    height: 480rpx;
+  }
+  
+  .tf-text-grey {
+    font-size: 24rpx;
+  }
+
+  .share-btn {
+    width: 620rpx;
+    background-image: linear-gradient(to right, $uni-bg-color-error, $uni-color-error);
+    border-radius: 10px;
+  }
 </style>

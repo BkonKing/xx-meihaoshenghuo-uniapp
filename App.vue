@@ -67,6 +67,7 @@
   span {
     display: flex !important;
     flex-direction: column;
+    position: relative;
   }
 
   @font-face {
@@ -100,9 +101,5 @@
     border-bottom-width: 2rpx !important;
     border-bottom-style: solid;
     border-bottom-color: $uni-color-divider !important;
-  }
-
-  .uni-page-body {
-    flex: 1;
   }
 </style>

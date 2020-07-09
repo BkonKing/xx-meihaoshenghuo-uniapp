@@ -1,0 +1,31 @@
+<template>
+	<view>
+		<visitor-form></visitor-form>
+	</view>
+</template>
+
+<script>
+  import visitorForm from './components/form.nvue'
+	export default {
+    components: {
+      visitorForm
+    },
+		data() {
+			return {
+				
+			};
+		},
+    onLoad(params) {
+      const {
+        type
+      } = params
+      uni.setNavigationBarTitle({
+        title: type === '1' ? '添加访客' : '修改访客信息'
+      })
+    },
+	}
+</script>
+
+<style lang="scss">
+
+</style>

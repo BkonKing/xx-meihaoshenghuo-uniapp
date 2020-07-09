@@ -18,7 +18,7 @@
           <uni-list style="background-color: #fff;border-radius: 8rpx;margin-bottom: 30rpx;">
             <uni-list-item title="姓名" rightText="张三" :showArrow="false">
             </uni-list-item>
-            <uni-list-item title="手机号" rightText="1555555555"></uni-list-item>
+            <uni-list-item title="手机号" rightText="1555555555" @tap="jumpPhone"></uni-list-item>
             <uni-list-item title="收货地址" rightText="福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省" rightWidth="460rpx"></uni-list-item>
           </uni-list>
           <uni-list style="background-color: #fff;border-radius: 8rpx;margin-bottom: 30rpx;">
@@ -26,8 +26,8 @@
             </uni-list-item>
           </uni-list>
           <uni-list style="background-color: #fff;border-radius: 8rpx;">
-            <uni-list-item title="修改支付密码"></uni-list-item>
-            <uni-list-item title="修改登录密码"></uni-list-item>
+            <uni-list-item title="修改支付密码" @tap="editPaymentCode"></uni-list-item>
+            <uni-list-item title="修改登录密码" @tap="editLoginPassword"></uni-list-item>
           </uni-list>
         </view>
         <view v-if="current === 1">
@@ -145,6 +145,21 @@
       addHouse() {
         uni.navigateTo({
           url: '/pages/personage/house/attestation'
+        })
+      },
+      jumpPhone() {
+        uni.navigateTo({
+          url: '/pages/personage/information/phone'
+        })
+      },
+      editPaymentCode() {
+        uni.navigateTo({
+          url: '/pages/personage/information/payment-code'
+        })
+      },
+      editLoginPassword() {
+        uni.navigateTo({
+          url: '/pages/personage/information/login-password'
         })
       }
     }

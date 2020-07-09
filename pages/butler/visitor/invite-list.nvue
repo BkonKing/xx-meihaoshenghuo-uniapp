@@ -1,19 +1,42 @@
 <template>
   <view>
     <view>
-      <uni-segmented-control :current="current" :values="items" @clickItem="onClickItem" style-type="text" active-color="#eb5841" class="tf-bg-white"></uni-segmented-control>
+      <uni-segmented-control :current="current" :values="items" @clickItem="onClickItem" style-type="text" active-color="#eb5841"
+        class="tf-bg-white"></uni-segmented-control>
     </view>
     <scroll-view class="tf-padding-base tf-bg">
       <!--    <recycle-list for="(item, i) in data">
         <cell-slot :key="i"> -->
       <view v-for="(item, i) in data" :key="i">
-        <view class="list-item tf-padding-base">
-          <text class="tf-text divider">到访时间：{{item.name}}</text>
-          <text class="tf-text">来访日期：{{item.day}}</text>
-          <text class="tf-text">进出次数：{{item.day}}</text>
-          <text class="tf-text">同行人数：{{item.day}}</text>
-          <text class="tf-text">访客信息：{{item.day}}</text>
-          <text class="tf-text visit-status">已过期</text>
+        <view class="list-item">
+          <view class="tf-row-vertical-center tf-mb-base">
+            <view class="tf-row">
+              <text class="tf-text-lg tf-text-grey">到访时间：</text>
+              <text class="tf-text-lg">{{item.name}}</text>
+            </view>
+            <text class="tf-status-tag">已过期</text>
+          </view>
+          <view class="tf-row tf-mb-base">
+            <text class="tf-text-lg tf-text-grey">来访日期：</text>
+            <text class="tf-text-lg">{{item.day}}</text>
+          </view>
+          <view class="tf-row tf-mb-base">
+            <text class="tf-text-lg tf-text-grey">进出次数：</text>
+            <text class="tf-text-lg">{{item.day}}</text>
+          </view>
+          <view class="tf-row tf-mb-base">
+            <text class="tf-text-lg tf-text-grey">同行人数：</text>
+            <text class="tf-text-lg">{{item.day}}</text>
+          </view>
+          <view class="tf-row tf-mb-base">
+            <text class="tf-text-lg tf-text-grey">访客信息：</text>
+            <view>
+              <text class="tf-text-lg tf-mb-base">{{item.day}}</text>
+              <text class="tf-text-lg tf-text-grey">
+                1112312312
+              </text>
+            </view>
+          </view>
         </view>
       </view>
       <!--      </cell-slot>
@@ -65,12 +88,13 @@
 
 <style lang="scss" scoped>
   .list-item {
-    width: 710rpx;
     position: relative;
     background-color: #fff;
-    border-radius: $uni-border-radius-lg;
-    margin-bottom: 20rpx;
+    border-radius: $uni-border-radius-base;
+    margin-bottom: $uni-spacing-col-base;
+    padding: 20rpx 0 20rpx 20rpx;
   }
+
   .visit-status {
     position: absolute;
     right: 20rpx;

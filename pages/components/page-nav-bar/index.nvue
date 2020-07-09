@@ -1,7 +1,7 @@
 <template>
 	<uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
 		<view slot="left">
-			<view class="tf-row-vertical-center room_btn" v-if="status">
+			<view class="tf-row-vertical-center room_btn" @tap="goSelect" v-if="status">
 				<text class="tf-icon">&#xe906;</text>
 				<text class="tf-text">{{name}}</text>
 			</view>
@@ -40,7 +40,14 @@
 			return {
 
 			};
-		}
+		},
+    methods: {
+      goSelect() {
+        uni.navigateTo({
+          url: '/pages/personage/house/select-community'
+        })
+      }
+    }
 	}
 </script>
 

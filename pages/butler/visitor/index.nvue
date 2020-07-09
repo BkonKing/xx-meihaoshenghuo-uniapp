@@ -107,10 +107,10 @@
     },
     computed: {
       startDate() {
-        return this.getDate('start');
+        // return this.getDate('start');
       },
       endDate() {
-        return this.getDate('end');
+        // return this.getDate('end');
       }
     },
     //点击导航栏 buttons 时触发

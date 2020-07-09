@@ -49,3 +49,37 @@
     font-size: 26rpx;
     line-height: 44rpx;
   }
+  
+  /* input*/
+  .tf-phone-input-box {
+    flex-direction: row !important;
+    width: 650rpx;
+    padding: 30rpx 0;
+    border-bottom-width: 3rpx !important;
+    border-bottom-style: solid;
+    border-bottom-color: #383838 !important;
+  }
+  
+  .tf-phone-input-label {
+    width: 110rpx;
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #333333;
+    margin-right: 50rpx;
+  }
+  
+  .tf-phone-input {
+    font-size: 36rpx;
+    color: #333333;
+  }
+  
+  .tf-phone-code-btn {
+    font-size: 26rpx;
+    height:66rpx;
+    padding: 0 26rpx;
+    margin: 0;
+    border-width: 3rpx !important;
+    border-style: solid;
+    border-color: $uni-icon-color-dark-grey !important;
+    border-radius:4rpx;
+  }

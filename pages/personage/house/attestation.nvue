@@ -4,7 +4,7 @@
       <tf-list>
         <tf-list-item title="房屋">
           <template v-slot:right>
-            <input class="tf-input" placeholder="自动获得焦点" />
+            <input class="tf-input" />
           </template>
         </tf-list-item>
       </tf-list>
@@ -26,8 +26,16 @@
           </template>
         </tf-list-item>
       </tf-list>
+      <tf-list>
+        <tf-list-item title="设置当前房屋" :showArrow="false">
+          <template v-slot:right>
+            <switch color="#EB5841" checked/>
+          </template>
+        </tf-list-item>
+      </tf-list>
       <button class="tf-mt-base" type="warn" form-type="submit">提交</button>
     </form>
+    <button type="default">删除</button>
   </view>
 </template>
 
