@@ -1,7 +1,7 @@
 <script>
   export default {
     onLaunch: function() {
-      // #ifdef APP-NVUE
+      // #ifdef APP-PLUS
       //仅支持竖屏显示  
       plus.screen.lockOrientation('portrait-primary');
 

@@ -3,23 +3,22 @@
     <placeholderNavBar></placeholderNavBar>
     <view class="header-bg"></view>
     <page-nav-bar :status="1" name="123"></page-nav-bar>
-    <swiperInform></swiperInform>
+    <swiperInform :noticeList="noticeList" @swiperTap="goNotice"></swiperInform>
     <ImageList :list="appList"></ImageList>
     <view class="tf-flex-center tf-flex-item">
       <view class="key-box" @tap="goEntrance">
-        <view class="key-box__box">
-          <text class="tf-icon key-icon">&#xe83f;</text>
-        </view>
+        <text class="tf-icon">{{icon_key}}</text>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+  import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
   import pageNavBar from "../components/page-nav-bar/index.nvue"
   import ImageList from "../components/image-list/index.nvue"
-  import swiperInform from "../components/swiper-inform/index.nvue"
-  import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
+  import swiperInform from "../components/swiper-notice/index.nvue"
+  import { icon_key } from '@/pages/const/icon.js'
   import { queryAllApp } from '@/api/butler/butler.js'
   export default {
     components: {
@@ -40,6 +39,16 @@
     data() {
       return {
         height: 'auto',
+        icon_key,
+        noticeList: [{
+            id: 1,
+						content: 123123123
+					},
+					{
+            id: 2,
+						content: 'ffffffffffffffffff'
+					}
+				],
         appList: [{
           icon_image: '/static/logo.png',
           application: '公告通知',
@@ -80,6 +89,12 @@
       };
     },
     methods: {
+      goNotice(item) {
+        const url = `/pages/butler/notice/details?id=${item.id}`
+        uni.navigateTo({
+          url: '/pages/butler/notice/details'
+        })
+      },
       goEntrance() {
         uni.navigateTo({
           url: '/pages/butler/entrance/index'
@@ -98,29 +113,21 @@
     height: 344rpx;
     background-image: linear-gradient(to right, $uni-bg-color-error, $uni-color-error);
   }
-
   .key-box {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 280rpx;
-    height: 280rpx;
-    border-radius: 130rpx;
-    background-color: #ffdbd9;
-  }
-
-  .key-box__box {
     position: absolute;
     z-index: 1;
-    width: 260rpx;
-    height: 260rpx;
-    border-radius: 130rpx;
+    width: 280rpx;
+    height: 280rpx;
+    border-radius: 140rpx;
+    border-width: 10rpx;
+    border-style: solid;
+    border-color: #ffdbd9;
     background-image: linear-gradient(to bottom right, $uni-bg-color-error, $uni-color-error);
   }
-  .key-icon {
-    font-size: 160rpx;
-    color: #fff;
-    text-align: center;
+  .tf-icon {
     line-height: 260rpx;
+    font-size: 160rpx;
+    text-align: center;
+    color: #fff;
   }
 </style>

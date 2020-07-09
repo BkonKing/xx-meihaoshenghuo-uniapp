@@ -1,32 +1,32 @@
 <template>
 	<swiper class="swiper-nav tf-margin-base" :circular="true" :vertical="true" :autoplay="true" :interval="5000" :duration="1000">
-		<swiper-item @touchmove.stop='stopTouchMove' v-for="(item,index) in noticeList" :key="index" class="tf-row">
-      <text class="tf-icon swiper-item-content tf-ml-base tf-mr-base">&#xe82d;</text>
+		<swiper-item @touchmove.stop='stopTouchMove' v-for="(item,index) in noticeList" :key="index" class="tf-row" @tap="jump(item)">
+      <text class="tf-icon swiper-item-content tf-ml-base tf-mr-base">{{icon_sound}}</text>
 			<text class="swiper-item-content">{{item.content}}</text>
 		</swiper-item>
 	</swiper>
 </template>
 
 <script>
+  import { icon_sound } from '@/pages/const/icon.js'
 	export default {
     name: 'swiper-inform',
 		props: {
 			noticeList: {
 				type: Array,
-				default: () => [{
-						content: 123123123
-					},
-					{
-						content: 'ffffffffffffffffff'
-					}
-				]
+				default: () => []
 			}
 		},
-		data() {
-			return {
-
-			};
-		}
+    data() {
+      return {
+        icon_sound
+      }
+    },
+		methods: {
+      jump(item) {
+        this.$emit('swiperTap', item)
+      }
+    }
 	}
 </script>
 

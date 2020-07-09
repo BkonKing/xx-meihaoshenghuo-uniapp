@@ -1,46 +1,55 @@
 <template>
-	<uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
-		<view slot="left">
-			<view class="tf-row-vertical-center room_btn" @tap="goSelect" v-if="status">
-				<text class="tf-icon">&#xe906;</text>
-				<text class="tf-text">{{name}}</text>
-			</view>
-			<view class="tf-row-vertical-center room_btn" v-else>
-				<text class="tf-icon">&#xe7a5;</text>
-				<text class="tf-text" style="text-decoration: underline;">请认证房间号</text>
-			</view>
-		</view>
-		<view slot="right" style="flex-direction: row;">
-			<text class="tf-icon">&#xe819;</text>
-			<text class="tf-icon" style="margin-left: 32rpx;">&#xe832;</text>
-      <uni-badge class="tf-badge" text="26" type="error" :inverted="true" v-if="status"></uni-badge>
-		</view>
-	</uni-nav-bar>
+  <uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
+    <view slot="left">
+      <view class="tf-row-vertical-center room_btn" @tap="goSelect" v-if="status">
+        <text class="tf-icon">{{icon_location}}</text>
+        <text class="tf-text">{{name}}</text>
+      </view>
+      <view class="tf-row-vertical-center room_btn" v-else>
+        <text class="tf-icon">{{icon_location}}</text>
+        <text class="tf-text underline">请认证房间号</text>
+      </view>
+    </view>
+    <view class="tf-row" slot="right">
+      <text class="tf-icon">{{icon_scan}}</text>
+      <view class="notice-box">
+        <text class="tf-icon margin-left">{{icon_mail}}</text>
+        <uni-badge class="tf-badge" text="26" type="error" :inverted="true" v-if="status"></uni-badge>
+      </view>
+    </view>
+  </uni-nav-bar>
 </template>
 
 <script>
-	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+  import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
   import uniBadge from "@/components/uni-badge/uni-badge.vue"
-	export default {
-		components: {
-			uniNavBar,
+  import {
+    icon_location,
+    icon_scan,
+    icon_mail
+  } from '@/pages/const/icon.js'
+  export default {
+    components: {
+      uniNavBar,
       uniBadge
-		},
-		props: {
-			status: {
-				type: Number,
-				default: 0
-			},
-			name: {
-				type: String,
-				default: ''
-			}
-		},
-		data() {
-			return {
-
-			};
-		},
+    },
+    props: {
+      status: {
+        type: Number,
+        default: 0
+      },
+      name: {
+        type: String,
+        default: ''
+      }
+    },
+    data() {
+      return {
+        icon_location,
+        icon_scan,
+        icon_mail
+      };
+    },
     methods: {
       goSelect() {
         uni.navigateTo({
@@ -48,23 +57,34 @@
         })
       }
     }
-	}
+  }
 </script>
 
 <style lang="scss" scoped>
-	.room_btn {
-		height: 30px;
-		line-height: 30px;
-	}
-		
-	.room_btn_unattestation {
-		color: #fff;
-	}
   .tf-icon {
     font-size: 44rpx;
     color: #fff;
   }
+
   .tf-text {
     color: #fff;
+  }
+  
+  .notice-box {
+    padding-right: 17rpx;
+  }
+
+  .tf-badge {
+    position: absolute;
+    top: 0rpx;
+    right: 0;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .margin-left {
+    margin-left: 32rpx;
   }
 </style>

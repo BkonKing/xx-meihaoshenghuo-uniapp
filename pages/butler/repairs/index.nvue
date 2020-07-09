@@ -1,11 +1,11 @@
 <template>
   <view class="tf-bg tf-padding-base">
-    <alert type="warning" content="您有正在进行中的报事报修，点击查看进度>>"></alert>
+    <tf-alert type="warning" content="您有正在进行中的报事报修，点击查看进度>>"></tf-alert>
     <form @submit="formSubmit">
       <view class="tf-card">
         <text class="tf-card-header">选择类型</text>
         <view class="tf-card-content" style="padding-bottom: 10rpx;">
-          <radioBtn :data="items" @change="radioChange"></radioBtn>
+          <tf-radio-btn :data="items" @change="handRadioChange"></tf-radio-btn>
         </view>
       </view>
       <view class="tf-card">
@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import alert from "../../components/alert/index.nvue";
-import radioBtn from "../../components/radio/index.nvue";
+import tfAlert from "../../components/tf-alert/index.nvue";
+import tfRadioBtn from "../../components/tf-radio-btn/index.nvue";
 import uImg from "@/components/uploadImg/uploadImg.vue";
 import { addRepair } from '@/api/butler/butler.js';
 const toast = msg => {
@@ -53,8 +53,8 @@ const toast = msg => {
 };
 export default {
   components: {
-    alert,
-    radioBtn,
+    tfAlert,
+    tfRadioBtn,
     uImg
   },
   //点击导航栏 buttons 时触发
@@ -132,7 +132,7 @@ export default {
     upFile() {
       this.$refs.upimg.upload();
     },
-    radioChange(value) {
+    handRadioChange(value) {
       this.category_id = value;
     },
     addRepair(data) {
