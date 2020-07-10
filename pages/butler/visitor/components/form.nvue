@@ -1,41 +1,34 @@
 <template>
-  <view class="tf-bg tf-padding-base">
-    <form @submit="formSubmit">
-      <tf-list>
-        <tf-list-item title="访客姓名" :showArrow="false">
-          <template v-slot:right>
-            <input class="tf-input" />
-          </template>
-        </tf-list-item>
-        <tf-list-item title="性别">
-          <template v-slot:right>
-            <picker mode="selector" :range="sexArray" :value="sex" @change="bindSexChange">
-              <text class="tf-text">{{sex}}</text>
-            </picker>
-          </template>
-        </tf-list-item>
-        <tf-list-item title="手机号" :showArrow="false">
-          <template v-slot:right>
-            <input type="number" class="tf-input" />
-          </template>
-        </tf-list-item>
-        <tf-list-item title="车牌号" :showArrow="false">
-          <template v-slot:right>
-            <input class="tf-input" />
-          </template>
-        </tf-list-item>
-      </tf-list>
-      <button class="tf-mt-base" type="warn" form-type="submit">保存</button>
-    </form>
+  <view>
+    <tf-list-item title="访客姓名" :showArrow="false">
+      <template v-slot:right>
+        <input class="tf-input" />
+      </template>
+    </tf-list-item>
+    <tf-list-item title="性别">
+      <template v-slot:right>
+        <picker mode="selector" :range="sexArray" :value="sex" @change="bindSexChange">
+          <text class="tf-text">{{sex}}</text>
+        </picker>
+      </template>
+    </tf-list-item>
+    <tf-list-item title="手机号" :showArrow="false">
+      <template v-slot:right>
+        <input type="number" class="tf-input" />
+      </template>
+    </tf-list-item>
+    <tf-list-item title="车牌号" :showArrow="false">
+      <template v-slot:right>
+        <input class="tf-input" />
+      </template>
+    </tf-list-item>
   </view>
 </template>
 
 <script>
-  import tfList from "@/pages//components/tf-list/index.nvue"
   import tfListItem from "@/pages//components/tf-list/item.nvue"
   export default {
     components: {
-      tfList,
       tfListItem
     },
     data() {
@@ -45,14 +38,9 @@
       };
     },
     methods: {
-      formSubmit: function(e) {
-        const {
-          content
-        } = e.detail.value;
-      },
       bindSexChange: function(e) {
         this.sex = e.target.value
-      },
+      }
     }
   };
 </script>

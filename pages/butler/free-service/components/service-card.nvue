@@ -1,6 +1,6 @@
 <template>
   <view style="flex-direction: row;justify-content: space-between;">
-    <view class="service-card" :class="{'service-card--primary': item.info}" v-for="(item, i) in data" :key="i" @tap="showService">
+    <view class="service-card" :class="{'service-card--primary': item.info}" v-for="(item, i) in data" :key="i" @tap="showService(item)">
       <view class="service-card-tag" :class="{'service-card-tag--primary': item.info}"></view>
       <view class="service-card-content">
         <text class="service-card-name" :class="{'service-card-name--primary': item.info}">{{item.name}}</text>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-  import tfDialog from '../../../components/dialog/index.vue'
+  import tfDialog from '@/pages/components/tf-dialog/index.vue'
   export default {
     components: {
       tfDialog
@@ -36,8 +36,10 @@
       }
     },
     methods: {
-      showService() {
-        this.$refs.dialog.open()
+      showService(item) {
+        if (item.info) {
+          this.$refs.dialog.open()
+        }
       }
     }
   }

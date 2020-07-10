@@ -4,7 +4,7 @@
       <cell-slot :key="i"> -->
     <view class="tf-padding-base" v-for="(item, i) in repairList" :key="i">
       <text class="list-item--time">{{item.ctime}}</text>
-      <view class="tf-card" @tap="jump(item)" style="padding-right: 0 !important;">
+      <view class="tf-card" style="padding-right: 0 !important;">
         <view class="tf-card-header">
           <text class="tf-card-header__title">{{item.category}}</text>
           <text class="tf-card-header__status">{{statusText[item.status]}}</text>

@@ -47,6 +47,9 @@
   .tf-mt-base {
     margin-top: $uni-spacing-col-base;
   }
+  .tf-mt-lg {
+    margin-top: $uni-spacing-col-lg;
+  }
   .tf-mb-base {
     margin-bottom: $uni-spacing-col-base;
   }
@@ -112,7 +115,7 @@
   .tf-article-title {
     font-size: 38rpx;
     color: $uni-text-color;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 58rpx;
   }
   /* 文章信息*/
@@ -135,7 +138,7 @@
   /* 次要内容*/
   .tf-auxiliary-content {
     font-size: $uni-font-size-base;
-    color: $uni-text-color-grey;
+    color: #666;
   }
   /* 图片*/
   .tf-image-box {
@@ -172,8 +175,8 @@
   }
   /* 头像*/
   .tf-avatar {
-    width: 80rpx;
-    height: 80rpx;
+    width: 88rpx;
+    height: 88rpx;
     border-radius: $uni-border-radius-circle;
   }
   /* 分割线*/
@@ -191,6 +194,16 @@
     height: 24rpx !important;
     line-height: 26rpx !important;
     font-size: 18rpx !important;
+  }
+  /* 渐变标记*/
+  .tf-gradient-tag--warning {
+    height: 36rpx;
+    line-height: 36rpx;
+    border-radius: 16rpx;
+    padding: 0 15rpx;
+    color: #fff;
+    font-size: 24rpx;
+    background-image: linear-gradient(to right, $uni-bg-color-warning, $uni-color-warning);
   }
   /* 圆形标记*/
   .tf-circle-tag--primary {

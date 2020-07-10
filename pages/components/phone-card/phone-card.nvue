@@ -1,12 +1,10 @@
 <template>
-  <view class="tf-padding-base phone-box tf-mb-base" :style="{'padding-left': tag ? '0' : '20rpx'}">
+  <view class="phone-box" :style="{'padding-left': tag ? '0' : '20rpx'}">
     <view class="phone-info" :class="{'phone-info__divider': info}">
-      <view class="tf-row-vertical-center">
-        <view v-if="tag" class="phone-name-tag">
-          <text class="phone-name-tag__text">{{name}}</text>
-        </view>
-        <text v-else class="phone-name">{{name}}</text>
+      <view v-if="tag" class="phone-name-tag">
+        <text class="phone-name-tag__text">{{name}}</text>
       </view>
+      <text v-else class="phone-name">{{name}}</text>
       <view class="tf-row-vertical-center" @tap="makePhoneCall(number)">
         <text class="phone-number">{{number}}</text>
         <text class="tf-icon">{{icon_phone}}</text>
@@ -52,6 +50,7 @@
 
 <style lang="scss" scoped>
   .phone-box {
+    margin-bottom: 30rpx;
     border-radius: 5px;
     background-color: #fff;
   }
@@ -68,6 +67,8 @@
   .phone-info {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 30rpx 20rpx 0;
     line-height: 80rpx;
   }
 
@@ -84,6 +85,7 @@
 
   .phone-number {
     font-size: 38rpx;
+    line-height: 80rpx;
     color: $uni-text-color;
     margin-right: $uni-spacing-row-base;
   }
@@ -108,8 +110,7 @@
     font-size: 40rpx;
     color: $uni-text-color;
   }
-
-  .tf-row-vertical-center {
-    height: 80rpx;
+  .tf-card-content {
+    padding: 20rpx 0;
   }
 </style>

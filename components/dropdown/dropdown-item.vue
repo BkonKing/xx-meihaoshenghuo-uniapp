@@ -1,20 +1,20 @@
 <template>
-  <div class="dropdown-item">
+  <view class="dropdown-item">
     <!-- selected -->
     <view class="dropdown-item__selected" @click="changePopup">
       <view class="dropdown-item__title">
-        <text v-if="icon" class="dropdown-item__icon iconfont" v-html="icon"></text>
+        <text v-if="icon" class="dropdown-item__icon selectIcon" v-html="icon"></text>
         <slot name="title">
           <view class="selected__name">{{title ? title : selectItem.text}}</view>
         </slot>
       </view>
       <view class="selected__icon" :class="showClass === 'show'? 'up' : 'down'">
-        <text class="iconfont">&#xe99c;</text>
+        <text class="selectIcon">&#xe99c;</text>
       </view>
     </view>
     <view class="dropdown-item__content" :style="{top: contentTop + 'px'}" v-if="showList">
       <!-- dropdown -->
-      <view :class="['list', showClass]">
+      <view :class="['list', showClass]" :style="[{left: `${contentLeft}px`}, {right: `${contentLeft}px`}]">
         <slot v-if="$slots.default"></slot>
         <block v-else>
           <view class="list__option" v-for="(item, index) in list" :key="index" @click="choose(item)">
@@ -26,7 +26,7 @@
       <!-- dropdown-mask -->
       <view :class="['dropdown-mask', showClass]" v-if="showList" @click="closePopup"></view>
     </view>
-  </div>
+  </view>
 </template>
 
 <script>
@@ -51,7 +51,8 @@
         showList: "",
         showClass: '',
         selectItem: {},
-        contentTop: 0
+        contentTop: 0,
+        contentLeft: 0
       }
     },
     watch: {},
@@ -86,6 +87,7 @@
         this.$nextTick(() => {
           this.getElementData('.dropdown-item__selected', (data) => {
             this.contentTop = data[0].bottom
+            this.contentLeft = data[0].left
             this.showClass = 'show'
           })
         })
@@ -112,11 +114,10 @@
 <style lang="scss" scoped>
   @font-face {
     font-family: 'selectIcon';
-    src: url('//at.alicdn.com/t/font_1908587_ppeo1ml9et.eot');
     src: url('//at.alicdn.com/t/font_1908587_ppeo1ml9et.ttf') format('truetype');
   }
 
-  .iconfont {
+  .selectIcon {
     font-family: "selectIcon" !important;
     font-size: 28rpx;
     font-style: normal;
@@ -140,7 +141,7 @@
       line-height: 66rpx;
       border-radius: 33rpx;
       font-size: $uni-font-size-base;
-      
+
       .dropdown-item__icon {
         font-weight: bold;
         margin-right: 20rpx;
@@ -180,7 +181,7 @@
       overflow: hidden;
       top: 0;
       bottom: 0;
-      z-index: 1;
+      z-index: 999999;
 
       .list {
         max-height: 400px;
@@ -199,7 +200,7 @@
 
         &__option {
           font-size: 32rpx;
-          padding: 26rpx 28rpx;
+          padding: 10rpx 30rpx;
           display: flex;
           justify-content: space-between;
 

@@ -27,6 +27,10 @@
 <style lang="scss" scoped>
   .tf-article-info {
     margin-top: 36rpx;
-    margin-bottom: 36rpx;
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom-width: 2rpx;
+    border-bottom-style: solid;
+    border-bottom-color: $uni-color-divider;
   }
 </style>

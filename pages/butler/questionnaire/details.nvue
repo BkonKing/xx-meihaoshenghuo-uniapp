@@ -1,29 +1,37 @@
 <template>
-  <scroll-view class="tf-padding-base">
-    <userInfo avatar="/static/app-icon.png" name="用户昵称" time="2020.05.30">
-      <template v-slot:right>
-        <view class="tf-space-between" style="height: 80rpx;">
-          <text class="tf-text">2491人参与</text>
-          <text class="tf-text">参与得10幸福币</text>
-        </view>
-      </template>
-    </userInfo>
-    <text class="tf-article-title tf-center">投票名称名称名称名称名称名称名称</text>
-    <text class="tf-subhead-title tf-center">投票选项(单选)</text>
-    <view class="vote-box" v-for="(item, i) in voteList" :key="i">
-      <view class="vote-info tf-row-space-between tf-border-base">
-        <text class="vote-title">{{item.name}}</text>
-        <text class="vote-btn" style="padding-right: 40rpx;" v-if="status">{{item.number}}票</text>
-        <button v-else class="vote-btn" :class="{'vote-active': value.indexOf(item.id) > -1}" @tap="changeValue(item.id)">{{value.indexOf(item.id) > -1 ? 'dagou' : '投票'}}</button>
+  <view class="tf-bg">
+    <view class="tf-bg-white">
+      <userInfo avatar="/static/app-icon.png" name="用户昵称" time="2020.05.30">
+      </userInfo>
+      <text class="tf-article-title">投票名称名称名称名称名称名称名称</text>
+      <view class="tf-row-space-between">
+        <text class="tf-gradient-tag--warning">参与得10幸福币</text>
+        <text class="people-number">2333人参加</text>
       </view>
-      <view v-if="status" class="vote-progress"></view>
     </view>
-    <text class="tf-auxiliary-content" v-if="status">投票已结束</text>
-    <button v-if="!type">确定</button>
-  </scroll-view>
+    <view style="padding: 30rpx 20rpx;">
+      <text class="tf-text-grey tf-center">投票选项(单选)</text>
+      <view class="vote-box tf-row-space-between" v-for="(item, i) in voteList" :key="i" :class="{'vote-active': value.indexOf(item.id) > -1}">
+        <view v-if="status" class="vote-progress"></view>
+        <text class="vote-title">{{item.name}}</text>
+        <text class="vote-result" v-if="status">{{item.number}}票</text>
+        <button v-else-if="type" class="vote-btn" @tap="changeValue(item.id)">
+          <text>投票</text>
+        </button>
+        <button v-else class="tf-icon vote-btn vote-btn--multiple" @tap="changeValue(item.id)">
+          <text>{{value.indexOf(item.id) > -1 ? icon_check : '投票'}}</text>
+        </button>
+      </view>
+      <!-- <text class="tf-auxiliary-content" v-if="status">投票已结束</text> -->
+      <button v-if="!type">确定</button>
+    </view>
+  </view>
 </template>
 
 <script>
+  import {
+    icon_check
+  } from '@/pages/const/icon.js'
   import userInfo from '../../components/user-info/index.nvue'
   export default {
     components: {
@@ -31,11 +39,12 @@
     },
     data() {
       return {
-        type: 0,
+        icon_check,
+        type: 0, // 1为单选 0为多选
         status: 0,
         voteList: [{
             id: 1,
-            name: '选项1名称',
+            name: '选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称选项1名称',
             number: 1000,
           },
           {
@@ -52,8 +61,13 @@
         if (this.type) {
           this.value = [value]
           this.status = 1
-        } else if (this.value.indexOf(value) === -1) {
-          this.value.push(value)
+        } else {
+          const index = this.value.indexOf(value)
+          if (index == -1) {
+            this.value.push(value)
+          } else {
+            this.value.splice(index, 1)
+          }
         }
       }
     }
@@ -61,38 +75,83 @@
 </script>
 
 <style lang="scss" scoped>
-  .vote-box {
-    position: relative;
-    margin-bottom: $uni-spacing-col-base;
+  .tf-bg-white {
+    padding: 30rpx;
   }
 
-  .vote-info {
-    position: relative;
+  .tf-article-title {
+    margin-top: 60rpx;
+    margin-bottom: 30rpx;
+    padding-bottom: 40rpx;
+    border-bottom-width: 2rpx;
+    border-bottom-style: dashed;
+    border-bottom-color: #aaa;
+  }
+
+  .people-number {
+    font-size: 24rpx;
+    color: $uni-color-error;
+  }
+
+  .tf-text-grey {
+    font-size: 24rpx;
+    margin-bottom: 30rpx;
+  }
+
+  .vote-box {
     z-index: 1;
+    margin-bottom: 30rpx;
+    background-color: #fff;
+    border-radius: $uni-border-radius-base;
   }
 
   .vote-progress {
     position: absolute;
+    top: 0;
+    bottom: 0;
     z-index: 0;
     width: 40rpx;
-    height: 120rpx;
-    background-color: $uni-bg-color-grey;
+    // height: 120rpx;
+    background-color: $uni-bg-color-error;
+    opacity: 0.2;
   }
 
   .vote-title {
+    flex: 1;
     justify-content: center;
     font-size: $uni-font-size-lg;
-    padding-left: 20rpx;
-    height: 120rpx;
-    line-height: 120rpx;
+    padding: 31rpx 30rpx;
+    // height: 120rpx;
+    line-height: 58rpx;
+  }
+
+  .vote-result {
+    font-size: 30rpx;
+    padding-right: 30rpx;
+    color: $uni-text-color-grey;
+    justify-content: center;
+    text-align: center;
   }
 
   .vote-btn {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0 40rpx;
-    border-radius: 0;
-    height: 120rpx;
-    line-height: 120rpx;
+    width: 120rpx;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    border-radius: 10rpx;
+    border-width: 0px !important;
+    font-size: 30rpx;
+    color: #fff;
+    background-image: linear-gradient(to bottom right, $uni-bg-color-error, $uni-color-error);
+  }
+  
+  .vote-btn--multiple {
+    background-image: linear-gradient(to bottom right, $uni-bg-color-warning, $uni-color-warning);
+  }
+
+  .vote-active {
+    border-width: 2rpx;
+    border-style: solid;
+    border-color: $uni-bg-color-warning;
   }
 </style>

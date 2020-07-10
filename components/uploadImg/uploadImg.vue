@@ -227,8 +227,8 @@
 		z-index: 100;
 	}
 	.upload-single {
-		width: 124rpx;
-		height: 124rpx;
+		width: 134rpx;
+		height: 134rpx;
 		// border-width: 2rpx;
     // border-style: solid;
     // border-color: $uni-border-color;

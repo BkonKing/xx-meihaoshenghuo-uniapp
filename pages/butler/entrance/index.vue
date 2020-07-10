@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import tfSelect from '../../components/select/index.vue'
+  import tfSelect from '../../components/tf-select/index.vue'
   export default {
     components: {
       tfSelect
@@ -105,7 +105,7 @@
   .entrance-box {
     flex-direction: row !important;
     justify-content: space-around;
-    position: relative;
+    padding: 0 105rpx;
 
     &__divider {
       width: 1px;

@@ -1,20 +1,27 @@
 <template>
-	<view>
-		<visitor-form></visitor-form>
-	</view>
+  <view class="tf-bg tf-padding-base">
+    <form @submit="formSubmit">
+      <tf-list>
+        <visitor-form></visitor-form>
+      </tf-list>
+      <button class="tf-mt-base" type="warn" form-type="submit">保存</button>
+    </form>
+  </view>
 </template>
 
 <script>
+  import tfList from "@/pages/components/tf-list/index.nvue"
   import visitorForm from './components/form.nvue'
-	export default {
+  export default {
     components: {
+      tfList,
       visitorForm
     },
-		data() {
-			return {
-				
-			};
-		},
+    data() {
+      return {
+
+      };
+    },
     onLoad(params) {
       const {
         type
@@ -23,7 +30,15 @@
         title: type === '1' ? '添加访客' : '修改访客信息'
       })
     },
-	}
+    methods: {
+      formSubmit: function(e) {
+        const {
+          content
+        } = e.detail.value;
+        console.log(content)
+      }
+    }
+  }
 </script>
 
 <style lang="scss">

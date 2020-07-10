@@ -1,17 +1,17 @@
 <template>
-  <scroll-view class="tf-padding-base">
-    <userInfo name="园博园他" avatar="../../../static/app-icon.png" time="2020.05.02"></userInfo>
-    <text class="tf-auxiliary-content tf-mb-base">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text>
-    <view class="image-box">
-      <image class="image" v-for="(item,i) in imageList" :key="i" :src="item.src" mode="aspectFill"></image>
+  <view class="tf-bg">
+    <view class="tf-bg-white tf-padding-base">
+      <userInfo name="园博园他" avatar="/static/app-icon.png" time="2020.05.02"></userInfo>
+      <text class="tf-auxiliary-content tf-mt-lg">　　内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text>
+      <view class="tf-image-box tf-mt-base">
+        <image class="image" v-for="(item,i) in imageList" :key="i" :src="item.src" mode="aspectFill"></image>
+      </view>
     </view>
-    <view class="reply-box tf-padding-base">
-      <text class="tf-text">社区回复：</text>
-      <text class="tf-auxiliary-content">
-        回复内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-      </text>
+    <view class="tf-card tf-mt-lg">
+      <text class="tf-card-header">社区回复</text>
+      <text class="tf-card-content">回复内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text>
     </view>
-  </scroll-view>
+  </view>
 </template>
 
 <script>
@@ -43,14 +43,18 @@
 </script>
 
 <style lang="scss" scoped>
-  .image {
-    width: 170rpx;
-    height: 170rpx;
-    margin-bottom: 10rpx;
-    margin-right: 7.5rpx;
+  .tf-card {
+    width: 750rpx;
   }
-  .reply-box {
-    background-color: $uni-bg-color-grey;
-    border-radius: $uni-border-radius-base;
+  .tf-card-header {
+    font-size: 30rpx;
+  }
+  .image {
+    width: 210rpx;
+    height: 210rpx;
+    margin-bottom: 20rpx;
+  }
+  .tf-auxiliary-content {
+    line-height: 56rpx;
   }
 </style>

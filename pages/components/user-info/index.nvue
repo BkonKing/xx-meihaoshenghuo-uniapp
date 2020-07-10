@@ -1,17 +1,17 @@
 <template>
-  <view class="tf-row-space-between">
-    <view class="tf-row-space-between tf-mb-base" style="height: 80rpx;">
+  <view class="tf-row-space-between tf-flex-item">
+    <view class="tf-row tf-flex-item" style="height: 88rpx;">
       <image class="tf-avatar tf-mr-base" :src="avatar" mode="aspectFit"></image>
       <slot name="left">
         <view class="tf-space-between">
-          <text class="tf-text">{{name}}</text>
-          <text class="tf-text">{{time}}</text>
+          <text class="user-info--name">{{name}}</text>
+          <text class="user-info-time">{{time}}</text>
         </view>
       </slot>
     </view>
-    <slot name="right">
-      <view></view>
-    </slot>
+    <view class="user-info__right-box">
+      <slot name="right"></slot>
+    </view>
   </view>
 </template>
 
@@ -29,4 +29,18 @@
   }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+  .user-info--name {
+    font-size: 30rpx;
+    font-weight: 500;
+    color: $uni-text-color;
+  }
+  .user-info-time {
+    font-size: 24rpx;
+    color: $uni-text-color-grey
+  }
+  .user-info__right-box {
+    flex-direction: row;
+    align-items: center;
+  }
+</style>

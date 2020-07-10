@@ -1,9 +1,9 @@
 <template>
   <scroll-view class="tf-padding-base tf-bg">
-    <!--    <recycle-list for="(item, i) in data">
+<!--       <recycle-list for="(item, i) in data">
         <cell-slot :key="i"> -->
     <view v-for="(item, i) in data" :key="i">
-      <view class="list-item tf-padding-base tf-row-space-between">
+      <view class="list-item tf-row-space-between">
         <view class="tf-row">
           <text class="tf-text">{{item.name}}</text>
           <text class="tf-text">{{item.sex}}</text>
@@ -16,7 +16,7 @@
         </view>
       </view>
     </view>
-    <!--      </cell-slot>
+<!--         </cell-slot>
       </recycle-list> -->
     <button type="warn" @tap="jump(1)">新增访客</button>
   </scroll-view>
@@ -69,16 +69,18 @@
 
 <style lang="scss" scoped>
   .list-item {
+    height: 120rpx;
     align-items: center;
-    background-color: #fff;
+    padding: 0 30rpx;
+    margin-bottom: $uni-spacing-col-lg;
     border-radius: $uni-border-radius-base;
-    margin-bottom: 20rpx;
+    background-color: #fff;
   }
   .tf-text {
-    margin-right: 10rpx;
+    margin-right: $uni-spacing-row-base;
   }
   .tf-icon {
-    margin-left: $uni-spacing-row-sm;
+    margin-left: $uni-spacing-row-base;
   }
   .icon--remove {
     color: $uni-color-error;

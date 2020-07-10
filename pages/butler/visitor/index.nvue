@@ -1,100 +1,68 @@
 <template>
-  <view class="tf-bg-white">
-    <view class="divider">
-      <text class="tf-module-name tf-padding-base">邀约设置</text>
-      <view class="tf-list">
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            来访日期
-          </text>
-          <view class="tf-list-cell-right">
-            <picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
-              <text class="tf-text">{{date}}</text>
-            </picker>
-            <!-- <text class="tf-icon">&#xe856;</text> -->
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            进出次数
-          </text>
-          <view class="tf-list-cell-right">
-            <picker mode="selector" :range="array" :value="number" @change="bindDateChange">
-              <text class="tf-text">{{number}}</text>
-            </picker>
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            同行人数
-          </text>
-          <view class="tf-list-cell-right">
-            <input type="number" style="text-align: right;" />
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            来访目的
-          </text>
-          <view class="tf-list-cell-right">
-            <input style="text-align: right;" />
-          </view>
-        </view>
-      </view>
+  <view class="tf-bg tf-padding-base">
+    <tf-list>
+      <text class="list-title">邀约设置</text>
+      <tf-list-item title="来访日期">
+        <template v-slot:right>
+          <picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+            <text class="tf-text text-right">{{date}}</text>
+          </picker>
+        </template>
+      </tf-list-item>
+      <tf-list-item title="进出次数">
+        <template v-slot:right>
+          <picker mode="selector" :range="array" :value="number" @change="bindDateChange">
+            <text class="tf-text text-right">{{number}}</text>
+          </picker>
+        </template>
+      </tf-list-item>
+      <tf-list-item title="同行人数" :showArrow="false">
+        <template v-slot:right>
+          <input type="number" class="tf-input" />
+        </template>
+      </tf-list-item>
+      <tf-list-item title="来访目的" :showArrow="false">
+        <template v-slot:right>
+          <input class="tf-input" />
+        </template>
+      </tf-list-item>
+    </tf-list>
+    <view class="visitor-btn">
+      <text class="tf-icon visitor-btn__text">{{icon_contacts}}  选择访客</text>
     </view>
-    <view>
-      <view class="tf-row-space-between">
-        <text class="tf-module-name tf-padding-base">访客信息</text>
-        <button class="visitor-btn" :plain="true">选择访客</button>
+    <tf-list>
+      <text class="list-title">访客信息</text>
+      <visitor-form v-if="1"></visitor-form>
+      <view v-else class="visitor-info">
+        <view class="tf-row">
+          <text class="visitor-info__text tf-mr-base">鲁班七号  男</text>
+          <text class="visitor-info__text tf-text-grey">15066668888  闽A23333</text>
+        </view>
+        <text class="tf-icon">{{icon_delete}}</text>
       </view>
-      <view class="tf-list">
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            访客姓名
-          </text>
-          <view class="tf-list-cell-right">
-            <input style="text-align: right;" />
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            性别
-          </text>
-          <view class="tf-list-cell-right">
-            <picker mode="selector" :range="sexArray" :value="sex" @change="bindDateChange">
-              <text class="tf-text">{{sex}}</text>
-            </picker>
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            手机号码
-          </text>
-          <view class="tf-list-cell-right">
-            <input type="number" style="text-align: right;" />
-          </view>
-        </view>
-        <view class="tf-list-cell">
-          <text class="tf-list-cell-left">
-            车牌号
-          </text>
-          <view class="tf-list-cell-right">
-            <input style="text-align: right;" />
-          </view>
-        </view>
-      </view>
-    </view>
-    <button @tap="sendInvite">发起邀约</button>
+    </tf-list>
+    <button class="tf-mt-base" @tap="sendInvite" type="warn">发起邀约</button>
   </view>
 </template>
 
 <script>
+  import visitorForm from './components/form.nvue'
+  import tfList from "@/pages/components/tf-list/index.nvue"
+  import tfListItem from "@/pages/components/tf-list/item.nvue"
+  import { icon_contacts, icon_delete } from "@/pages/const/icon.js"
   export default {
+    components: {
+      tfList,
+      tfListItem,
+      visitorForm
+    },
     data() {
       const currentDate = this.getDate({
         format: true
       })
       return {
+        icon_contacts,
+        icon_delete,
         title: 'picker',
         array: ['当日一次', '当日二次', '当日三次', '当日四次'],
         sex: '男',
@@ -114,7 +82,9 @@
       }
     },
     //点击导航栏 buttons 时触发
-    onNavigationBarButtonTap({index}) {
+    onNavigationBarButtonTap({
+      index
+    }) {
       if (index === 0) {
         uni.navigateTo({
           url: '/pages/butler/visitor/invite-list'
@@ -161,11 +131,43 @@
 </script>
 
 <style lang="scss" scoped>
-.visitor-btn {
-  height: 70rpx;
-  font-size: $uni-font-size-base;
-  line-height: 70rpx;
-  margin-left: 0;
-  margin-right: 20rpx;
-}
+  .tf-input {
+    font-size: 30rpx;
+    text-align: right;
+  }
+  
+  .visitor-btn {
+    margin: 30rpx 0;
+  }
+  
+  .visitor-btn__text {
+    text-align: right;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-size: 26rpx;
+  }
+
+  .list-title {
+    font-size: 30rpx;
+    padding: 30rpx;
+    font-weight: bold;
+    text-align: center;
+    border-bottom-width: 2rpx;
+    border-bottom-style: solid;
+    border-bottom-color: $uni-color-divider;
+  }
+  
+  .visitor-info {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 35rpx 30rpx;
+  }
+  
+  .visitor-info__text {
+    font-size: 30rpx;
+  }
+  
+  .text-right {
+    text-align: right;
+  }
 </style>

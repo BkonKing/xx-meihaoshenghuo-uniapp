@@ -64,7 +64,8 @@
 
   view,
   text,
-  span {
+  span,
+  uni-button{
     display: flex !important;
     flex-direction: column;
     position: relative;

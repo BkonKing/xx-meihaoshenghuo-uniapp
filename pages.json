@@ -287,6 +287,10 @@
             "style" : {
               "app-plus": {
                 "titleNView": {
+                  "autoBackButton": true,
+                  "backButton": {
+                    "color": "#fff"
+                  },
                   "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
                   "buttons": [
                     {
@@ -310,7 +314,7 @@
         ,{
             "path" : "pages/butler/entrance/list",
             "style" : {
-              "navigationBarTitleText": "开门历史",
+              "navigationBarTitleText": "开门记录",
               "navigationBarBackgroundColor": "#fff"
             }
         }
@@ -361,7 +365,6 @@
     "backgroundColor": "#fff"
   },
   "tabBar": {
-    "borderStyle": "#E5E5E5",
     "backgroundColor": "#fff",
     "color": "#8F8F94",
     "selectedColor": "#eb5841",

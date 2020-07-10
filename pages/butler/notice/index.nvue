@@ -2,15 +2,15 @@
   <view class="tf-bg">
     <recycle-list for="(item, i) in noticeList">
       <cell-slot :key="i">
-        <view class="tf-padding-base"">
-        <text class="list-item--time">{{item.ctime}}</text>
-        <view class="tf-card" @tap="jump(item)">
-          <view class="tf-card-header" style="justify-content: flex-start;">
-            <text v-if="item.is_readed === '1'" class="is_readed"></text>
-            <text class="tf-card-header__title">{{item.title}}</text>
+        <view class="tf-padding-base">
+          <text class="list-item--time">{{item.ctime}}</text>
+          <view class="tf-card" @tap="jump(item)">
+            <view class="tf-card-header" style="justify-content: flex-start;">
+              <text v-if="item.is_readed === '1'" class="is_readed"></text>
+              <text class="tf-card-header__title">{{item.title}}</text>
+            </view>
+            <text class="tf-card-content">{{item.content}}</text>
           </view>
-          <text class="tf-card-content">{{item.content}}</text>
-        </view>
         </view>
       </cell-slot>
     </recycle-list>

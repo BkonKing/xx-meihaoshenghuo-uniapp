@@ -19,9 +19,7 @@
           <template v-slot:tag>
             <text class="question-index-box">Q1</text>
           </template>
-          <text class="question-content">
-            智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。
-          </text>
+          <text class="question-content">智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。</text>
         </uni-collapse-item>
       </uni-collapse>
     </view>
