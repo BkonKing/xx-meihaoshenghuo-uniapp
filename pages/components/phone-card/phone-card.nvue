@@ -5,7 +5,7 @@
         <text class="phone-name-tag__text">{{name}}</text>
       </view>
       <text v-else class="phone-name">{{name}}</text>
-      <view class="tf-row-vertical-center" @tap="makePhoneCall(number)">
+      <view class="tf-vertical-center" @tap="makePhoneCall(number)">
         <text class="phone-number">{{number}}</text>
         <text class="tf-icon">{{icon_phone}}</text>
       </view>

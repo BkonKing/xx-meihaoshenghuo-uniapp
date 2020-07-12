@@ -19,7 +19,7 @@
             <uni-list-item title="姓名" rightText="张三" :showArrow="false">
             </uni-list-item>
             <uni-list-item title="手机号" rightText="1555555555" @tap="jumpPhone"></uni-list-item>
-            <uni-list-item title="收货地址" rightText="福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省" rightWidth="460rpx"></uni-list-item>
+            <uni-list-item title="收货地址" rightText="福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省福建省省福建省福建省福建省" rightWidth="460rpx" @tap="goAddress"></uni-list-item>
           </uni-list>
           <uni-list style="background-color: #fff;border-radius: 8rpx;margin-bottom: 30rpx;">
             <uni-list-item title="人脸采集">
@@ -43,7 +43,7 @@
                   <text class="house-address">5栋1单元1001</text>
                 </view>
               </view>
-              <view class="tf-row-vertical-center">
+              <view class="tf-vertical-center">
                 <text>ren</text>
                 <text>4</text>
               </view>
@@ -145,6 +145,11 @@
       addHouse() {
         uni.navigateTo({
           url: '/pages/personage/house/attestation'
+        })
+      },
+      goAddress() {
+        uni.navigateTo({
+          url: '/pages/personage/information/address'
         })
       },
       jumpPhone() {

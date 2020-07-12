@@ -2,6 +2,10 @@
   .tf-row {
     flex-direction: row !important;
   }
+  /* 垂直居中*/
+  .tf-vertical-center {
+    justify-content: center !important;
+  }
   /* 水平方向，垂直居中*/
   .tf-row-vertical-center {
     flex-direction: row !important;
@@ -53,6 +57,9 @@
   .tf-mb-base {
     margin-bottom: $uni-spacing-col-base;
   }
+  .tf-mb-lg {
+    margin-bottom: $uni-spacing-col-lg;
+  }
   .tf-ml-base {
     margin-left: $uni-spacing-col-base;
   }
@@ -69,6 +76,9 @@
   }
   .tf-text {
   	font-size: $uni-font-size-base;
+  }
+  .tf-text-sm {
+  	font-size: 24rpx;
   }
   .tf-text-lg {
   	font-size: $uni-font-size-lg;
@@ -92,6 +102,9 @@
   }
   .tf-text-grey {
     color: $uni-text-color-grey;
+  }
+  .tf-text-orange {
+    color: $uni-bg-color-warning;
   }
   .tf-center {
 		text-align: center;
@@ -174,6 +187,11 @@
     padding: 20rpx;
   }
   /* 头像*/
+  .tf-avatar-sm {
+    width: 48rpx;
+    height: 48rpx;
+    border-radius: $uni-border-radius-circle;
+  }
   .tf-avatar {
     width: 88rpx;
     height: 88rpx;
@@ -205,6 +223,14 @@
     font-size: 24rpx;
     background-image: linear-gradient(to right, $uni-bg-color-warning, $uni-color-warning);
   }
+  .tf-gradient-tag--main {
+    height: 36rpx;
+    line-height: 36rpx;
+    padding: 0 15rpx;
+    color: #fff;
+    font-size: 24rpx;
+    background-image: linear-gradient(to right, $uni-bg-color-error, $uni-color-error);
+  }
   /* 圆形标记*/
   .tf-circle-tag--primary {
     width: 20rpx;
@@ -217,6 +243,12 @@
     height: 20rpx;
     border-radius: 10rpx;
     background-color: $uni-color-success;
+  }
+  .tf-circle-tag--warning {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 10rpx;
+    background-color: $uni-color-error;
   }
   .tf-status-tag {
     position: absolute !important;

@@ -7,7 +7,7 @@
         <input class="tf-phone-input" type="number" style="width: 400rpx;" />
       </view>
       <view class="tf-phone-input-box tf-row-space-between">
-        <view class="tf-row-vertical-center">
+        <view class="tf-vertical-center">
           <text class="tf-phone-input-label">验证码</text>
           <input class="tf-phone-input" type="number" style="width: 200rpx;"/>
         </view>

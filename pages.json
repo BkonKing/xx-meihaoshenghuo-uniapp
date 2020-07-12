@@ -220,7 +220,7 @@
       "style": {
         "navigationBarTitleText": "访客通行证",
         "navigationBarBackgroundColor": "#1b1b1b",
-        "navigationBarTextStyle":"white"
+        "navigationBarTextStyle": "white"
       }
     }, {
       "path": "pages/butler/visitor/invite-list",
@@ -269,92 +269,118 @@
         "navigationBarTitleText": "我的资料",
         "navigationBarBackgroundColor": "#fff"
       }
+    }, {
+      "path": "pages/personage/order-form/index",
+      "style": {}
+    }, {
+      "path": "pages/login/index",
+      "style": {
+        "app-plus": {
+          "autoBackButton": false
+        }
+      }
+    }, {
+      "path": "pages/butler/entrance/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "autoBackButton": true,
+            "backButton": {
+              "color": "#fff"
+            },
+            "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
+            "buttons": [{
+              "fontSrc": "/static/iconfont.ttf",
+              "text": "\ue791",
+              "fontSize": "27",
+              "color": "#fff",
+              "float": "right"
+            }, {
+              "fontSrc": "/static/iconfont.ttf",
+              "text": "\ue78c",
+              "fontSize": "26",
+              "color": "#fff",
+              "float": "right"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/butler/entrance/list",
+      "style": {
+        "navigationBarTitleText": "开门记录",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/personage/house/attestation",
+      "style": {
+        "navigationBarTitleText": "房间认证",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    }, {
+      "path": "pages/butler/visitor/edit",
+      "style": {}
+    }, {
+      "path": "pages/personage/information/phone",
+      "style": {}
+    }, {
+      "path": "pages/personage/information/payment-code",
+      "style": {}
+    }, {
+      "path": "pages/personage/information/forget-payment-code",
+      "style": {}
+    }, {
+      "path": "pages/personage/information/login-password",
+      "style": {}
+    }, {
+      "path": "pages/personage/house/select-community",
+      "style": {
+        "navigationBarTitleText": "选择小区"
+      }
+    }, {
+      "path": "pages/personage/house/select-house",
+      "style": {
+        "navigationBarTitleText": "选择房产"
+      }
+    }, {
+      "path": "pages/personage/setting/index",
+      "style": {
+        "navigationBarTitleText": "设置"
+      }
     }
       ,{
-            "path" : "pages/personage/order-form/index",
+            "path" : "pages/personage/setting/account",
             "style" : {}
         }
         ,{
-            "path" : "pages/login/index",
-            "style" : {
-              "app-plus": {
-                "autoBackButton": false
-              }
-            }
-        }
-        ,{
-            "path" : "pages/butler/entrance/index",
+            "path" : "pages/personage/message/index",
             "style" : {
               "app-plus": {
                 "titleNView": {
-                  "autoBackButton": true,
-                  "backButton": {
-                    "color": "#fff"
-                  },
-                  "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
-                  "buttons": [
-                    {
-                      "fontSrc": "/static/iconfont.ttf",
-                      "text": "\ue791",
-                      "fontSize": "27",
-                      "color": "#fff",
-                      "float": "right"
-                    }, {
-                      "fontSrc": "/static/iconfont.ttf",
-                      "text": "\ue78c",
-                      "fontSize": "26",
-                      "color": "#fff",
-                      "float": "right"
-                    }
-                  ]
+                  "titleText": "消息",
+                  "titleAlign": "center",
+                  "backgroundColor": "#fff",
+                  "titleColor": "#222",
+                  "titleSize": "17",
+                  "buttons": [{
+                    "text": "全部已读",
+                    "fontSize": "16",
+                    "width": "120"
+                  }]
                 }
               }
             }
         }
         ,{
-            "path" : "pages/butler/entrance/list",
+            "path" : "pages/personage/information/address",
             "style" : {
-              "navigationBarTitleText": "开门记录",
-              "navigationBarBackgroundColor": "#fff"
+              "navigationBarTitleText": "收货地址"
             }
         }
         ,{
-            "path" : "pages/personage/house/attestation",
+            "path" : "pages/personage/information/add-address",
             "style" : {
-              "navigationBarTitleText": "房间认证",
-              "navigationBarBackgroundColor": "#fff"
-            }
-        }
-        ,{
-            "path" : "pages/butler/visitor/edit",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/personage/information/phone",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/personage/information/payment-code",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/personage/information/forget-payment-code",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/personage/information/login-password",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/personage/house/select-community",
-            "style" : {
-              "navigationBarTitleText": "选择小区"
-            }
-        }
-        ,{
-            "path" : "pages/personage/house/select-house",
-            "style" : {
-              "navigationBarTitleText": "选择房产"
+              "navigationBarTitleText": "添加地址"
             }
         }
     ],

@@ -1,3 +1,25 @@
+.tf-list {
+  flex-direction: row !important;
+  padding: 30rpx;
+  border-radius:10rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.tf-list-image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+.tf-list-title {
+  font-size: 30rpx;
+  line-height: 48rpx;
+}
+.tf-list-content {
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: $uni-text-color-grey;
+}
+
 /*卡片视图 */
   .tf-card {
     width: 710rpx;

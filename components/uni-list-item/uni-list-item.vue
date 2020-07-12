@@ -271,7 +271,7 @@
 
   .uni-list-item__extra-text {
     color: $uni-text-color-grey;
-    font-size: $uni-font-size-sm;
+    font-size: 30rpx;
     lines: 1;
     text-overflow: ellipsis;
   }

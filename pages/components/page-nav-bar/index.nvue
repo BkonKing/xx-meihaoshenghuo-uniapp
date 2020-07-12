@@ -1,11 +1,11 @@
 <template>
   <uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
     <view slot="left">
-      <view class="tf-row-vertical-center room_btn" @tap="goSelect" v-if="status">
+      <view class="tf-vertical-center room_btn" @tap="goSelect" v-if="status">
         <text class="tf-icon">{{icon_location}}</text>
         <text class="tf-text">{{name}}</text>
       </view>
-      <view class="tf-row-vertical-center room_btn" v-else>
+      <view class="tf-vertical-center room_btn" v-else>
         <text class="tf-icon">{{icon_location}}</text>
         <text class="tf-text underline">请认证房间号</text>
       </view>

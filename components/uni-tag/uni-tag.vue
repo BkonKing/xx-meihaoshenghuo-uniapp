@@ -86,7 +86,7 @@
 
 <style lang="scss" scoped>
 	$tag-pd: 0px 16px;
-	$tag-small-pd: 0px 8px;
+	$tag-small-pd: 0px 7rpx;
 
 	.uni-tag {
 		/* #ifndef APP-NVUE */
@@ -97,9 +97,9 @@
 		line-height: 30px;
 		justify-content: center;
 		color: $uni-text-color;
-		border-radius: $uni-border-radius-base;
+		// border-radius: $uni-border-radius-base;
 		background-color: $uni-bg-color-grey;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-bg-color-grey;
 	}
@@ -120,10 +120,10 @@
 	}
 
 	.uni-tag--small {
-		height: 20px;
+		height: 34rpx;
 		padding: $tag-small-pd;
-		line-height: 20px;
-		font-size: $uni-font-size-sm;
+		line-height: 34rpx;
+		font-size: 22rpx;
 	}
 
 	.uni-tag--default {
@@ -132,7 +132,8 @@
 	}
 
 	.uni-tag-text--small {
-		font-size: $uni-font-size-sm !important;
+    line-height: 32rpx;
+		font-size: 22rpx !important;
 	}
 
 	.uni-tag-text {
@@ -159,7 +160,7 @@
 	.uni-tag--primary {
 		color: $uni-text-color-inverse;
 		background-color: $uni-color-primary;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-primary;
 	}
@@ -167,7 +168,7 @@
 	.primary-uni-tag--inverted {
 		color: $uni-color-primary;
 		background-color: $uni-text-color-inverse;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-primary;
 	}
@@ -175,7 +176,7 @@
 	.uni-tag--success {
 		color: $uni-text-color-inverse;
 		background-color: $uni-color-success;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-success;
 	}
@@ -183,7 +184,7 @@
 	.success-uni-tag--inverted {
 		color: $uni-color-success;
 		background-color: $uni-text-color-inverse;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-success;
 	}
@@ -191,7 +192,7 @@
 	.uni-tag--warning {
 		color: $uni-text-color-inverse;
 		background-color: $uni-color-warning;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-warning;
 	}
@@ -199,7 +200,7 @@
 	.warning-uni-tag--inverted {
 		color: $uni-color-warning;
 		background-color: $uni-text-color-inverse;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-warning;
 	}
@@ -207,7 +208,7 @@
 	.uni-tag--error {
 		color: $uni-text-color-inverse;
 		background-color: $uni-color-error;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-error;
 	}
@@ -215,7 +216,7 @@
 	.error-uni-tag--inverted {
 		color: $uni-color-error;
 		background-color: $uni-text-color-inverse;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-color-error;
 	}
@@ -223,7 +224,7 @@
 	.uni-tag--inverted {
 		color: $uni-text-color;
 		background-color: $uni-text-color-inverse;
-		border-width: 1rpx;
+		border-width: 2rpx;
 		border-style: solid;
 		border-color: $uni-bg-color-grey;
 	}

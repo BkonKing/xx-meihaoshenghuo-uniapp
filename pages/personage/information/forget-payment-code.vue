@@ -3,7 +3,7 @@
     <text class="tf-text-lg tf-center">我们已经发送了验证码到你的手机</text>
     <text class="tf-h3 tf-center">15000112233</text>
     <view class="tf-phone-input-box tf-row-space-between">
-      <view class="tf-row-vertical-center">
+      <view class="tf-vertical-center">
         <text class="tf-phone-input-label">验证码</text>
         <input class="tf-phone-input" type="number" style="width: 200rpx;" />
       </view>

@@ -3,13 +3,13 @@
     <!-- selected -->
     <view class="dropdown-item__selected" @click="changePopup">
       <view class="dropdown-item__title">
-        <text v-if="icon" class="dropdown-item__icon selectIcon" v-html="icon"></text>
+        <text v-if="icon" class="dropdown-item__icon tf-icon" v-html="icon"></text>
         <slot name="title">
           <view class="selected__name">{{title ? title : selectItem.text}}</view>
         </slot>
       </view>
       <view class="selected__icon" :class="showClass === 'show'? 'up' : 'down'">
-        <text class="selectIcon">&#xe99c;</text>
+        <text class="tf-icon">&#xe999;</text>
       </view>
     </view>
     <view class="dropdown-item__content" :style="{top: contentTop + 'px'}" v-if="showList">
@@ -19,7 +19,7 @@
         <block v-else>
           <view class="list__option" v-for="(item, index) in list" :key="index" @click="choose(item)">
             <view>{{item.text}}</view>
-            <icon v-if="item.value === value" type="success_no_circle" size="26" />
+            <icon v-if="item.value === value" type="success_no_circle" size="26" color="#fff" />
           </view>
         </block>
       </view>

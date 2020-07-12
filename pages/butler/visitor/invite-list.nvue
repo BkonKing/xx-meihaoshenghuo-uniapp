@@ -9,7 +9,7 @@
         <cell-slot :key="i"> -->
       <view v-for="(item, i) in data" :key="i">
         <view class="list-item">
-          <view class="tf-row-vertical-center tf-mb-base">
+          <view class="tf-vertical-center tf-mb-base">
             <view class="tf-row">
               <text class="tf-text-lg tf-text-grey">到访时间：</text>
               <text class="tf-text-lg">{{item.name}}</text>

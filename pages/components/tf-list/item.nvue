@@ -1,5 +1,5 @@
 <template>
-  <view class="tf-list-cell">
+  <view class="tf-list-cell" @tap="onClick">
     <text class="tf-list-cell-left">
       {{title}}
     </text>
@@ -26,6 +26,11 @@
     },
     components: {
       uniIcons
+    },
+    methods: {
+      onClick() {
+        this.$emit('click')
+      }
     }
   }
 </script>
