@@ -2,8 +2,8 @@
     "name" : "better-life",
     "appid" : "",
     "description" : "",
-    "versionName" : "2.4.3",
-    "versionCode" : 112,
+    "versionName" : "0.0.0",
+    "versionCode" : 1,
     "transformPx" : false,
     "uniStatistics" : {
         "enable" : true

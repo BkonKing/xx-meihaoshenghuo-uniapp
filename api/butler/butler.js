@@ -4,6 +4,20 @@ import request from '@/utils/request.js'
 export function queryAllApp(data) {
   return request.get('/butler/index/allApp', data)
 }
+/* 云门禁 start */
+// 二维码开门接口
+export function getQrCode(data) {
+  return request.POST('/butler/entrance/getQrCode', data)
+}
+
+// 远程开门接口
+export function ycOpenDoor(data) {
+  return request.POST('/butler/entrance/ycOpenDoor', data)
+}
+
+/* 云门禁 end */
+
+/* 公告通知 start */
 
 // 公告通知列表接口
 export function getNoticeList(data) {
@@ -14,6 +28,10 @@ export function getNoticeList(data) {
 export function setNoticeReaded(data) {
   return request.post('/butler/notice/setNoticeReaded', data)
 }
+
+/* 公告通知 end */
+
+/* 报事报修 start */
 
 // 报事报修列表接口
 export function getRepairList(data) {
@@ -29,3 +47,5 @@ export function getRepairInfo(data) {
 export function addRepair(data) {
   return request.post('/butler/repairs/addRepair', data)
 }
+
+/* 报事报修 end */

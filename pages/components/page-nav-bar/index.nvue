@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class="tf-row" slot="right">
-      <text class="tf-icon">{{icon_scan}}</text>
+      <text class="tf-icon" @tap="scan">{{icon_scan}}</text>
       <view class="notice-box">
         <text class="tf-icon margin-left">{{icon_mail}}</text>
         <uni-badge class="tf-badge" text="26" type="error" :inverted="true" v-if="status"></uni-badge>
@@ -55,7 +55,14 @@
         uni.navigateTo({
           url: '/pages/personage/house/select-community'
         })
-      }
+      },
+	  scan() {
+		uni.scanCode({
+			success: function(res) {
+				console.log('条码类型：' + res.result);
+			}
+		})
+	  }
     }
   }
 </script>
