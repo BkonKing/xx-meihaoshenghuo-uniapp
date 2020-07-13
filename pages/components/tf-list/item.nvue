@@ -1,9 +1,9 @@
 <template>
-  <view class="tf-list-cell" @tap="onClick">
-    <text class="tf-list-cell-left">
+  <view class="tf-clist-cell" @tap="onClick">
+    <text class="tf-clist-cell-left">
       {{title}}
     </text>
-    <view class="tf-list-cell-right">
+    <view class="tf-clist-cell-right">
       <slot name="right"></slot>
     </view>
     <uni-icons v-if="showArrow" :size="20" class="uni-icon-wrapper" color="#aaa" type="arrowright" />
@@ -37,7 +37,7 @@
 
 <style lang="scss" scoped>
   
-  .tf-list-cell {
+  .tf-clist-cell {
     flex-direction: row !important;
     justify-content: space-between;
     align-items: center;
@@ -46,13 +46,13 @@
     padding: 20rpx;
   }
   
-  .tf-list-cell-left {
+  .tf-clist-cell-left {
     // height: 50rpx;
     // line-height: 50rpx;
     font-size: 28rpx;
   }
   
-  .tf-list-cell-right {
+  .tf-clist-cell-right {
     // flex-direction: row !important;
     // justify-content: flex-end;
     // align-items: center;

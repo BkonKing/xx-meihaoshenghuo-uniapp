@@ -73,7 +73,7 @@
 
 <style lang="scss" scoped>
   .tf-list {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .tf-circle-tag--warning {
     width: 14rpx;

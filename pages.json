@@ -255,8 +255,7 @@
     {
       "path": "pages/butler/complain/list",
       "style": {
-        "navigationBarTitleText": "我的投诉表扬",
-        "navigationBarBackgroundColor": "#fff"
+        "navigationBarTitleText": "我的投诉表扬"
       }
     }, {
       "path": "pages/butler/free-service/details",

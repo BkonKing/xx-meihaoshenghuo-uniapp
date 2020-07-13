@@ -1,83 +1,83 @@
 <template>
-  <view class="tf-bg">
-    <!--    <recycle-list class="tf-padding-base" for="(item, i) in repairList">
-      <cell-slot :key="i"> -->
-    <view class="tf-padding-base" v-for="(item, i) in repairList" :key="i">
-      <text class="list-item--time">{{item.ctime}}</text>
-      <view class="tf-card" style="padding-right: 0 !important;">
-        <view class="tf-card-header">
-          <text class="tf-card-header__title">{{item.category}}</text>
-          <text class="tf-card-header__status">{{statusText[item.status]}}</text>
-        </view>
-        <text class="tf-card-content">{{item.content}}</text>
-      </view>
-    </view>
-    <!--      </cell-slot>
-    </recycle-list> -->
-  </view>
+	<view class="tf-bg">
+		<recycle-list class="tf-padding-base" for="(item, i) in repairList" @tap="jump(item)">
+			<cell-slot :key="i">
+				<!-- <view class="tf-padding-base" v-for="(item, i) in repairList" :key="i" @tap="jump(item)"> -->
+				<text class="list-item--time">{{item.ctime}}</text>
+				<view class="tf-card" style="padding-right: 0 !important;">
+					<view class="tf-card-header">
+						<text class="tf-card-header__title">{{item.category}}</text>
+						<text class="tf-card-header__status">{{statusText[item.status]}}</text>
+					</view>
+					<text class="tf-card-content">{{item.content}}</text>
+				</view>
+				<!-- </view> -->
+			</cell-slot>
+		</recycle-list>
+	</view>
 </template>
 
 <script>
-  import {
-    status
-  } from '../../const/butler.js'
-  import {
-    getRepairList
-  } from '@/api/butler/butler.js'
-  export default {
-    data() {
-      return {
-        repairList: [{
-          "id": "1",
-          "category": "居家报修",
-          "content": "厨房下水道堵了",
-          "images": [
-            "https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg",
-            "https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg"
-          ],
-          "status": "1",
-          "ctime": "2020-06-03 16:35:26"
-        }],
-        statusText: status
-      };
-    },
-    onLoad() {
-      this.getRepairList()
-    },
-    methods: {
-      jump(item) {
-        const url = `/pages/butler/repairs/details?id=${item.id}`
-        uni.navigateTo({
-          url
-        })
-      },
-      getRepairList() {
-        getRepairList({
-          projectId: '',
-          repairId: ''
-        }).then(res => {
-           if (res.success) {
-             this.repairList = res.data
-           }
-        })
-      }
-    }
-  }
+	import {
+		status
+	} from '../../const/butler.js'
+	import {
+		getRepairList
+	} from '@/api/butler/butler.js'
+	export default {
+		data() {
+			return {
+				repairList: [{
+					"id": "1",
+					"category": "居家报修",
+					"content": "厨房下水道堵了",
+					"images": [
+						"https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg",
+						"https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg"
+					],
+					"status": "1",
+					"ctime": "2020-06-03 16:35:26"
+				}],
+				statusText: status
+			};
+		},
+		onLoad() {
+			this.getRepairList()
+		},
+		methods: {
+			jump(item) {
+				const url = `/pages/butler/repairs/details?id=${item.id}`
+				uni.navigateTo({
+					url
+				})
+			},
+			getRepairList() {
+				getRepairList({
+					projectId: '',
+					repairId: ''
+				}).then(res => {
+					if (res.success) {
+						this.repairList = res.data
+					}
+				})
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
-  .list-item--time {
-    font-size: 24rpx;
-    text-align: center;
-    color: $uni-text-color-grey;
-    margin-bottom: $uni-spacing-row-base;
-  }
+	.list-item--time {
+		font-size: 24rpx;
+		text-align: center;
+		color: $uni-text-color-grey;
+		margin-bottom: $uni-spacing-row-base;
+	}
 
-  .tf-card-header__title {
-    width: 550rpx;
-  }
+	.tf-card-header__title {
+		width: 550rpx;
+	}
 
-  .tf-card-content {
-    color: $uni-text-color;
-  }
+	.tf-card-content {
+		color: $uni-text-color;
+	}
 </style>

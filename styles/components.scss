@@ -23,7 +23,7 @@
 /*卡片视图 */
   .tf-card {
     width: 710rpx;
-    flex: 1;
+    // flex: 1;
     background-color: #fff;
     border-radius: 8rpx;
     padding: 0 30rpx !important;
@@ -98,6 +98,7 @@
   .tf-phone-code-btn {
     font-size: 26rpx;
     height:66rpx;
+	line-height: 66rpx;
     padding: 0 26rpx;
     margin: 0;
     border-width: 3rpx !important;

@@ -9,7 +9,7 @@
       <view class="question-box__right">
         <text class="question-title">{{item.title}}</text>
         <view class="question-info">
-          <view class="tf-vertical-center">
+          <view class="tf-row-vertical-center">
             <text class="tf-gradient-tag--warning" v-if="item.money">+{{item.money}}</text>
             <text class="participate-tatus" :class="item.status ? 'participate-tatus--proceed' : 'participate-tatus--end'">{{item.content}}</text>
           </view>
@@ -51,7 +51,7 @@
 
   .question-status-box {
     width: 170rpx;
-    height: 170rpx;
+    // height: 170rpx;
     background-color: $uni-bg-color-grey;
     border-top-left-radius: $uni-border-radius-base;
     border-bottom-left-radius: $uni-border-radius-base;

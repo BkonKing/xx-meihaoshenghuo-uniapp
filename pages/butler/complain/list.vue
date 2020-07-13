@@ -1,9 +1,8 @@
 <template>
   <view class="tf-bg tf-padding-base">
-       <recycle-list for="(item, i) in data">
-      <cell-slot :key="i">
-    <!-- <view v-for="(item, i) in data" :key="i"> -->
-      <view class="tf-card" @tap="jump(item)">
+<!--       <recycle-list for="(item, i) in data">
+      <cell-slot :key="i"> -->
+      <view v-for="(item, i) in data" :key="i" class="tf-card" @tap="jump(item)">
         <view class="tf-card-header">
           <userInfo avatar="/static/app-icon.png" :name="item.name" :time="item.day">
             <template v-slot:right>
@@ -22,9 +21,8 @@
           <text class="reply-content">{{item.replyContent}}</text>
         </view>
       </view>
-    <!-- </view> -->
-         </cell-slot>
-    </recycle-list>
+<!--         </cell-slot>
+    </recycle-list> -->
   </view>
 </template>
 
