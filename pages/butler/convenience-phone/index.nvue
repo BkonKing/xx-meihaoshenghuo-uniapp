@@ -1,36 +1,44 @@
 <template>
-	<view class="tf-bg tf-padding-base">
-		<phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :number="item.number"
-		  :avatar="item.avatar"></phone-card>
-	</view>
+  <view class="tf-bg tf-padding-base">
+    <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.title" :info="item.remarks" :number="item.telephone"></phone-card>
+  </view>
 </template>
 
 <script>
-  import phoneCard from '../../components/phone-card/phone-card.nvue'
-	export default {
-    components: {
-      phoneCard
-    },
-		data() {
-			return {
-				phoneList: [{
-				  name: '物业热线1',
-				  number: '15050505050',
-				  info: '服务时间：工作日8时至22时/节假日9时至17时  \n受理事项：为民解忧、机关效能、行政执法',
-				},
-				{
-				  name: '物业热线1',
-				  number: '15050505050',
-				  info: '服务时间：工作日8时至22时/节假日9时至17时 ',
-				}]
-			}
-		},
-		methods: {
-			
-		}
-	}
+import phoneCard from '../../components/phone-card/phone-card.nvue';
+import { getYellowPagesList } from '@/api/butler/butler.js';
+export default {
+  components: {
+    phoneCard
+  },
+  data() {
+    return {
+      phoneList: [
+        {
+          id: '1',
+          title: '保洁阿姨',
+          telephone: '15050505050',
+          remarks: ''
+        },
+        {
+          id: '2',
+          title: '疾病控制预防中心',
+          telephone: '15050505050',
+          remarks: '24小时   疾病控制预防'
+        }
+      ]
+    };
+  },
+  methods: {
+    getYellowPagesList() {
+      getYellowPagesList().then(res => {
+        if (res.success) {
+          this.phoneList = res.data;
+        }
+      });
+    }
+  }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

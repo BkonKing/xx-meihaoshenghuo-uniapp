@@ -16,7 +16,7 @@
 				</view>
 				<view class="uni-navbar__header-container uni-navbar__content_view">
 					<view class="uni-navbar__header-container-inner uni-navbar__content_view" v-if="title.length">
-						<text class="uni-nav-bar-text" :style="{color: color }">{{ title }}</text>
+						<text class="uni-nav-bar-text" :style="{color: color, fontSize: titleSize }">{{ title }}</text>
 					</view>
 					<!-- 标题插槽 -->
 					<slot />
@@ -95,6 +95,10 @@
 				type: [String, Boolean],
 				default: true
 			},
+			titleSize: {
+				type: String,
+				default: "34rpx"
+			},
       leftWidth: {
         type: String,
         default: 'auto'
@@ -131,7 +135,7 @@
 		/* #endif */
 	}
 	.uni-nav-bar-right-text {
-		font-size: $uni-font-size-base;
+		font-size: 16px;
 	}
 
 	.uni-navbar {

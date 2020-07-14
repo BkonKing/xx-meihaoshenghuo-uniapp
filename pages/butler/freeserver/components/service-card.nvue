@@ -1,0 +1,152 @@
+<template>
+  <view class="service-card-box">
+    <view class="service-card" :class="{'service-card--primary': item.sy_num || item.jy_num}" v-for="(item, i) in data" :key="i" @tap="showService(item)">
+      <view class="service-card-tag" :class="{'service-card-tag--primary': item.sy_num || item.jy_num}"></view>
+      <view class="service-card-content">
+        <text class="service-card-name" :class="{'service-card-name--primary': item.sy_num}">{{item.category}}</text>
+        <text v-if="item.category_type" class="service-card-info" :class="{'service-card-info--primary': item.jy_num}">{{item.jy_num ? `正在排队${item.jy_num}人` : '当前无人排队'}}</text>
+        <text v-else class="service-card-info" :class="{'service-card-info--primary': item.sy_num}">{{`剩余${item.sy_num}个可借`}}</text>
+      </view>
+    </view>
+    <tfDialog ref="dialog" :title="title">
+      <view class="qr-box">
+        <image class="qr-img" src="/static/app-icon.png"></image>
+        <view class="qr-status-box">
+          <text class="qr-triangle"></text>
+          <text class="qr-status">{{statusText}}</text>
+        </view>
+      </view>
+    </tfDialog>
+  </view>
+</template>
+
+<script>
+  import tfDialog from '@/pages/components/tf-dialog/index.vue'
+  export default {
+    components: {
+      tfDialog
+    },
+    props: {
+      data: {
+        type: Array,
+        default: () => []
+      }
+    },
+    data() {
+      return {
+        statusText: '',
+        title: ''
+      }
+    },
+    methods: {
+      showService({category_type, category, status}) {
+        this.statusText = ''
+        if (category_type === 1) {
+          this.statusText = status === 1 ? "开始" : "结束"
+        } else if (category_type === 2) {
+          this.statusText = status === 1 ? "借用" : "归还"
+        }
+        this.title = category
+        this.$refs.dialog.open()
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  .service-card-box {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .service-card {
+    flex-direction: row;
+    align-items: center;
+    width: 345rpx;
+    height: 150rpx;
+    padding: 30rpx 20rpx;
+    margin-bottom: $uni-spacing-col-lg;
+    background-color: #f9f9fa;
+    border-radius: 10rpx;
+  }
+
+  .service-card-tag {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    margin-right: $uni-spacing-row-base;
+    background-color: #aaa;
+  }
+
+  .service-card--primary {
+    background-color: #fff;
+  }
+
+  .service-card-tag--primary {
+    background-color: $uni-color-primary;
+  }
+
+  .service-card-name {
+    width: 265rpx;
+    font-size: 26rpx;
+    padding-bottom: 20rpx;
+    margin-bottom: 20rpx;
+    border-bottom-width: 2rpx;
+    border-bottom-style: dashed;
+    border-bottom-color: #aaa;
+    color: $uni-text-color-grey;
+  }
+
+  .service-card-name--primary {
+    color: $uni-text-color;
+  }
+
+  .service-card-info {
+    font-size: 24rpx;
+    color: $uni-text-color-grey;
+  }
+
+  .service-card-info--primary {
+    color: $uni-color-error;
+  }
+  
+  .qr-box {
+    padding: 40rpx 70rpx;
+  }
+  
+  .qr-img {
+    width: 320rpx;
+    height: 320rpx;
+  }
+  
+  .qr-status-box {
+    align-items: center;
+    margin-top: 70rpx;
+  }
+  
+  .qr-status {
+    width: 320rpx;
+    height:66rpx;
+    line-height: 66rpx;
+    font-size:30rpx;
+    border-radius:33rpx;
+    color: #fff;
+    background-color: $uni-color-error;
+    text-align: center;
+  }
+  
+  .qr-triangle {
+    width:0px;
+    height:0px;
+    border-bottom-width: 15rpx;
+    border-top-width: 15rpx;
+    border-left-width: 12rpx;
+    border-right-width: 12rpx;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: $uni-color-error;
+    border-left-color: transparent;
+  }
+</style>

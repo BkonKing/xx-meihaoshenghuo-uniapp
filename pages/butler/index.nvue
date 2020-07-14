@@ -14,10 +14,10 @@
 </template>
 
 <script>
-  import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
-  import pageNavBar from "../components/page-nav-bar/index.nvue"
-  import ImageList from "../components/image-list/index.nvue"
-  import swiperInform from "../components/swiper-notice/index.nvue"
+  import placeholderNavBar from '@/pages/components/placeholder-nav-bar/index.nvue'
+  import pageNavBar from "@/pages/components/page-nav-bar/index.nvue"
+  import ImageList from "@/pages/components/image-list/index.nvue"
+  import swiperInform from "@/pages/components/swiper-notice/index.nvue"
   import { icon_key } from '@/pages/const/icon.js'
   import { queryAllApp } from '@/api/butler/butler.js'
   export default {
@@ -60,7 +60,7 @@
         }, {
           icon_image: '/static/logo.png',
           application: '免费服务',
-          url: '/pages/butler/free-service/index'
+          url: '/pages/butler/freeserver/index'
         }, {
           icon_image: '/static/logo.png',
           application: '访客邀约',
@@ -68,7 +68,7 @@
         }, {
           icon_image: '/static/logo.png',
           application: '投诉表扬',
-          url: '/pages/butler/complain/index'
+          url: '/pages/butler/compraise/index'
         }, {
           icon_image: '/static/logo.png',
           application: '小区活动',

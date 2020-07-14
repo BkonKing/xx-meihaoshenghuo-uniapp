@@ -33,7 +33,6 @@
     }, {
       "path": "pages/butler/index",
       "style": {
-        "navigationBarTitleText": "",
         "navigationStyle": "custom",
         // 下拉刷新
         "enablePullDownRefresh": true
@@ -41,20 +40,7 @@
     }, {
       "path": "pages/butler/notice/index",
       "style": {
-        "app-plus": {
-          "titleNView": {
-            "titleText": "公告通知",
-            "titleAlign": "center",
-            "backgroundColor": "#fff",
-            "titleColor": "#222",
-            "titleSize": "17",
-            "buttons": [{
-              "text": "全部已读",
-              "fontSize": "16",
-              "width": "120"
-            }]
-          }
-        }
+        "navigationStyle": "custom"
       }
     }, {
       "path": "pages/butler/notice/details",
@@ -65,10 +51,7 @@
             "titleAlign": "center",
             "backgroundColor": "#fff",
             "titleColor": "#222",
-            "titleSize": "17",
-            "buttons": [{
-              "type": "share"
-            }]
+            "titleSize": "17"
           }
         }
       }
@@ -102,14 +85,13 @@
       "style": {
         "app-plus": {
           "titleNView": {
-            "titleText": "居家保修",
             "titleAlign": "center",
             "backgroundColor": "#fff"
           }
         }
       }
     }, {
-      "path": "pages/butler/free-service/index",
+      "path": "pages/butler/freeserver/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -124,7 +106,7 @@
       }
     },
     {
-      "path": "pages/butler/free-service/list",
+      "path": "pages/butler/freeserver/list",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -197,7 +179,7 @@
         "navigationBarBackgroundColor": "#fff"
       }
     }, {
-      "path": "pages/butler/complain/index",
+      "path": "pages/butler/compraise/index",
       "style": {
         "app-plus": {
           "titleNView": {
@@ -209,7 +191,7 @@
         }
       }
     }, {
-      "path": "pages/butler/complain/details",
+      "path": "pages/butler/compraise/details",
       "style": {
         "navigationBarTitleText": ""
       }
@@ -253,14 +235,9 @@
       }
     },
     {
-      "path": "pages/butler/complain/list",
+      "path": "pages/butler/compraise/list",
       "style": {
         "navigationBarTitleText": "我的投诉表扬"
-      }
-    }, {
-      "path": "pages/butler/free-service/details",
-      "style": {
-        "navigationBarTitleText": ""
       }
     }, {
       "path": "pages/personage/information/index",
@@ -287,19 +264,21 @@
             "backButton": {
               "color": "#fff"
             },
-            "backgroundImage": "linear-gradient(to right, #F9866B, #EB5841)",
+            "backgroundColor": "#F9866B",
             "buttons": [{
               "fontSrc": "/static/iconfont.ttf",
               "text": "\ue791",
               "fontSize": "27",
               "color": "#fff",
-              "float": "right"
+              "float": "right",
+			  "width": "57px"
             }, {
               "fontSrc": "/static/iconfont.ttf",
               "text": "\ue78c",
-              "fontSize": "26",
+              "fontSize": "27",
               "color": "#fff",
-              "float": "right"
+              "float": "right",
+			  "width": "27px"
             }]
           }
         }
@@ -308,7 +287,13 @@
       "path": "pages/butler/entrance/list",
       "style": {
         "navigationBarTitleText": "开门记录",
-        "navigationBarBackgroundColor": "#fff"
+        "navigationBarBackgroundColor": "#fff",
+		"titleNView": {
+			"splitLine": {
+				"height": "1px",
+				"color": "#f0f0f0"
+			} 
+		}
       }
     }, {
       "path": "pages/personage/house/attestation",

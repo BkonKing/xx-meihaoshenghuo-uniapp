@@ -58,6 +58,9 @@
     color: #fff;
     background-color: $uni-color-error;
   }
+  .tf-card-header__status--complete {
+    background-color: #AAAAAA;
+  }
   .tf-card-header-left {
     padding: 20rpx 10rpx;
     justify-content: space-between;

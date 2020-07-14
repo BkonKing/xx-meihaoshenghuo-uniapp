@@ -1,36 +1,52 @@
 <template>
 	<view class="tf-article-box">
 		<text class="tf-article-title">{{title}}</text>
-    <text class="tf-article-info">{{time}}</text>
-    <text class="tf-article-content">
-      {{content}}
-    </text>
+		<text class="tf-article-info">{{ctime}}</text>
+		<text class="tf-article-content">
+			{{content}}
+		</text>
 	</view>
 </template>
 
 <script>
+	import {
+		getNoticInfo
+	} from '@/api/butler/butler.js'
 	export default {
 		onLoad(params) {
-      this.id = params.id
+			this.getNoticInfo(params.noticeId)
 		},
-    data() {
-      return {
-        id: '',
-        title: '标题标题标题标题标题标题标题标题标题',
-        time: '2020-06-06  12:12',
-        content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
-      }
-    },
+		data() {
+			return {
+				title: '标题标题标题标题标题标题标题标题标题',
+				ctime: '2020-06-06  12:12',
+				content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
+			}
+		},
+		methods: {
+			getNoticInfo(noticeId) {
+				getNoticInfo({
+					noticeId
+				}).then((res) => {
+					if (res.success) {
+						const { title, content, ctime} = res.data
+						this.title = title
+						this.content = content
+						this.ctime = ctime
+					}
+				})
+			}
+		}
 	}
 </script>
 
 <style lang="scss" scoped>
-  .tf-article-info {
-    margin-top: 36rpx;
-    margin-bottom: 30rpx;
-    padding-bottom: 30rpx;
-    border-bottom-width: 2rpx;
-    border-bottom-style: solid;
-    border-bottom-color: $uni-color-divider;
-  }
+	.tf-article-info {
+		margin-top: 36rpx;
+		margin-bottom: 30rpx;
+		padding-bottom: 30rpx;
+		border-bottom-width: 2rpx;
+		border-bottom-style: solid;
+		border-bottom-color: $uni-color-divider;
+	}
 </style>

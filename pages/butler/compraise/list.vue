@@ -83,7 +83,7 @@
     created() {},
     methods: {
       jump(item) {
-        const url = `/pages/butler/complain/details?id=${item.id}&type=${item.type}`
+        const url = `/pages/butler/compraise/details?id=${item.id}&type=${item.type}`
         uni.navigateTo({
           url
         })

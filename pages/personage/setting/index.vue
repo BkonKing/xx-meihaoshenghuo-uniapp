@@ -18,9 +18,7 @@
     <button class="btn">切换账号</button>
     <button class="btn tf-text-orange">退出登录</button>
     <tf-dialog ref="dialog" title="版本更新" :showFotter="true" okText="更新" @confirm="">
-      <template v-slot:content>
         <text class="dialog-content">更新能容： 1.修复了FaceID和链接收藏弹窗的兼容性问题； 2.修复了链接收藏微信文章没有标题问题。</text>
-      </template>
     </tf-dialog>
 	</view>
 </template>

@@ -6,9 +6,9 @@
         <view v-if="title" class="tf-dialog-header">
           <text class="tf-dialog-header__title">{{ title }}</text>
         </view>
-        <scroll-view class="tf-dialog-content"><slot name="content"></slot></scroll-view>
+        <scroll-view class="tf-dialog-content"><slot></slot></scroll-view>
         <view v-if="showFotter" class="tf-dialog-footer">
-          <text class="tf-dialog-footer__btn tf-dialog-footer__btn--grey" style="margin-right: 30rpx;" @tap="close">取消</text>
+          <text v-if="!hiddenOff" class="tf-dialog-footer__btn tf-dialog-footer__btn--grey" style="margin-right: 30rpx;" @tap="close">取消</text>
           <text class="tf-dialog-footer__btn tf-dialog-footer__btn--orange" @tap="confirm">{{okText}}</text>
         </view>
       </view>
@@ -42,7 +42,11 @@ export default {
     showFotter: {
       type: Boolean,
       default: false
-    }
+    },
+	hiddenOff: {
+	  type: Boolean,
+	  default: false
+	},
   },
   data() {
     return {};

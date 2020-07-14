@@ -2,9 +2,13 @@
 	<view class="tf-timeline">
 		<view :class="[direction==='column'?'tf-timeline__column':'tf-timeline__row']">
 			<view :class="[direction==='column'?'tf-timeline__column-text-container':'tf-timeline__row-text-container']">
-				<view style="padding-bottom: 40rpx;" v-for="(item,index) in options" :key="index">
+				<view class="tf-timeline__column-text-box" v-for="(item,index) in options" :key="index">
 					<text :class="[direction==='column'?'tf-timeline__column-time':'tf-timeline__row-time']">{{item.ctime}}</text>
-					<text :class="[direction==='column'?'tf-timeline__column-desc':'tf-timeline__row-desc']">{{item.remark || `${item.designee} \n手机号码：${item.mobile}`}}</text>
+					<text v-if="item.remark" :class="[direction==='column'?'tf-timeline__column-desc':'tf-timeline__row-desc']">{{item.remark}}</text>
+          <template v-else>
+            <text :class="[direction==='column'?'tf-timeline__column-desc':'tf-timeline__row-desc']">{{item.designee}}</text>
+            <text :class="[direction==='column'?'tf-timeline__column-desc':'tf-timeline__row-desc', 'phone-number']" @tap="makePhoneCall(item.mobile)">{{item.mobile}}</text>
+          </template>
 				</view>
 			</view>
 			<view :class="[direction==='column'?'tf-timeline__column-container':'tf-timeline__row-container']">
@@ -56,7 +60,14 @@
 		},
 		data() {
 			return {}
-		}
+		},
+    methods: {
+      makePhoneCall(phoneNumber) {
+        uni.makePhoneCall({
+          phoneNumber
+        })
+      }
+    }
 	}
 </script>
 
@@ -67,7 +78,7 @@
 		width: 100%;
 		/* #endif */
 		/* #ifdef APP-NVUE */
-		flex: 1;
+		// flex: 1;
 		/* #endif */
 		flex-direction: column;
 	}
@@ -124,7 +135,7 @@
 		font-size: 30rpx;
 		text-align: left;
     color: $uni-text-color;
-		line-height: 48rpx;
+		line-height: 46rpx;
 	}
 
 	.tf-timeline__row-container {
@@ -220,4 +231,11 @@
     border-radius: 50%;
 		margin: 2px 0px;
 	}
+  .tf-timeline__column-text-box {
+    padding: 6rpx 8rpx 60rpx;
+    flex: 1;
+  }
+  .phone-number {
+    color: $uni-color-primary !important;
+  }
 </style>

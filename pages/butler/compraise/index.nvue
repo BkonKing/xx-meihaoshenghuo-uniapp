@@ -12,9 +12,10 @@
         <view class="tf-card-content">
           <textarea
             class="uni-input"
-            name="input"
+            name="content"
             placeholder="请描述具体内容"
             auto-height
+            maxlength="300"
             style="min-height: 150rpx"
           />
         </view>
@@ -42,6 +43,7 @@
 <script>
 import tfRadioBtn from "../../components/tf-radio-btn/index.nvue";
 import uImg from "@/components/uploadImg/uploadImg.vue";
+import { addComPraise } from '@/api/butler/butler.js'
 const toast = msg => {
   uni.showToast({
     title: msg,
@@ -58,14 +60,13 @@ export default {
   onNavigationBarButtonTap({index}) {
     if (index === 0) {
       uni.navigateTo({
-        url: "/pages/butler/complain/list"
+        url: "/pages/butler/compraise/list"
       });
     }
   },
   data() {
     return {
-      radio: "radio1",
-      current: "",
+      info_type: "",
       items: [
         {
           value: "USA",
@@ -77,10 +78,8 @@ export default {
           checked: "true"
         }
       ],
-      msg: "",
       length: 140,
-      placeholder: "欢迎反馈任何意见和问题,您的反馈也是我们产品的动力哦",
-      limitNum: 1,
+      limitNum: 6,
       uploadFileUrl: "", //替换成你的后端接收文件地址
       name: "", //上传的名字
       header: {
@@ -91,15 +90,46 @@ export default {
   },
 
   methods: {
-    formSubmit: function(e) {
-      console.log(
-        "form发生了submit事件，携带数据为：" + JSON.stringify(e.detail.value)
-      );
-      var formdata = e.detail.value;
-      uni.showModal({
-        content: "表单数据内容：" + JSON.stringify(formdata),
-        showCancel: false
+    formSubmit(e) {
+      const { content } = e.detail.value;
+      if (!this.info_type) {
+        toast('请选择类型')
+        return 
+      } else if (!content) {
+        toast('请输入内容')
+        return
+      }
+      this.addComPraise({
+        content,
+        images: this.uImgList,
+        info_type: this.info_type,
+        project_id: '2',
+        house_id: '1'
       });
+    },
+    addComPraise(params) {
+      addComPraise(params).then(res => {
+        if (res.success) {
+          uni.showToast({
+            title: '提交成功',
+            success: () => {
+              setTimeout(() => {
+                uni.navigateTo({
+                  url: '/pages/butler/compraise/details'
+                })
+              }, 1500);
+            }
+          });
+        } else {
+          uni.showToast({
+            title: '提交失败',
+            icon: 'none'
+          });
+        }
+      })
+    },
+    handRadioChange(value) {
+      this.info_type = value;
     },
     uploadSuccess(result) {
       if (result.statusCode == 200) {
@@ -112,9 +142,6 @@ export default {
     //上传方法的调用
     upFile() {
       this.$refs.upimg.upload();
-    },
-    handRadioChange(value) {
-      this.current = value;
     }
   }
 };
@@ -129,6 +156,7 @@ export default {
     font-weight: bold;
   }
   .uni-input {
+    flex: 1;
     font-size: $uni-font-size-base !important;
     padding: 0;
   }

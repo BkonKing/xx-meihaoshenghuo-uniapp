@@ -40,6 +40,9 @@
     },
     methods: {
       makePhoneCall(phoneNumber) {
+		  uni.showToast({
+		  	title: phoneNumber
+		  })
         uni.makePhoneCall({
           phoneNumber
         });

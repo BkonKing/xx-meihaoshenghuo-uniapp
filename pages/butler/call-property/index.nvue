@@ -2,24 +2,21 @@
   <view>
     <view class="introduce-box tf-mb-base">
       <image class="bg-image" src="/static/LoginHeader.png" mode="aspectFit"></image>
-      <view class="logo-badge">
-        <image src="../../../static/LoginSuccess.png" mode="aspectFit" class="logo-image"></image>
-      </view>
-      <text class="property-title">新乡美好生活家园</text>
-      <text class="property-content">家园介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
+      <view class="logo-badge"><image src="../../../static/LoginSuccess.png" mode="aspectFit" class="logo-image"></image></view>
+      <text class="property-title">{{ project_name }}</text>
+      <text class="property-content">{{ remarks }}</text>
     </view>
     <view class="tf-bg tf-padding-base">
-      <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.name" :info="item.info" :tag="true" :number="item.number"
-        :avatar="item.avatar"></phone-card>
+      <phone-card v-for="(item, i) in phoneList" :key="i" :name="item.title" :info="item.remarks" :tag="true" :number="item.telephone" :avatar="item.icon_images"></phone-card>
     </view>
     <view class="tf-bg-white">
       <text class="module-title">常见问题</text>
       <uni-collapse accordion="true">
-        <uni-collapse-item title="门禁二维码打不开门？">
+        <uni-collapse-item v-for="(item, i) in eqList" :key="i" :title="item.question">
           <template v-slot:tag>
-            <text class="question-index-box">Q1</text>
+            <text class="question-index-box">Q{{i + 1}}</text>
           </template>
-          <text class="question-content">智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头。</text>
+          <text class="question-content">{{item.answer}}</text>
         </uni-collapse-item>
       </uni-collapse>
     </view>
@@ -27,100 +24,134 @@
 </template>
 
 <script>
-  import phoneCard from '../../components/phone-card/phone-card.nvue'
-  import uniCollapse from '@/components/uni-collapse/uni-collapse.vue'
-  import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue'
-  export default {
-    components: {
-      phoneCard,
-      uniCollapse,
-      uniCollapseItem
-    },
-    data() {
-      return {
-        phoneList: [{
-            name: '物业热线1',
-            avatar: '/static/app-icon.png',
-            number: '15050505050',
-            info: '24小时在线',
-          },
-          {
-            name: '物业热线1',
-            avatar: '/static/app-icon.png',
-            number: '15050505050',
-            info: '',
-          }
-        ]
-      };
+import phoneCard from '../../components/phone-card/phone-card.nvue';
+import uniCollapse from '@/components/uni-collapse/uni-collapse.vue';
+import uniCollapseItem from '@/components/uni-collapse-item/uni-collapse-item.vue';
+import { getCallWYList } from '@/api/butler/butler.js';
+export default {
+  components: {
+    phoneCard,
+    uniCollapse,
+    uniCollapseItem
+  },
+  data() {
+    return {
+      project_name: '郑州美好生活家园',
+      remarks: '郑州美好生活家园郑州美好生活家园郑州美好生活家园郑州美好生活家园',
+      phoneList: [
+        {
+          id: '1',
+          icon_images: 'https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg',
+          title: '物业热线1',
+          telephone: '15050505050',
+          remarks: '24小时在线'
+        },
+        {
+          id: '2',
+          icon_images: 'https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg',
+          title: '物业热线2',
+          telephone: '15050505050',
+          remarks: '24小时在线'
+        }
+      ],
+      eqList: [
+        {
+          id: '1',
+          question: '门禁二维码打不开门？',
+          answer: '智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头'
+        },
+        {
+          id: '2',
+          question: '门禁二维码打不开门？',
+          answer: '智能门禁摄像头需要读到二维码信息后才能发送开幕指令给门禁，正确的使用方法是将二维码对准摄像头'
+        }
+      ]
+    };
+  },
+  onLoad() {
+    // this.getCallWYList()
+  },
+  methods: {
+    getCallWYList() {
+      getCallWYList().then(res => {
+        if (res.success) {
+          const { project_name, remarks, records, eq } = res.data;
+          this.project_name = project_name;
+          this.remarks = remarks;
+          this.phoneList = records;
+          this.eqList = eq;
+        }
+      });
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  .introduce-box {
-    width: 750rpx;
-    height: 350rpx;
-    align-items: center;
-  }
+.introduce-box {
+  width: 750rpx;
+  height: 350rpx;
+  align-items: center;
+}
 
-  .logo-badge {
-    width: 120rpx;
-    height: 120rpx;
-    padding: 10rpx;
-    margin: 30rpx 0;
-    border-width: 3rpx;
-    border-style: solid;
-    border-color: $uni-color-error;
-    border-radius: 50%;
-  }
+.logo-badge {
+  width: 120rpx;
+  height: 120rpx;
+  padding: 10rpx;
+  margin: 30rpx 0;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color: $uni-color-error;
+  border-radius: 50%;
+}
 
-  .logo-image {
-    width: 100rpx;
-    height: 100rpx;
-    border-radius: 50%;
-  }
+.logo-image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
 
-  .property-title {
-    font-size: 38rpx;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    margin-bottom: $uni-spacing-col-lg;
-  }
+.property-title {
+  font-size: 38rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  margin-bottom: $uni-spacing-col-lg;
+}
 
-  .property-content {
-    width: 490rpx;
-    font-size: 24rpx;
-    line-height: 44rpx;
-    color: #fff;
-  }
+.property-content {
+  width: 490rpx;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  color: #fff;
+}
 
-  .bg-image {
-    position: absolute;
-    z-index: -1;
-    width: 750rpx;
-    height: 350rpx;
-  }
-  .module-title {
-    font-size: $uni-font-size-lg;
-    font-weight: bold;
-    color: $uni-text-color;
-    padding: $uni-spacing-col-base;
-  }
-  .question-index-box {
-    width: 72rpx;
-    height: 45rpx;
-    line-height: 45rpx;
-    font-size: 24rpx;
-    margin-right: $uni-spacing-col-base;
-    color: #fff;
-    background-color: $uni-icon-color-dark-grey;
-    text-align: center;
-  }
-  .question-content {
-    font-size: 26rpx;
-    color: #666;
-    line-height: 54rpx;
-    padding: 0 30rpx 60rpx;
-  }
+.bg-image {
+  position: absolute;
+  z-index: -1;
+  width: 750rpx;
+  height: 350rpx;
+}
+.module-title {
+  font-size: $uni-font-size-lg;
+  font-weight: bold;
+  color: $uni-text-color;
+  padding: $uni-spacing-col-base;
+}
+.question-index-box {
+  width: 72rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 24rpx;
+  margin-right: $uni-spacing-col-base;
+  color: #fff;
+  background-color: $uni-icon-color-dark-grey;
+  text-align: center;
+}
+.question-content {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 54rpx;
+  padding: 0 30rpx 60rpx;
+}
 </style>

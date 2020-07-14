@@ -1,9 +1,15 @@
 <template>
-  <view :style="{ height: iStatusBarHeight + 'px'}"></view>
+  <view :style="[{ height: iStatusBarHeight + 'px'}, {backgroundColor: backgroundColor}]"></view>
 </template>
 
 <script>
   export default {
+	props: {
+		backgroundColor: {
+			type: String,
+			default: '#fff'
+		}
+	},
     data() {
       return {
         iStatusBarHeight: 0

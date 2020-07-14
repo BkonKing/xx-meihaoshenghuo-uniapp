@@ -7,12 +7,12 @@ export function queryAllApp(data) {
 /* 云门禁 start */
 // 二维码开门接口
 export function getQrCode(data) {
-  return request.POST('/butler/entrance/getQrCode', data)
+  return request.post('/butler/entrance/getQrCode', data)
 }
 
 // 远程开门接口
 export function ycOpenDoor(data) {
-  return request.POST('/butler/entrance/ycOpenDoor', data)
+  return request.post('/butler/entrance/ycOpenDoor', data)
 }
 
 /* 云门禁 end */
@@ -27,6 +27,11 @@ export function getNoticeList(data) {
 // 标记为已读接口
 export function setNoticeReaded(data) {
   return request.post('/butler/notice/setNoticeReaded', data)
+}
+
+// 公告通知详情接口
+export function getNoticInfo(data) {
+  return request.get('/butler/notice/getNoticInfo', data)
 }
 
 /* 公告通知 end */
@@ -48,4 +53,43 @@ export function addRepair(data) {
   return request.post('/butler/repairs/addRepair', data)
 }
 
+// 撤消提报接口
+export function cancelRepair(data) {
+  return request.post('/butler/repairs/cancelRepair', data)
+}
+
 /* 报事报修 end */
+
+/* 免费服务 start */
+
+// 免费服务列表接口
+export function getFreeServerList(data) {
+  return request.get('/butler/freeserver/getFreeServerList', data)
+}
+// 我的免费预约列表接口
+export function getMyFreeServerList(data) {
+  return request.get('/butler/freeserver/getMyFreeServerList', data)
+}
+
+/* 免费服务 end */
+
+/* 呼叫物业列表 start */
+export function getCallWYList(data) {
+  return request.get('/butler/phone/getCallWYList', data)
+}
+/* 呼叫物业 end */
+
+/* 便民黄页列表 start */
+export function getYellowPagesList(data) {
+  return request.get('/butler/phone/getYellowPagesList', data)
+}
+/* 呼叫物业 end */
+
+/* 投诉表扬 start */
+
+// 新增投诉表扬接口
+export function addComPraise(data) {
+  return request.post('/butler/compraise/addComPraise', data)
+}
+
+/* 呼叫物业 end */

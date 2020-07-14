@@ -1,103 +1,190 @@
 <template>
-  <view class="tf-bg">
-    <recycle-list for="(item, i) in noticeList">
-      <cell-slot :key="i">
-        <view class="tf-padding-base">
-          <text class="list-item--time">{{item.ctime}}</text>
-          <view class="tf-card" @tap="jump(item)">
-            <view class="tf-card-header" style="justify-content: flex-start;">
-              <text v-if="item.is_readed === '1'" class="is_readed"></text>
-              <text class="tf-card-header__title">{{item.title}}</text>
-            </view>
-            <text class="tf-card-content">{{item.content}}</text>
-          </view>
-        </view>
-      </cell-slot>
-    </recycle-list>
-  </view>
+	<view class="tf-bg tf-screen">
+		<uni-nav-bar left-icon="back" :right-text="isAllRead ? '' : '全部已读'" :statusBar="true" :fixed="true" @clickLeft="goBack">
+			<text class="notice-title" :style="{transform: `translateX(${isAllRead ? '-12px' : '20px'})`}">公告通知</text>
+		</uni-nav-bar>
+		<view class="tf-flex-item">
+			<list class="notice-list" :scrollable="true" :loadmoreoffset="1" @loadmore="reachBottom">
+				<!-- 注意事项: 不能使用 index 作为 key 的唯一标识 -->
+				<cell v-for="(item, index) in noticeList" :key="item.id">
+					<text class="list-item--time">{{item.ctime}}</text>
+					<view class="tf-card" @tap="jump(item)">
+						<view class="tf-card-header" style="justify-content: flex-start;">
+							<text v-if="item.is_readed === '1'" class="is_readed"></text>
+							<text class="tf-card-header__title">{{item.title}}</text>
+						</view>
+						<text class="tf-card-content">{{item.content}}</text>
+					</view>
+				</cell>
+				<refresh :display="refreshLoading" @pullingdown="pullingdow">
+				    <uni-load-more status="loading" :icon-size="16" :content-text="contentText" />
+				</refresh>
+				<loading :display="loading">
+					<uni-load-more :status="status" :icon-size="16" :content-text="contentText" />
+				</loading>
+			</list>
+		</view>
+	</view>
 </template>
 
 <script>
-  import {
-    getNoticeList,
-    setNoticeReaded
-  } from '@/api/butler/butler.js'
-  export default {
-    data() {
-      return {
-        noticeList: [{
-          "id": "1",
-          "title": "关于暴雨天气温馨提示",
-          "content": "福州市气象台于2020年06月05日08时40分发布暴",
-          "is_readed": "1",
-          "ctime": "2020-06-20 15:12:36"
-        }, {
-          "id": "2",
-          "title": "关于暴雨天气温馨提示2",
-          "content": "福州市气象台于2020年06月05日08时40分发布暴",
-          "is_readed": "0",
-          "ctime": "2020-06-21 15:12:36"
-        }]
-      };
-    },
-    onLoad() {
-      getNoticeList({
-        project_id: '1',
-        // notice_id: '1'
-      }).then(res => {
-        if (res.success) {
-          this.noticeList = res.data.records
-        }
-      })
-    },
-    methods: {
-      jump(item) {
-        const url = `/pages/butler/notice/details?id=${item.id}`
-        this.setNoticeReaded(item.id)
-        uni.navigateTo({
-          url
-        })
-      },
-      setNoticeReaded(notice_id) {
-        setNoticeReaded({
-          project_id: '1',
-          notice_id
-        }).then(res => {
-          if (res.success) {
+	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+	import uniLoadMore from "@/components/uni-load-more/uni-load-more.vue"
+	import {
+		getNoticeList,
+		setNoticeReaded
+	} from '@/api/butler/butler.js'
+	export default {
+		components: {
+			uniNavBar,
+			uniLoadMore
+		},
+		data() {
+			return {
+				status: 'more',
+				loading: 'hide',
+				refreshLoading: 'hide',
+				contentText: {
+					contentdown: '上拉加载更多',
+					contentrefresh: '加载中',
+					contentnomore: '没有更多'
+				},
+				isAllRead: false,
+				noticeList: [{
+					"id": "1",
+					"title": "关于暴雨天气温馨提示",
+					"content": "福州市气象台于2020年06月05日08时40分发布暴",
+					"is_readed": "1",
+					"ctime": "2020-06-20 15:12:36"
+				}, {
+					"id": "2",
+					"title": "关于暴雨天气温馨提示2",
+					"content": "福州市气象台于2020年06月05日08时40分发布暴",
+					"is_readed": "0",
+					"ctime": "2020-06-21 15:12:36"
+				}, {
+					"id": "2",
+					"title": "关于暴雨天气温馨提示2",
+					"content": "福州市气象台于2020年06月05日08时40分发布暴",
+					"is_readed": "0",
+					"ctime": "2020-06-21 15:12:36"
+				}, {
+					"id": "2",
+					"title": "关于暴雨天气温馨提示2",
+					"content": "福州市气象台于2020年06月05日08时40分发布暴",
+					"is_readed": "0",
+					"ctime": "2020-06-21 15:12:36"
+				}]
+			};
+		},
+		onLoad() {
+			// this.getNoticeList()
+		},
+		//点击导航栏 buttons 时触发
+		onNavigationBarButtonTap({
+			index
+		}) {
+			if (index === 0) {
+				this.setNoticeReaded(0)
+			}
+		},
+		methods: {
+			// 上拉刷新
+			reachBottom() {
+				this.loading = 'show';
+				this.status = 'more';
+				this.status = 'loading';
+				// this.getList();
+				setTimeout(() => {
+					this.noticeList.push({
+						"id": "2",
+						"title": "关于暴雨天气温馨提示2",
+						"content": "福州市气象台于2020年06月05日08时40分发布暴",
+						"is_readed": "0",
+						"ctime": "2020-06-21 15:12:36"
+					})
+					this.loading = 'hide';
+					this.status = 'more';
+				}, 5000)
+			},
+			// 下拉刷新
+			pullingdow() {
+				this.refreshLoading = 'show'
+				this.getNoticeList().then(() => {
+					this.refreshLoading = 'hide'
+				})
+			},
+			// 获取公告通知列表
+			getNoticeList() {
+				return getNoticeList({
+					project_id: '1',
+					// notice_id: '1'
+				}).then(res => {
+					if (res.success) {
+						this.noticeList = res.data.records
+					}
+				})
+			},
+			// 设置消息已读
+			setNoticeReaded(notice_id) {
+				setNoticeReaded({
+					project_id: '1',
+					notice_id
+				}).then(res => {
+					if (res.success) {
 
-          }
-        })
-      }
-    },
-    //点击导航栏 buttons 时触发
-    onNavigationBarButtonTap({
-      index
-    }) {
-      if (index === 0) {
-        this.setNoticeReaded(0)
-      }
-    }
-  }
+					}
+				})
+			},
+			// 跳转到详情页
+			jump(item) {
+				const url = `/pages/butler/notice/details?noticeId=${item.id}`
+				this.setNoticeReaded(item.id)
+				uni.navigateTo({
+					url
+				})
+			},
+			goBack() {
+				uni.navigateBack()
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
-  .list-item--time {
-    font-size: 24rpx;
-    text-align: center;
-    color: $uni-text-color-grey;
-    margin-bottom: $uni-spacing-row-base;
-  }
+	.list-item--time {
+		font-size: 24rpx;
+		text-align: center;
+		color: $uni-text-color-grey;
+		margin: $uni-spacing-row-base;
+	}
 
-  .tf-card-content {
-    lines: 2;
-    text-overflow: ellipsis;
-  }
+	.tf-card-content {
+		lines: 2;
+		text-overflow: ellipsis;
+	}
 
-  .is_readed {
-    width: 12rpx;
-    height: 12rpx;
-    border-radius: 6rpx;
-    background-color: $uni-color-error;
-    margin-right: 8rpx;
-  }
+	.is_readed {
+		width: 12rpx;
+		height: 12rpx;
+		border-radius: 6rpx;
+		background-color: $uni-color-error;
+		margin-right: 8rpx;
+	}
+
+	.notice-title {
+		flex: 1;
+		font-size: 17px;
+		text-align: center;
+		font-weight: 500;
+		// transform: translateX(16px);
+	}
+
+	.notice-list {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 20rpx;
+		right: 20rpx;
+	}
 </style>

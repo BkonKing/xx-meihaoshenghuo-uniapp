@@ -1,3 +1,10 @@
+  .tf-screen {
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
   /* 水平方向*/
   .tf-row {
     flex-direction: row !important;
