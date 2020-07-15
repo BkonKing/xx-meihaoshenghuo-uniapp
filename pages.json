@@ -367,6 +367,57 @@
               "navigationBarTitleText": "添加地址"
             }
         }
+        ,{
+            "path" : "pages/life/order/order-list",
+            "style" : {
+							"navigationBarTitleText": "我的订单"
+						}
+        }
+				,{
+				    "path" : "pages/life/order/flash-order-detail",
+						"style" : {
+						  "app-plus": {
+						    "titleNView": {
+						      "titleText": "订单详情",
+						      "titleAlign": "center",
+						      "backgroundColor": "#fff",
+						      "titleColor": "#222",
+						      "titleSize": "17"
+						    }
+						  },
+							"navigationStyle": "custom"
+						}
+				}
+				,{
+				    "path" : "pages/life/order/refund-order-detail",
+						"style" : {
+						  "app-plus": {
+						    "titleNView": {
+						      "titleText": "退款详情",
+						      "titleAlign": "center",
+						      "backgroundColor": "#fff",
+						      "titleColor": "#222",
+						      "titleSize": "17"
+						    }
+						  },
+							"navigationStyle": "custom"
+						}
+				}
+				,{
+				    "path" : "pages/life/order/barter-order-detail",
+						"style" : {
+						  "app-plus": {
+						    "titleNView": {
+						      "titleText": "换货详情",
+						      "titleAlign": "center",
+						      "backgroundColor": "#fff",
+						      "titleColor": "#222",
+						      "titleSize": "17"
+						    }
+						  },
+							"navigationStyle": "custom"
+						}
+				}
     ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
