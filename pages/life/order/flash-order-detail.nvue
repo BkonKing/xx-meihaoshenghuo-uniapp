@@ -151,7 +151,22 @@
 				<view class="order-border-btn paid-btn"><text class="color-fff font-26">付款(59:59:30)</text></view>
 			</view>
 		</scroll-view>
-		
+		<view class="mask-bg">
+			<view class="mask-block">
+				<view class="mask-close">
+					
+				</view>
+				<view class="mask-tit">
+					<text class="mask-tit-text font-30 color-000">不支持退换说明</text>
+				</view>
+				<view class="mask-cont">
+					<text class="mask-cont-text font-24 color-222">贵重物品、贴身衣物、肉类果蔬生鲜商品、定制商品、虚拟商品、报纸期刊等，处于信息安全或者卫生考虑，不支持无理由退货。跨境商品不支持换货。</text>
+				</view>
+				<view class="mask-sure-btn">
+					<text class="mask-sure-text font-30 color-fff">知道了</text>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -173,4 +188,58 @@
 
 <style lang="scss" scoped>
 	@import '../../../styles/order.scss';
+	.mask-bg {
+		position: fixed; 
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: rgba($color: #000, $alpha: 0.7);
+		justify-content: center;
+		align-items: center;
+	}
+	.mask-block {
+		width: 560rpx;
+		height: 528rpx;
+		padding: 0 50rpx;
+		background-color: #fff;
+		@include border-radius(10rpx);
+		position: relative;
+	}
+	.mask-tit {
+		height: 120rpx;
+		border-bottom-color: $uni-color-divider;
+		border-bottom-width: 2px;
+		border-bottom-style: solid;
+		align-items: center;
+		justify-content: center;
+	}
+	.mask-cont {
+		margin: 58rpx 0;
+		overflow: visible;
+	}
+	.mask-cont-text {
+		line-height: 46rpx;
+	}
+	.mask-sure-btn {
+		align-items: center;
+	}
+	.mask-sure-text {
+		width: 300rpx;
+		height: 66rpx;
+		background-color: $uni-color-error;
+		text-align: center;
+		line-height: 66rpx;
+		@include border-radius(4rpx);
+	}
+	.mask-close {
+		position: absolute;
+		right: 20rpx;
+		top: -80rpx;
+		width: 70rpx;
+		height: 70rpx;
+		padding: 10rpx;
+		background-color: #000;
+		z-index: 5;
+	}
 </style>
