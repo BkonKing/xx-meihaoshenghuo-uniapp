@@ -1,0 +1,440 @@
+%fx-row {
+	flex-direction: row;
+}
+%fx-space-between {
+	@extend %fx-row;
+	justify-content: space-between;
+}
+%fx-flex-end {
+	@extend %fx-row;
+	justify-content: flex-end;
+}
+@mixin border-radius($radius) {
+					border-radius: $radius;
+			-ms-border-radius: $radius;
+		 -moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+@mixin border($color) {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: $color;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: $color;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: $color;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: $color;
+}
+%border-top {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: $uni-color-divider;
+}
+%border-bottom {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: $uni-color-divider;
+}
+%border-all {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: $uni-icon-color-grey;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: $uni-icon-color-grey;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: $uni-icon-color-grey;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: $uni-icon-color-grey;
+}
+.p-ellipsis {
+	/* ifdef APP-PLUS */
+	lines: 1;
+	text-overflow: ellipsis;
+	/* endif */
+	/* ifndef H5 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* endif */
+}
+.font-24 {
+	font-size: 24rpx;
+}
+.font-26 {
+	font-size: 26rpx;
+}
+.font-28 {
+	font-size: 28rpx;
+}
+.font-34 {
+	font-size: 34rpx;
+}
+.font-weight {
+	font-weight: bold;
+}
+.color-8f8f94 {
+	color: $uni-text-color-grey;
+}
+.color-fff {
+	color: $uni-text-color-inverse;
+}
+.color-222 {
+	color: $uni-color-title;
+}
+.color-eb5841 {
+	color: $uni-color-error;
+}
+.text-right {
+	text-align: right;
+}
+
+.scroll-body {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: $uni-bg-color;
+	padding-bottom: 30rpx;
+}
+.cont-session {
+	width: 710rpx;
+	background-color: $uni-text-color-inverse;
+	margin: 0 auto 30rpx;
+	@include border-radius(10rpx);
+	position: relative;
+}
+
+/* 列表 */
+.goods-session {
+	padding: 40rpx 30rpx 0;
+}
+.order-list {
+	padding: 0 20rpx 30rpx;
+}
+.order-item {
+	width: 710rpx;
+	min-height: 370rpx;
+	@include border-radius(10rpx);
+	overflow: hidden;
+	margin-top: 30rpx;
+	padding: 0 30rpx;
+	background-color: $uni-text-color-inverse;
+}
+.order-header {
+	height: 90rpx;
+	color: $uni-text-color-grey;
+	@extend %fx-row;
+	align-items: center;
+	@extend %border-bottom;
+	margin-bottom: $uni-spacing-col-lg;
+}
+.order-no {
+	width: 480rpx;
+}
+.order-status {
+	text-align: right;
+	width: 170rpx;
+}
+.order-goods-info {
+	margin-bottom: $uni-spacing-col-lg;
+	height: 130rpx;
+	@extend %fx-space-between;
+}
+.order-pic-block {
+	width: 130rpx;
+	height: 130rpx;
+	@extend %fx-row;
+	overflow: hidden;
+}
+.order-pic {
+	width: 130rpx;
+	height: 130rpx;
+}
+.order-info {
+	width: 500rpx;
+	flex-wrap: wrap;
+}
+.order-name-price {
+	width: 500rpx;
+	height: 46rpx;
+	color: $uni-text-color;
+	@extend %fx-space-between;
+	align-items: center;
+}
+.order-name {
+	@extend %fx-row;
+}
+.order-name-text,.order-sku-text {
+	max-width: 350rpx;
+	@extend .p-ellipsis;
+}
+.order-sku-num {
+	height: 44rpx;
+	color: $uni-text-color-grey;
+	font-size: 24rpx;
+	@extend %fx-space-between;
+	align-items: center;
+}
+.order-action-session {
+	@extend %fx-space-between;
+	height: 40rpx;
+	line-height: 30rpx;
+	padding-top: 10rpx;
+	font-size: 24rpx;
+	color: $uni-text-color-grey;
+}
+.order-buy-num {
+	text-align: right;
+}
+.order-action-text {
+	@extend %fx-row;
+}
+.order-action-btn {
+	width: 50rpx;
+	height: 50rpx;
+	padding: 10rpx;
+	margin-top: -10rpx;
+}
+.order-action-pic {
+	width: 30rpx;
+	height: 30rpx;
+}
+.order-footer {
+	min-height: 92rpx;
+	@extend %border-top;
+}
+.order-total {
+	height: 80rpx;
+	text-align: right;
+	padding-top: 15rpx;
+	@extend %fx-flex-end;
+	align-items: center;
+	color: $uni-text-color-grey;
+}
+.order-price-total {
+	@extend %fx-row;
+	margin-left: 18rpx;
+	align-items: center;
+}
+.order-btn-box {
+	padding-bottom: 30rpx;
+	@extend %fx-flex-end;
+}
+.order-border-btn {
+	height: 66rpx;
+	min-width: 158rpx;
+	@include border-radius(6rpx);
+	@extend %border-all;
+	padding: 0 $uni-spacing-row-base;
+	@extend %fx-row;
+	align-items: center;
+	display: flex;
+}
+.order-border-btn {
+	margin-left: $uni-spacing-row-base;
+}
+.paid-btn {
+	border-width: 0;
+	background-color: $uni-color-error;
+}
+
+.toggle-btn {
+	height: 66rpx;
+	margin-top: -30rpx;
+}
+
+/* 订单详情 */
+.order-session {
+	position: relative;
+	padding: 0 20rpx;
+}
+.order-header-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 280rpx;
+	background-image: linear-gradient(to right, $uni-bg-color-error, $uni-color-error);
+}
+.order-status-session {
+	height: 174rpx;
+	align-items: center;
+	padding-top: 26rpx;
+	position: relative;
+	z-index: 6;
+}
+.order-status-name {
+  line-height: 66rpx;
+  font-size: 38rpx;
+  font-weight: bold;
+	color: #fefefe;
+}
+.order-status-tip {
+  line-height: 56rpx;
+	font-size: 28rpx;
+	color: #fefefe;
+}
+  /* 订单价格信息 */
+.detail-price-list {
+	padding: 16rpx 0;
+	@extend %border-top;
+	@extend %border-bottom;
+}
+.detail-price-item {
+	@extend %fx-space-between;
+	height: 52rpx;
+	align-items: center;
+}
+.flex-sart-item {
+	@extend %fx-row;
+	height: 52rpx;
+	align-items: center;
+}
+.flex-sart-item-left {
+	width: 146rpx;
+}
+.order-total-detail {
+	height: 90rpx;
+	padding-top: 0;
+}
+
+  /* 收货地址 */
+.address-logistics,.order-remarks {
+	padding: 0 30rpx;
+	align-items: center;
+	justify-content: center;
+}
+.address-logistics {
+	padding: 26rpx 30rpx;
+}
+.shipping-logistics {
+	margin-top: 26rpx;
+	padding-top: 26rpx;
+	@extend %border-top;
+}
+.shipping-address-item,.order-remarks-item,.order-message-item {
+	@extend %fx-row;
+	height: 52rpx;
+	align-items: center;
+}
+.shipping-logistics-item {
+	@extend %fx-row;
+	align-items: center;
+}
+.shipping-address-item-left,.order-remarks-item-left,.order-message-item-left {
+	width: 146rpx;
+}
+.shipping-address-item-right,.order-remarks-item-right,.order-message-item-right {
+	@extend %fx-row;
+	width: 504rpx;
+}
+.shipping-address-username {
+	max-width: 280rpx;
+	@extend .p-ellipsis;
+}
+.shipping-address-text,.order-remarks-text {
+	max-width: 504rpx;
+	@extend .p-ellipsis;
+}
+.shipping-logistics-item-right {
+	position: relative;
+	padding-left: 36rpx;
+}
+.shipping-address-icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 16rpx;
+	height: 26rpx;
+}
+.shipping-logistics-point {
+	position: absolute;
+	top: 16rpx;
+	left: 8rpx;
+	width: 8rpx;
+	height: 8rpx;
+	background-color: $uni-icon-color-grey;
+	border-radius: 4rpx;
+}
+.shipping-logistics-line {
+	position: absolute;
+	top: 34rpx;
+	bottom: 10rpx;
+	left: 10rpx;
+	width: 2rpx;
+	height: 36rpx;
+	background-color: $uni-icon-color-grey;
+	border-radius: 4rpx;
+}
+.shipping-logistics-text {
+	line-height: 40rpx;
+	flex-wrap: wrap;
+	width: 466rpx;
+}
+.order-remarks {
+	height: 120rpx;
+}
+   /* 订单信息 */
+.order-message {
+	padding: 26rpx 30rpx;
+	align-items: center;
+	justify-content: center;
+}
+.order-message-item {
+	height: 56rpx;
+	position: relative;
+}
+.order-tip-item {
+	width: 650rpx;
+	@extend %fx-row;
+	position: relative;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+.order-tip-item-left {
+	width: 146rpx;
+}
+.order-tip-item-right {
+	width: 466rpx;
+}
+.order-tip-text {
+	line-height: 56rpx;
+}
+.copy-btn {
+	position: absolute;
+	right: -10rpx;
+	top: 0;
+	padding: 10rpx;
+}
+.copy-text {
+	width: 32rpx;
+	width: 58rpx;
+	color: #ffa110;
+	font-size: 22rpx;
+	text-align: center;
+	@include border($uni-color-warning);
+}
+  /* 底部按钮 */
+.fixed-empty {
+	height: 120rpx;
+}
+.btn-fixed-buttom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 120rpx;
+	padding-right: 20rpx;
+	align-items: center;
+	@extend %fx-flex-end;
+	@extend %border-top;
+	background-color: $uni-text-color-inverse;
+}
