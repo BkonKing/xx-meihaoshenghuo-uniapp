@@ -1,5 +1,5 @@
 <template>
-  <scroll-view class="tf-bg tf-padding-base">
+  <scroll-view :scroll-y="true" class="tf-bg tf-padding-base" :style="{'padding-bottom': `${keyboardHeight}px`}">
     <form @submit="formSubmit">
       <view class="tf-card">
         <text class="tf-card-header">选择类型</text>
@@ -56,28 +56,20 @@ export default {
     tfRadioBtn,
     uImg
   },
-  //点击导航栏 buttons 时触发
-  onNavigationBarButtonTap({index}) {
-    if (index === 0) {
-      uni.navigateTo({
-        url: "/pages/butler/compraise/list"
-      });
-    }
-  },
   data() {
     return {
       info_type: "",
       items: [
         {
-          value: "USA",
-          name: "美国"
+          value: 1,
+          name: "投诉"
         },
         {
-          value: "CHN",
-          name: "中国",
-          checked: "true"
+          value: 2,
+          name: "表扬"
         }
       ],
+      keyboardHeight: 0,
       length: 140,
       limitNum: 6,
       uploadFileUrl: "", //替换成你的后端接收文件地址
@@ -88,7 +80,19 @@ export default {
       uImgList: []
     };
   },
-
+  //点击导航栏 buttons 时触发
+  onNavigationBarButtonTap({index}) {
+    if (index === 0) {
+      uni.navigateTo({
+        url: "/pages/butler/compraise/list"
+      });
+    }
+  },
+  onLoad() {
+    uni.onKeyboardHeightChange(res => {
+      this.keyboardHeight = res.height
+    })
+  },
   methods: {
     formSubmit(e) {
       const { content } = e.detail.value;

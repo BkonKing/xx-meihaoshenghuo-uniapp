@@ -33,9 +33,7 @@
     }, {
       "path": "pages/butler/index",
       "style": {
-        "navigationStyle": "custom",
-        // 下拉刷新
-        "enablePullDownRefresh": true
+        "navigationStyle": "custom"
       }
     }, {
       "path": "pages/butler/notice/index",

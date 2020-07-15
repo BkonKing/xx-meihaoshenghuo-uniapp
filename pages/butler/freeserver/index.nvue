@@ -137,7 +137,6 @@
     flex-direction: row;
     align-items: center;
     height: 66rpx;
-    line-height: 66rpx;
     padding: 0 36rpx;
     border-width: 2rpx;
     border-style: solid;
@@ -147,5 +146,6 @@
   }
   .tab-btn__text {
     font-size: 24rpx;
+    line-height: 66rpx;
   }
 </style>

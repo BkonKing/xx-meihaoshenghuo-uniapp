@@ -1,71 +1,69 @@
 <template>
   <view class="tf-clist-cell" @tap="onClick">
-    <text class="tf-clist-cell-left">
-      {{title}}
-    </text>
+    <text class="tf-clist-cell-left">{{ title }}</text>
     <view class="tf-clist-cell-right">
       <slot name="right"></slot>
+      <uni-icons v-if="showArrow" :size="20" class="uni-icon-wrapper" color="#aaa" type="arrowright" />
     </view>
-    <uni-icons v-if="showArrow" :size="20" class="uni-icon-wrapper" color="#aaa" type="arrowright" />
   </view>
 </template>
 
 <script>
-  import uniIcons from '@/components/uni-icons/uni-icons.vue'
-  export default {
-    props: {
-      title: {
-        type: String,
-        default: ''
-      },
-      showArrow: {
-        // 是否显示箭头
-        type: [Boolean, Number],
-        default: true
-      }
+import uniIcons from '@/components/uni-icons/uni-icons.vue';
+export default {
+  props: {
+    title: {
+      type: String,
+      default: ''
     },
-    components: {
-      uniIcons
-    },
-    methods: {
-      onClick() {
-        this.$emit('click')
-      }
+    showArrow: {
+      // 是否显示箭头
+      type: [Boolean, Number],
+      default: true
+    }
+  },
+  components: {
+    uniIcons
+  },
+  methods: {
+    onClick() {
+      this.$emit('click');
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  
-  .tf-clist-cell {
-    flex-direction: row !important;
-    justify-content: space-between;
-    align-items: center;
-    // width: 710rpx;
-    height: 90rpx;
-    padding: 20rpx;
-  }
-  
-  .tf-clist-cell-left {
-    // height: 50rpx;
-    // line-height: 50rpx;
-    font-size: 28rpx;
-  }
-  
-  .tf-clist-cell-right {
-    // flex-direction: row !important;
-    // justify-content: flex-end;
-    // align-items: center;
-    width: 300rpx;
-    padding-right: 40rpx;
-    // height: 50rpx;
-    // line-height: 50rpx;
-  }
-  .uni-icon-wrapper {
-    position: absolute;
-    height: 40rpx;
-    top: 50%;
-    right: 10rpx;
-    transform: translateY(-30rpx);
-  }
+.tf-clist-cell {
+  flex-direction: row !important;
+  justify-content: space-between;
+  align-items: center;
+  // width: 710rpx;
+  height: 90rpx;
+  padding: 20rpx;
+}
+
+.tf-clist-cell-left {
+  // height: 50rpx;
+  // line-height: 50rpx;
+  font-size: 28rpx;
+  width: 200rpx;
+}
+
+.tf-clist-cell-right {
+  flex-direction: row !important;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  // padding-right: 40rpx;
+  // height: 50rpx;
+  // line-height: 50rpx;
+}
+.uni-icon-wrapper {
+  // position: absolute;
+  // height: 40rpx;
+  // top: 50%;
+  // right: 10rpx;
+  // transform: translateY(-20rpx);
+}
 </style>

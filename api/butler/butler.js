@@ -91,5 +91,63 @@ export function getYellowPagesList(data) {
 export function addComPraise(data) {
   return request.post('/butler/compraise/addComPraise', data)
 }
+// 投诉表扬列表接口
+export function getComPraiseList(data) {
+  return request.get('/butler/compraise/getComPraiseList', data)
+}
+// 投诉表扬详情接口
+export function getComPraiseInfo(data) {
+  return request.get('/butler/compraise/getComPraiseInfo', data)
+}
 
-/* 呼叫物业 end */
+/* 投诉表扬 end */
+
+/* 问卷投票 start */
+
+// 问卷投票列表接口
+export function getWjtpList(data) {
+  return request.get('/butler/wjtp/getWjtpList', data)
+}
+// 我的问卷投票列表接口
+export function getMyWjtpList(data) {
+  return request.get('/butler/wjtp/getMyWjtpList', data)
+}
+// 提交问卷调查接口
+export function addWjtp(data) {
+  return request.post('/butler/wjtp/addWjtp', data)
+}
+// 问卷调查详情接口
+export function getWjtpInfo(data) {
+  return request.get('/butler/wjtp/getWjtpInfo', data)
+}
+
+/* 问卷投票 end */
+
+/* 访客邀约 start */
+
+// 发起邀约接口
+export function addVisitorLog(data) {
+  return request.post('/butler/visitor/addVisitorLog', data)
+}
+// 访客邀约记录接口
+export function getVisitorLogList(data) {
+  return request.get('/butler/visitor/getVisitorLogList', data)
+}
+// 我的访客列表接口
+export function getMyVisitorList(data) {
+  return request.get('/butler/visitor/getMyVisitorList', data)
+}
+// 删除我的访客接口
+export function deleteMyVisitor(data) {
+  return request.post('/butler/visitor/deleteMyVisitor', data)
+}
+// 新增我的访客接口
+export function addMyVisitor(data) {
+  return request.post('/butler/visitor/addMyVisitor', data)
+}
+// 修改我的访客接口
+export function updateMyVisitor(data) {
+  return request.post('/butler/visitor/updateMyVisitor', data)
+}
+
+/* 访客邀约 end */
