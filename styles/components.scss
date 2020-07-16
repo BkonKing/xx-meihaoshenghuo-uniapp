@@ -1,7 +1,7 @@
 .tf-list {
   flex-direction: row !important;
   padding: 30rpx;
-  border-radius:10rpx;
+  border-radius: 10rpx;
   background-color: #fff;
   margin-bottom: 20rpx;
 }
@@ -21,91 +21,144 @@
 }
 
 /*卡片视图 */
-  .tf-card {
-    width: 710rpx;
-    // flex: 1;
-    background-color: #fff;
-    border-radius: 8rpx;
-    padding: 0 30rpx !important;
-    // position: relative;
-    // box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, .3);
+.tf-card {
+  width: 710rpx;
+  // flex: 1;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 0 30rpx !important;
+  // position: relative;
+  // box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, .3);
+}
+.tf-card-header,
+.tf-card-footer {
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  padding: 30rpx 0;
+  align-items: center !important;
+}
+.tf-card-header {
+  border-bottom-width: 2rpx !important;
+  border-bottom-style: solid;
+  border-bottom-color: $uni-color-divider !important;
+}
+.tf-card-footer {
+  font-size: 28rpx;
+  color: $uni-text-color-grey;
+  border-top-width: 2rpx !important;
+  border-top-style: solid;
+  border-top-color: $uni-color-divider !important;
+}
+.tf-card-header__title {
+  font-size: 30rpx;
+  color: $uni-text-color;
+  font-weight: 500;
+  lines: 1;
+  text-overflow: ellipsis;
+}
+.tf-card-header__status {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  border-top-left-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+  text-align: center;
+  color: #fff;
+  background-color: $uni-color-error;
+}
+.tf-card-header__status--complete {
+  background-color: #aaaaaa;
+}
+.tf-card-header-left {
+  padding: 20rpx 10rpx;
+  justify-content: space-between;
+  border-bottom-width: 1rpx !important;
+  border-bottom-style: solid;
+  border-bottom-color: $uni-color-divider !important;
+}
+.tf-card-content {
+  padding: 30rpx 0;
+  color: #666;
+  font-size: 28rpx;
+  line-height: 52rpx;
+}
+
+/* input*/
+.tf-phone-input-box {
+  flex-direction: row !important;
+  width: 650rpx;
+  padding: 30rpx 0;
+  border-bottom-width: 3rpx !important;
+  border-bottom-style: solid;
+  border-bottom-color: #383838 !important;
+}
+
+.tf-phone-input-label {
+  width: 110rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-right: 50rpx;
+}
+
+.tf-phone-input {
+  font-size: 36rpx;
+  color: #333333;
+}
+
+.tf-phone-code-btn {
+  font-size: 26rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  padding: 0 26rpx;
+  margin: 0;
+  border-width: 3rpx !important;
+  border-style: solid;
+  border-color: $uni-icon-color-dark-grey !important;
+  border-radius: 4rpx;
+}
+
+  .tf-form-box {
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
   }
-  .tf-card-footer,
-  .tf-card-header {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    padding: 30rpx 0;
-    align-items: center !important;
-    border-bottom-width: 2rpx !important;
-    border-bottom-style: solid;
-    border-bottom-color: $uni-color-divider !important;
+  .tf-form-label {
+    color: #000;
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
   }
-  .tf-card-header__title {
-    font-size: 30rpx;
-    color: $uni-text-color;
-    font-weight: bold;
-    lines: 1;
-    text-overflow: ellipsis;
+  .tf-form-item {
+    flex-direction: row;
+    width: 460rpx;
+    height: 66rpx;
+    background-color: #f0f0f0;
+    border-radius: 4rpx;
+    padding: 0 20rpx;
   }
-  .tf-card-header__status {
-    width: 140rpx;
-    height: 60rpx;
-    line-height: 60rpx;
-    font-size: 28rpx;
-    border-top-left-radius: 30rpx;
-    border-bottom-left-radius: 30rpx;
-    text-align: center;
-    color: #fff;
-    background-color: $uni-color-error;
+  .tf-form-item__input {
+    flex: 1;
+    height: 66rpx;
+    line-height: 66rpx;
+    font-size: 24rpx;
   }
-  .tf-card-header__status--complete {
-    background-color: #AAAAAA;
-  }
-  .tf-card-header-left {
-    padding: 20rpx 10rpx;
-    justify-content: space-between;
-    border-bottom-width: 1rpx !important;
-    border-bottom-style: solid;
-    border-bottom-color: $uni-color-divider !important;
-  }
-  .tf-card-content {
-    padding: 30rpx 0;
-    color: $uni-text-color-grey;
-    font-size: 26rpx;
-    line-height: 44rpx;
-  }
-  
-  /* input*/
-  .tf-phone-input-box {
-    flex-direction: row !important;
-    width: 650rpx;
-    padding: 30rpx 0;
-    border-bottom-width: 3rpx !important;
-    border-bottom-style: solid;
-    border-bottom-color: #383838 !important;
-  }
-  
-  .tf-phone-input-label {
-    width: 110rpx;
-    font-size: 34rpx;
-    font-weight: bold;
-    color: #333333;
-    margin-right: 50rpx;
-  }
-  
-  .tf-phone-input {
+  .tf-form-item__icon {
+    line-height: 66rpx;
     font-size: 36rpx;
-    color: #333333;
+    color: #aaa;
   }
-  
-  .tf-phone-code-btn {
-    font-size: 26rpx;
-    height:66rpx;
-	line-height: 66rpx;
-    padding: 0 26rpx;
-    margin: 0;
-    border-width: 3rpx !important;
-    border-style: solid;
-    border-color: $uni-icon-color-dark-grey !important;
+  .tf-form-item__input--placeholder {
+    height: 66rpx;
+    line-height: 66rpx;
+    font-size: 24rpx;
+    color: $uni-text-color-grey;
+  }
+  .tf-form-item__textarea {
+    flex: 1;
+    height:160rpx;
+    padding: 30rpx 18rpx;
+    font-size: 24rpx;
+    color: $uni-text-color-grey;
+    background-color:#F0F0F0;
     border-radius:4rpx;
   }

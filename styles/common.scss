@@ -73,6 +73,9 @@
   .tf-mr-base {
     margin-right: $uni-spacing-col-base;
   }
+  .tf-mr-lg {
+    margin-right: $uni-spacing-col-lg;
+  }
   .tf-margin-base {
     margin: $uni-spacing-row-base;
   }
@@ -299,7 +302,19 @@
   }
   
   .tf-btn {
+    flex: 1 !important;
     height: 88rpx !important;
     line-height: 88rpx !important;
     font-size: 30rpx;
+    text-align: center;
+    border-width: 2rpx !important;
+    border-style: solid;
+    border-color: #383838 !important;
+    border-radius:10rpx;
+  }
+  
+  .tf-btn-primary {
+    background-color: $uni-color-error !important;
+    border-color: $uni-color-error !important;
+    color: #fff;
   }

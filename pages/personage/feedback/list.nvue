@@ -1,0 +1,109 @@
+<template>
+  <view class="tf-bg tf-padding-base">
+    <list>
+      <cell v-for="(item, i) in data" :key="item.id" @tap="jump(item)">
+        <text class="list-item--time">{{item.ctime}}</text>
+        <view class="tf-card">
+          <view class="tf-card-header">
+            <text class="tf-card-header__title">{{item.type}}</text>
+          </view>
+          <text class="tf-card-content">{{ item.content }}</text>
+          <view v-if="item.reply" class="reply-box">
+            <text class="reply-title">回复:</text>
+            <text class="reply-content">{{ item.reply }}</text>
+          </view>
+        </view>
+      </cell>
+    </list>
+  </view>
+</template>
+
+<script>
+import { getComPraiseList } from '@/api/butler/butler.js';
+export default {
+  data() {
+    return {
+      data: [
+        {
+          id: '1',
+          type: '产品建议',
+          ctime: '07-03',
+          content: '厨房下水道堵了都没有及时来处理',
+          info_type: 1,
+          ctime: '2020-06-03 16:35:26',
+          reply: '已经分派相关工作人员去处理了',
+        },
+        {
+          id: '2',
+          type: '其他',
+          ctime: '07-03',
+          content: '厨房下水道堵了都没有及时来处理2',
+          info_type: 2,
+          ctime: '2020-06-03 16:35:26',
+          reply: '已经分派相关工作人员去处理了',
+        }
+      ]
+    };
+  },
+  onLoad() {
+    // this.getComPraiseList()
+  },
+  methods: {
+    getComPraiseList() {
+      getComPraiseList().then(res => {
+        if (res.success) {
+          this.data = res.data;
+        }
+      });
+    },
+    jump(item) {
+      const url = `/pages/personage/feedback/details?id=${item.id}`;
+      uni.navigateTo({
+        url
+      });
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.tf-card {
+  margin-bottom: $uni-spacing-col-base;
+}
+.tf-card-header {
+  font-size: 30rpx;
+  color: #333;
+  font-weight:500;
+}
+.tf-card-content {
+  color: #666;
+}
+.list-item--time {
+  font-size: 24rpx;
+  text-align: center;
+  color: $uni-text-color-grey;
+  margin: $uni-spacing-row-base;
+}
+.reply-box {
+  border-top-width: 1rpx;
+  border-top-style: solid;
+  border-top-color: $uni-color-divider;
+  padding-bottom: 40rpx;
+}
+
+.reply-title {
+  font-size: 24rpx;
+  margin: 30rpx 0;
+  color: #666;
+}
+
+.reply-content {
+  padding: 20rpx 30rpx;
+  background-color: #f0f0f0;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 52rpx;
+  border-radius:10rpx;
+}
+
+</style>

@@ -21,7 +21,7 @@
 <script>
   import tfTimeline from '@/pages/components/tf-timeline/index.nvue'
   import {
-    status
+    statusText
   } from '@/pages/const/butler.js'
   import {
     getRepairInfo,
@@ -33,7 +33,7 @@
     },
     data() {
       return {
-        statusText: status,
+        statusText,
         content: "厨房下水道堵了",
         images: [
           "https://mmm.cc/libaray/upload/images/2020/05/01/ssss.jpg"],

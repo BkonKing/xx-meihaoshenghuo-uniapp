@@ -166,7 +166,7 @@
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    padding-left: $uni-spacing-row-lg;
+    padding: 0 $uni-spacing-row-lg;
   }
 
   .uni-list-item--disabled {
@@ -185,12 +185,13 @@
     flex-direction: row;
     padding: $list-item-pd;
     padding-left: 0;
+    padding-right: 0;
     flex: 1;
     position: relative;
     justify-content: space-between;
     align-items: center;
     /* #ifdef APP-PLUS */
-    border-top-color: $uni-border-color;
+    border-top-color: $uni-color-divider;
     border-top-style: solid;
     border-top-width: 0.5px;
     /* #endif */
@@ -230,7 +231,7 @@
     flex: 1;
     overflow: hidden;
     flex-direction: column;
-    color: #3b4144;
+    color: #222;
 
   }
 

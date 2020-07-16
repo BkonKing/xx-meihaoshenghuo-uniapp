@@ -2,18 +2,18 @@
   <uni-nav-bar background-color="rgba(0,0,0,0)" leftWidth="500rpx" rightWidth="200rpx">
     <view slot="left">
       <view class="tf-row-vertical-center room_btn" @tap="goSelect" v-if="status">
-        <text class="tf-icon">{{icon_location}}</text>
-        <text class="tf-text">{{name}}</text>
+        <text class="tf-icon">{{ icon_location }}</text>
+        <text class="tf-text">{{ name }}</text>
       </view>
       <view class="tf-row-vertical-center room_btn" v-else>
-        <text class="tf-icon">{{icon_location}}</text>
+        <text class="tf-icon">{{ icon_location }}</text>
         <text class="tf-text underline">请认证房间号</text>
       </view>
     </view>
     <view class="tf-row" slot="right">
-      <text class="tf-icon" @tap="scan">{{icon_scan}}</text>
+      <text class="tf-icon" @tap="scan">{{ icon_scan }}</text>
       <view class="notice-box">
-        <text class="tf-icon margin-left">{{icon_mail}}</text>
+        <text class="tf-icon margin-left">{{ icon_mail }}</text>
         <uni-badge class="tf-badge" text="26" type="error" :inverted="true" v-if="status"></uni-badge>
       </view>
     </view>
@@ -21,77 +21,76 @@
 </template>
 
 <script>
-  import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
-  import uniBadge from "@/components/uni-badge/uni-badge.vue"
-  import {
-    icon_location,
-    icon_scan,
-    icon_mail
-  } from '@/pages/const/icon.js'
-  export default {
-    components: {
-      uniNavBar,
-      uniBadge
+import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+import uniBadge from '@/components/uni-badge/uni-badge.vue';
+import { icon_location, icon_scan, icon_mail } from '@/pages/const/icon.js';
+export default {
+  components: {
+    uniNavBar,
+    uniBadge
+  },
+  props: {
+    status: {
+      type: Number,
+      default: 0
     },
-    props: {
-      status: {
-        type: Number,
-        default: 0
-      },
-      name: {
-        type: String,
-        default: ''
-      }
+    name: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      icon_location,
+      icon_scan,
+      icon_mail
+    };
+  },
+  methods: {
+    goSelect() {
+      uni.navigateTo({
+        url: '/pages/personage/house/select-community'
+      });
     },
-    data() {
-      return {
-        icon_location,
-        icon_scan,
-        icon_mail
-      };
-    },
-    methods: {
-      goSelect() {
-        uni.navigateTo({
-          url: '/pages/personage/house/select-community'
-        })
-      },
-	  scan() {
-		uni.scanCode({
-			success: function(res) {
-				console.log('条码类型：' + res.result);
-			}
-		})
-	  }
+    scan() {
+      uni.navigateTo({
+        url: '/pages/personage/scanCode/index'
+      })
+      // uni.scanCode({
+      //   success: function(res) {
+      //     console.log('条码类型：' + res.result);
+      //   }
+      // });
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  .tf-icon {
-    font-size: 44rpx;
-    color: #fff;
-  }
+.tf-icon {
+  font-size: 44rpx;
+  color: #fff;
+}
 
-  .tf-text {
-    color: #fff;
-  }
-  
-  .notice-box {
-    padding-right: 17rpx;
-  }
+.tf-text {
+  color: #fff;
+}
 
-  .tf-badge {
-    position: absolute;
-    top: 0rpx;
-    right: 0;
-  }
+.notice-box {
+  padding-right: 17rpx;
+}
 
-  .underline {
-    text-decoration: underline;
-  }
+.tf-badge {
+  position: absolute;
+  top: 0rpx;
+  right: 0;
+}
 
-  .margin-left {
-    margin-left: 32rpx;
-  }
+.underline {
+  text-decoration: underline;
+}
+
+.margin-left {
+  margin-left: 32rpx;
+}
 </style>

@@ -1,0 +1,128 @@
+<template>
+  <view class="tf-bg-white" :style="{ height: height }">
+    <view class="page-bg"></view>
+    <view class="nav-bar">
+      <text class="tf-icon navbar-text">&#xe857;</text>
+      <text class="navbar-title">幸福币</text>
+      <text class="navbar-text">明细</text>
+    </view>
+    <view class="tf-row-space-between">
+      <view class="tf-row-center tf-flex-item">
+        <text class="tf-icon coin-icon">&#xe80b;</text>
+        <text class="coin-number">2333</text>
+      </view>
+      <text class="sign-tag">签到</text>
+    </view>
+    <view class="tf-row-space-between tf-padding-lg">
+      <view>
+        <text></text>
+        <text>扫一扫</text>
+      </view>
+      <view>
+        <text></text>
+        <text>付款码</text>
+      </view>
+      <view>
+        <text></text>
+        <text>收款码</text>
+      </view>
+    </view>
+    <text>幸福币任务</text>
+    <view>
+      <view>
+        <view></view>
+        <view>
+          <text></text>
+          <text></text>
+        </view>
+        <view></view>
+      </view>
+    </view>
+    <text>幸福币特卖区</text>
+    <view>
+      <view>
+        <view></view>
+        <view>
+          <text></text>
+          <text></text>
+        </view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+export default {
+  components: {
+    uniNavBar
+  },
+  data() {
+    return {
+      height: 'auto'
+    };
+  },
+  onLoad() {
+  	const res = uni.getSystemInfoSync();
+  	this.height = `${res.windowHeight}px`;
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+$gold-color: #CA864E;
+.page-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 378rpx;
+  background-color: #fbe1ca;
+}
+.nav-bar {
+  flex-direction: row;
+  justify-content: space-around;
+  height: 44px;
+  padding: 0 15px;
+}
+.navbar-title {
+  flex: 1;
+  font-size: 17px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: 500;
+  color: #CA864E;
+}
+.navbar-text {
+  color: #CA864E;
+  line-height: 44px;
+  font-size:26rpx;
+}
+.sign-tag {
+  width:240rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #FFF;
+  font-size: 30rpx;
+  background-image:linear-gradient(to right,rgba(249,134,107,1),rgba(235,88,65,1));
+  border-top-left-radius:44rpx;
+  border-bottom-left-radius:44rpx;
+}
+.tf-row-space-between {
+  height: 290rpx;
+  align-items: center;
+}
+.coin-number {
+  font-size:72rpx;
+  line-height: 72rpx;
+  font-weight:500;
+  color: $gold-color;
+}
+.coin-icon {
+  font-size: 36rpx;
+  color: $gold-color;
+  justify-content: flex-end;
+}
+</style>

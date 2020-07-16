@@ -205,14 +205,12 @@
     }, {
       "path": "pages/butler/visitor/invite-list",
       "style": {
-        "navigationBarTitleText": "访客邀约记录",
-        "navigationBarBackgroundColor": "#fff"
+        "navigationBarTitleText": "访客邀约记录"
       }
     }, {
       "path": "pages/butler/visitor/visitor-list",
       "style": {
-        "navigationBarTitleText": "访客",
-        "navigationBarBackgroundColor": "#fff"
+        "navigationBarTitleText": "访客"
       }
     },
     {
@@ -240,8 +238,7 @@
     }, {
       "path": "pages/personage/information/index",
       "style": {
-        "navigationBarTitleText": "我的资料",
-        "navigationBarBackgroundColor": "#fff"
+        "navigationBarTitleText": "我的资料"
       }
     }, {
       "path": "pages/personage/order-form/index",
@@ -269,14 +266,14 @@
               "fontSize": "27",
               "color": "#fff",
               "float": "right",
-			  "width": "57px"
+              "width": "57px"
             }, {
               "fontSrc": "/static/iconfont.ttf",
               "text": "\ue78c",
               "fontSize": "27",
               "color": "#fff",
               "float": "right",
-			  "width": "27px"
+              "width": "27px"
             }]
           }
         }
@@ -286,12 +283,12 @@
       "style": {
         "navigationBarTitleText": "开门记录",
         "navigationBarBackgroundColor": "#fff",
-		"titleNView": {
-			"splitLine": {
-				"height": "1px",
-				"color": "#f0f0f0"
-			} 
-		}
+        "titleNView": {
+          "splitLine": {
+            "height": "1px",
+            "color": "#f0f0f0"
+          }
+        }
       }
     }, {
       "path": "pages/personage/house/attestation",
@@ -329,113 +326,158 @@
       "style": {
         "navigationBarTitleText": "设置"
       }
-    }
-      ,{
-            "path" : "pages/personage/setting/account",
-            "style" : {}
+    }, {
+      "path": "pages/personage/setting/account",
+      "style": {}
+    }, {
+      "path": "pages/personage/message/index",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "消息",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17",
+            "buttons": [{
+              "text": "全部已读",
+              "fontSize": "16",
+              "width": "120"
+            }]
+          }
         }
-        ,{
-            "path" : "pages/personage/message/index",
-            "style" : {
-              "app-plus": {
-                "titleNView": {
-                  "titleText": "消息",
-                  "titleAlign": "center",
-                  "backgroundColor": "#fff",
-                  "titleColor": "#222",
-                  "titleSize": "17",
-                  "buttons": [{
-                    "text": "全部已读",
-                    "fontSize": "16",
-                    "width": "120"
-                  }]
-                }
-              }
-            }
-        }
-        ,{
-            "path" : "pages/personage/information/address",
-            "style" : {
-              "navigationBarTitleText": "收货地址"
-            }
-        }
-        ,{
-            "path" : "pages/personage/information/add-address",
-            "style" : {
-              "navigationBarTitleText": "添加地址"
-            }
-        }
-        ,{
-            "path" : "pages/life/order/order-list",
-            "style" : {
-							"navigationBarTitleText": "我的订单"
-						}
+      }
+    }, {
+      "path": "pages/personage/information/address",
+      "style": {
+        "navigationBarTitleText": "收货地址"
+      }
+    }, {
+      "path": "pages/personage/information/add-address",
+      "style": {
+        "navigationBarTitleText": "添加地址"
+      }
+    }, {
+      "path": "pages/life/order/order-list",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
+    },
+    {
+      "path": "pages/life/order/flash-order-detail",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "订单详情",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17"
+          }
         },
-				{
-				    "path" : "pages/life/order/flash-order-detail",
-						"style" : {
-						  "app-plus": {
-						    "titleNView": {
-						      "titleText": "订单详情",
-						      "titleAlign": "center",
-						      "backgroundColor": "#fff",
-						      "titleColor": "#222",
-						      "titleSize": "17"
-						    }
-						  },
-							"navigationStyle": "custom"
-						}
-				},
-				{
-				    "path" : "pages/life/order/refund-order-detail",
-						"style" : {
-						  "app-plus": {
-						    "titleNView": {
-						      "titleText": "退款详情",
-						      "titleAlign": "center",
-						      "backgroundColor": "#fff",
-						      "titleColor": "#222",
-						      "titleSize": "17"
-						    }
-						  },
-							"navigationStyle": "custom"
-						}
-				},
-				{
-				    "path" : "pages/life/order/barter-order-detail",
-						"style" : {
-						  "app-plus": {
-						    "titleNView": {
-						      "titleText": "换货详情",
-						      "titleAlign": "center",
-						      "backgroundColor": "#fff",
-						      "titleColor": "#222",
-						      "titleSize": "17"
-						    }
-						  },
-							"navigationStyle": "custom"
-						}
-				},
-				{
-				    "path" : "pages/life/order/write-logisticsl",
-				    "style" : {
-							"navigationBarTitleText": "填写换货物流"
-						}
-				},
-				{
-				    "path" : "pages/life/address/address-list",
-				    "style": {
-				      "navigationBarTitleText": "收货地址"
-				    }
-				},
-				{
-				    "path" : "pages/life/address/address-operate",
-				    "style": {
-				      "navigationBarTitleText": "添加地址"
-				    }
-				}
-				
-    ],
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/life/order/refund-order-detail",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "退款详情",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17"
+          }
+        },
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/life/order/barter-order-detail",
+      "style": {
+        "app-plus": {
+          "titleNView": {
+            "titleText": "换货详情",
+            "titleAlign": "center",
+            "backgroundColor": "#fff",
+            "titleColor": "#222",
+            "titleSize": "17"
+          }
+        },
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/life/order/write-logisticsl",
+      "style": {
+        "navigationBarTitleText": "填写换货物流"
+      }
+    },
+    {
+      "path": "pages/life/address/address-list",
+      "style": {
+        "navigationBarTitleText": "收货地址"
+      }
+    },
+    {
+      "path": "pages/life/address/address-operate",
+      "style": {
+        "navigationBarTitleText": "添加地址"
+      }
+    }, {
+      "path": "pages/personage/transaction/index",
+      "style": {
+        "navigationBarTitleText": "事务处理"
+      }
+    }, {
+      "path": "pages/personage/transaction/details",
+      "style": {}
+    }, {
+      "path": "pages/personage/feedback/index",
+      "style": {
+        "navigationBarTitleText": "意见反馈",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [{
+              "type": "home"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/personage/feedback/list",
+      "style": {
+        "navigationBarTitleText": "我的反馈"
+      }
+    }, {
+      "path": "pages/personage/feedback/details",
+      "style": {
+        "navigationBarTitleText": "我的反馈"
+      }
+    }, {
+      "path": "pages/personage/scanCode/index",
+      "style": {
+        "navigationStyle": "custom",
+        "app-plus": {
+          "autoBackButton": false
+        }
+      }
+    }, {
+      "path": "pages/personage/scanCode/qrcode",
+      "style": {
+        "navigationStyle": "custom",
+        "app-plus": {
+          "autoBackButton": false
+        }
+      }
+    }, {
+      "path": "pages/personage/happiness-coin/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",

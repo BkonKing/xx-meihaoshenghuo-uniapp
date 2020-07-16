@@ -1,4 +1,4 @@
-export const status = {
+export const statusText = {
   '0': '待处理',
   '1': '处理中',
   '2': '待分派',

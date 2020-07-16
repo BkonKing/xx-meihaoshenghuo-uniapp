@@ -57,7 +57,7 @@
 		},
 		methods: {
 			setStyle() {
-				this.badgeStyle = `width: ${String(this.text).length * 8 + 12}px`
+				this.badgeStyle = `width: ${String(this.text).length * 8 + 6}px`
 			},
 			onClick() {
 				this.$emit('click');
@@ -86,7 +86,7 @@
 		text-align: center;
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 		font-size: $bage-size;
-		padding: 0px 6px;
+		padding: 0px 6rpx;
 	}
 
 	.uni-badge--inverted {

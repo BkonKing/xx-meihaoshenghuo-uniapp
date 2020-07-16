@@ -3,8 +3,8 @@
     <placeholderNavBar></placeholderNavBar>
     <uni-nav-bar>
       <view class="tf-row" slot="right">
-        <text class="tf-icon" @tap="goSetting">{{icon_setting}}</text>
-        <text class="tf-icon margin-left" @tap="goMessage">{{icon_message}}</text>
+        <text class="tf-icon" @tap="goSetting">{{ icon_setting }}</text>
+        <text class="tf-icon margin-left" @tap="goMessage">{{ icon_message }}</text>
         <uni-badge class="badge" text="2" type="error" @click="bindClick"></uni-badge>
       </view>
     </uni-nav-bar>
@@ -22,7 +22,7 @@
         </view>
       </view>
       <view class="tf-row tf-padding-base">
-        <view class="tf-flex-item">
+        <view class="tf-flex-item" @tap="goHappiness">
           <text class="user-text--lg">90000</text>
           <text class="user-text--grey">幸福币</text>
         </view>
@@ -31,33 +31,33 @@
           <text class="user-text--grey">优惠券</text>
         </view>
         <view class="tf-flex-item tf-flex-center">
-          <button class="user-btn--signin">
-            <text style="color: #fff;font-size: 30rpx;">签到</text>
-          </button>
+          <button class="user-btn--signin"><text style="color: #fff;font-size: 30rpx;">签到</text></button>
         </view>
       </view>
     </view>
     <view class="tf-bg">
       <view class="module-box">
         <text class="module-title">事务处理</text>
-        <view class="tf-row">
-          <view class="manage-box tf-flex-item tf-flex-center">
-            <text></text>
-            <text class="text-sm">待处理</text>
+        <view class="tf-padding-base">
+          <view class="tf-row manage-border-bottom">
+            <view class="manage-box manage-border-right" @tap="goTransaction(1)">
+              <image class="manage-image" src="/static/tabbar/me.png" mode="aspectFit"></image>
+              <text class="text-sm">待处理</text>
+            </view>
+            <view class="manage-box">
+              <image class="manage-image" src="/static/tabbar/me.png" mode="aspectFit"></image>
+              <text class="text-sm">待分派</text>
+            </view>
           </view>
-          <view class="manage-box tf-flex-item tf-flex-center">
-            <text></text>
-            <text class="text-sm">待分派</text>
-          </view>
-        </view>
-        <view class="tf-row">
-          <view class="manage-box tf-flex-item tf-flex-center">
-            <text></text>
-            <text class="text-sm">待结案</text>
-          </view>
-          <view class="manage-box tf-flex-item tf-flex-center">
-            <text></text>
-            <text class="text-sm">已结案</text>
+          <view class="tf-row">
+            <view class="manage-box manage-border-right">
+              <image class="manage-image" src="/static/tabbar/me.png" mode="aspectFit"></image>
+              <text class="text-sm">待结案</text>
+            </view>
+            <view class="manage-box">
+              <image class="manage-image" src="/static/tabbar/me.png" mode="aspectFit"></image>
+              <text class="text-sm">已结案</text>
+            </view>
           </view>
         </view>
       </view>
@@ -93,159 +93,192 @@
         <uni-list-item title="幸福基金" thumb="https://img-cdn-qiniu.dcloud.net.cn/new-page/hx.png"></uni-list-item>
       </uni-list>
       <uni-list style="background-color: #fff;border-radius: 8rpx;">
-        <uni-list-item title="标题文字" thumb="https://img-cdn-qiniu.dcloud.net.cn/new-page/hx.png"></uni-list-item>
-        <uni-list-item title="意见反馈" thumb="https://img-cdn-qiniu.dcloud.net.cn/new-page/hx.png"></uni-list-item>
+        <uni-list-item title="常见问题" thumb="https://img-cdn-qiniu.dcloud.net.cn/new-page/hx.png"></uni-list-item>
+        <uni-list-item title="意见反馈" thumb="https://img-cdn-qiniu.dcloud.net.cn/new-page/hx.png" @tap="goFeedback"></uni-list-item>
       </uni-list>
     </view>
   </view>
 </template>
 
 <script>
-  import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue'
-  import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
-  import uniBadge from "@/components/uni-badge/uni-badge.vue"
-  import uniList from "@/components/uni-list/uni-list.vue"
-  import uniListItem from "@/components/uni-list-item/uni-list-item.vue"
-  import uniTag from '@/components/uni-tag/uni-tag.vue'
-  import uniCard from '@/components/uni-card/uni-card.vue'
-  import {
-    icon_setting,
-    icon_message
-  } from "../const/icon.js"
-  export default {
-    components: {
-      uniNavBar,
-      uniBadge,
-      uniList,
-      uniListItem,
-      uniTag,
-      uniCard,
-      placeholderNavBar,
+import placeholderNavBar from '../components/placeholder-nav-bar/index.nvue';
+import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+import uniBadge from '@/components/uni-badge/uni-badge.vue';
+import uniList from '@/components/uni-list/uni-list.vue';
+import uniListItem from '@/components/uni-list-item/uni-list-item.vue';
+import uniTag from '@/components/uni-tag/uni-tag.vue';
+import uniCard from '@/components/uni-card/uni-card.vue';
+import { icon_setting, icon_message } from '../const/icon.js';
+export default {
+  components: {
+    uniNavBar,
+    uniBadge,
+    uniList,
+    uniListItem,
+    uniTag,
+    uniCard,
+    placeholderNavBar
+  },
+  data() {
+    return {
+      icon_setting,
+      icon_message
+    };
+  },
+  methods: {
+    goSetting() {
+      uni.navigateTo({
+        url: '/pages/personage/setting/index'
+      });
     },
-    data() {
-      return {
-        icon_setting,
-        icon_message
-      }
+    goMessage() {
+      uni.navigateTo({
+        url: '/pages/personage/message/index'
+      });
     },
-    methods: {
-      goSetting() {
-        uni.navigateTo({
-          url: '/pages/personage/setting/index'
-        })
-      },
-      goMessage() {
-        uni.navigateTo({
-          url: '/pages/personage/message/index'
-        })
-      },
-      goInformation() {
-        uni.navigateTo({
-          url: '/pages/personage/information/index'
-        })
-      },
-      goOrder() {
-        uni.navigateTo({
-          url: '/pages/personage/order-form/index'
-        })
-      }
+    goInformation() {
+      uni.navigateTo({
+        url: '/pages/personage/information/index'
+      });
+    },
+    goOrder() {
+      uni.navigateTo({
+        url: '/pages/personage/order-form/index'
+      });
+    },
+    goTransaction(type) {
+      const url = `/pages/personage/transaction/index?type=${type}`
+      uni.navigateTo({
+        url
+      });
+    },
+    // 意见反馈
+    goFeedback() {
+      uni.navigateTo({
+        url: '/pages/personage/feedback/index'
+      });
+    },
+    // 幸福币
+    goHappiness() {
+      uni.navigateTo({
+        url: '/pages/personage/happiness-coin/index'
+      });
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  .tf-icon {
-    width: 44rpx;
-    font-size: 44rpx;
-    color: $uni-icon-color-dark-grey;
-    margin-left: 10rpx;
-  }
+.tf-icon {
+  width: 44rpx;
+  font-size: 44rpx;
+  color: $uni-icon-color-dark-grey;
+  margin-left: 10rpx;
+}
 
-  .badge {
-    width: 34rpx;
-    height: 24rpx;
-    line-height: 24rpx;
-    font-size: 18rpx;
-    left: -20rpx;
-    top: 0;
-  }
-  
-  .personage-info--base {
-    justify-content: center;
-  }
+.badge {
+  width: 34rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  font-size: 18rpx;
+  left: -20rpx;
+  top: 0;
+}
 
-  .personage-info__avatar {
-    width: 110rpx;
-    height: 110rpx;
-    border-radius: 50%;
-    margin-right: $uni-spacing-row-base;
-  }
+.personage-info--base {
+  justify-content: center;
+}
 
-  .user-name {
-    font-size: 34rpx;
-    font-weight: 500;
-    color: $uni-text-color;
-  }
+.personage-info__avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-right: $uni-spacing-row-base;
+}
 
-  .user-role {
-    margin-left: 10rpx;
-  }
+.user-name {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: $uni-text-color;
+}
 
-  .user-address {
-    font-size: 26rpx;
-    color: $uni-text-color-grey;
-    margin-top: $uni-spacing-col-base;
-  }
+.user-role {
+  margin-left: 10rpx;
+}
 
-  .user-text--lg {
-    text-align: center;
-    font-size: 54rpx;
-  }
+.user-address {
+  font-size: 26rpx;
+  color: $uni-text-color-grey;
+  margin-top: $uni-spacing-col-base;
+}
 
-  .user-text--grey {
-    text-align: center;
-    font-size: 24rpx;
-    color: $uni-text-color-grey;
-  }
-  
-  .module-box {
-    width: 710rpx;
-    padding: 30rpx 30rpx;
-    margin-bottom: 30rpx;
-    border-radius: 8rpx;
-    background-color: #fff;
-  }
-  .module-title {
-    font-size: 30rpx;
-    font-weight: 500;
-    line-height: 30rpx;
-    padding-bottom: 30rpx;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: $uni-color-divider;
-  }
+.user-text--lg {
+  text-align: center;
+  font-size: 54rpx;
+}
 
-  .user-btn--signin {
-    width: 200rpx;
-    height: 66rpx;
-    line-height: 66rpx;
-    background-image: linear-gradient(to right, #f9866b, #eb5841);
-    // background:linear-gradient(-90deg,#eb5841,#f9866b);
-    border-radius: 33px;
-  }
-  .manage-box {
-    height: 164rpx;
-  }
-  .order-box {
-    height: 114rpx;
-  }
-  .text-sm {
-    font-size: 24rpx;
-  }
-  .margin-left {
-    margin-left: 32rpx;
-  }
-  .tf-bg {
-    padding: 30rpx 20rpx;
-  }
+.user-text--grey {
+  text-align: center;
+  font-size: 24rpx;
+  color: $uni-text-color-grey;
+}
+
+.module-box {
+  width: 710rpx;
+  padding: 30rpx 30rpx 0;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+}
+.module-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  line-height: 30rpx;
+  padding-bottom: 30rpx;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $uni-color-divider;
+}
+
+.user-btn--signin {
+  width: 200rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  background-image: linear-gradient(to right, #f9866b, #eb5841);
+  // background:linear-gradient(-90deg,#eb5841,#f9866b);
+  border-radius: 33px;
+}
+.manage-box {
+  flex: 1;
+  height: 144rpx;
+  justify-content: center;
+  align-items: center;
+}
+.order-box {
+  height: 114rpx;
+}
+.text-sm {
+  font-size: 24rpx;
+}
+.margin-left {
+  margin-left: 32rpx;
+}
+.tf-bg {
+  padding: 30rpx 20rpx;
+}
+.manage-image {
+  width: 60rpx;
+  height: 35rpx;
+  margin-bottom: 20rpx;
+}
+.manage-border-right {
+  border-right-width: 2rpx;
+  border-right-style: dashed;
+  border-right-color: $uni-color-divider;
+}
+.manage-border-bottom {
+  border-bottom-width: 2rpx;
+  border-bottom-style: dashed;
+  border-bottom-color: $uni-color-divider;
+}
 </style>
