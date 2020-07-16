@@ -73,36 +73,36 @@
 					</view>
 					<view class="common-item pic-list">
 						<view class="pic-item">
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 							<view class="pic-del">
 								<view class="del-bg">
 									<text class="del-line"></text>
 								</view>
 							</view>
-							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 						</view>
 						<view class="pic-item">
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 							<view class="pic-del">
 								<view class="del-bg">
 									<text class="del-line"></text>
 								</view>
 							</view>
-							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 						</view>
 						<view class="pic-item">
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 							<view class="pic-del">
 								<view class="del-bg">
 									<text class="del-line"></text>
 								</view>
 							</view>
-							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 						</view>
 						<view class="pic-item">
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 							<view class="pic-del">
 								<view class="del-bg">
 									<text class="del-line"></text>
 								</view>
 							</view>
-							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
 						</view>
 						<view class="pic-item">
 							<view class="upload-pic">
