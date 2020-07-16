@@ -1,90 +1,96 @@
 <template>
   <scroll-view class="tf-bg tf-padding-base">
-    <!--    <recycle-list for="(item, i) in data">
-      <cell-slot :key="i"> -->
-    <view v-for="(item, i) in data" :key="i" class="question-box" @tap="jump(item)">
-      <view class="question-status-box">
-        <text></text>
-      </view>
-      <view class="question-box__right">
-        <text class="question-title">{{item.title}}</text>
-        <view class="question-info">
-          <view class="tf-row-vertical-center">
-            <text class="tf-gradient-tag--warning" v-if="item.money">+{{item.money}}</text>
-            <text class="participate-tatus" :class="item.status ? 'participate-tatus--proceed' : 'participate-tatus--end'">{{item.content}}</text>
+    <list>
+      <cell v-for="item in data" :key="item.id">
+        <view class="question-box" @tap="jump(item)">
+          <view class="question-status-box">
+            <text class="question-type">{{ item.wjtp_type }}</text>
           </view>
-          <text class="question-info__time">{{item.day}}</text>
+          <view class="question-box__right">
+            <text class="question-title">{{ item.title }}</text>
+            <view class="question-info">
+              <view class="tf-row-vertical-center">
+                <text class="tf-gradient-tag--warning" v-if="item.virtual_coin > 0">+{{ item.virtual_coin }}</text>
+                <text class="participate-status" :class="item.status ? 'participate-status--proceed' : 'participate-status--end'">{{ item.joins }}人参加</text>
+              </view>
+              <text class="question-info__time">{{ item.stime }}</text>
+            </view>
+          </view>
         </view>
-      </view>
-    </view>
-    <!--      </cell-slot>
-    </recycle-list> -->
+      </cell>
+    </list>
   </scroll-view>
 </template>
 
 <script>
-  export default {
-    props: {
-      data: {
-        type: Array,
-        default: () => []
-      }
-    },
-    methods: {
-      jump(item) {
-        const url = `/pages/butler/questionnaire/details?id=${item.id}`
-        uni.navigateTo({
-          url
-        })
-      },
+export default {
+  props: {
+    data: {
+      type: Array,
+      default: () => []
+    }
+  },
+  methods: {
+    jump(item) {
+      const url = `/pages/butler/questionnaire/details?id=${item.id}`;
+      uni.navigateTo({
+        url
+      });
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-  .question-box {
-    width: 710rpx;
-    flex-direction: row !important;
-    background-color: #fff;
-    border-radius: $uni-border-radius-base;
-  }
+.question-box {
+  width: 710rpx;
+  flex-direction: row !important;
+  background-color: #fff;
+  border-radius: $uni-border-radius-base;
+  margin-bottom: 20rpx;
+}
 
-  .question-status-box {
-    width: 170rpx;
-    // height: 170rpx;
-    background-color: $uni-bg-color-grey;
-    border-top-left-radius: $uni-border-radius-base;
-    border-bottom-left-radius: $uni-border-radius-base;
-  }
-  .question-box__right {
-    flex: 1;
-    padding: 40rpx 20rpx;
-  }
-  .question-title {
-    font-size: 30rpx;
-    font-weight: bold;
-    lines: 1;
-    text-overflow: ellipsis;
-    margin-bottom: $uni-spacing-col-lg;
-  }
-  .question-info {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .participate-tatus {
-    font-size: 24rpx;
-  }
-  .participate-tatus--proceed {
-    color: $uni-color-error;
-  }
-  .participate-tatus--end {
-    color: $uni-text-color-grey;
-  }
-  .tf-gradient-tag--warning {
-    margin-right: 40rpx;
-  }
-  .question-info__time {
-    font-size: 24rpx;
-    color: $uni-text-color-grey;
-  }
+.question-status-box {
+  width: 170rpx;
+  // height: 170rpx;
+  background-color: $uni-bg-color-grey;
+  border-top-left-radius: $uni-border-radius-base;
+  border-bottom-left-radius: $uni-border-radius-base;
+}
+.question-type {
+  text-align: center;
+  line-height: 170rpx;
+}
+.question-box__right {
+  flex: 1;
+  padding: 40rpx 20rpx;
+}
+.question-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  lines: 1;
+  text-overflow: ellipsis;
+  margin-bottom: $uni-spacing-col-lg;
+}
+.question-info {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.participate-status {
+  font-size: 24rpx;
+}
+.participate-status--proceed {
+  color: $uni-color-error;
+}
+.participate-status--end {
+  color: $uni-text-color-grey;
+}
+.tf-gradient-tag--warning {
+  margin-right: 30rpx;
+}
+.question-info__time {
+  font-size: 24rpx;
+  color: $uni-text-color-grey;
+}
 </style>

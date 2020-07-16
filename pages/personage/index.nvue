@@ -37,8 +37,8 @@
         </view>
       </view>
     </view>
-    <view class="tf-bg" style="padding: 30rpx 20rpx;">
-      <view class="module-box tf-bg-white tf-mb-base">
+    <view class="tf-bg">
+      <view class="module-box">
         <text class="module-title">事务处理</text>
         <view class="tf-row">
           <view class="manage-box tf-flex-item tf-flex-center">
@@ -209,6 +209,7 @@
   }
   
   .module-box {
+    width: 710rpx;
     padding: 30rpx 30rpx;
     margin-bottom: 30rpx;
     border-radius: 8rpx;
@@ -243,5 +244,8 @@
   }
   .margin-left {
     margin-left: 32rpx;
+  }
+  .tf-bg {
+    padding: 30rpx 20rpx;
   }
 </style>

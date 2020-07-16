@@ -113,6 +113,14 @@
   .tf-text-orange {
     color: $uni-bg-color-warning;
   }
+  .tf-bg-orange {
+    background-color: $uni-color-warning;
+    color: #fff;
+  }
+  .tf-bg-main {
+    background-color: $uni-color-error;
+    color: #fff !important;
+  }
   .tf-center {
 		text-align: center;
 	}
@@ -288,4 +296,10 @@
   .tf-h3 {
     font-size: 52rpx;
     font-weight: bold;
+  }
+  
+  .tf-btn {
+    height: 88rpx !important;
+    line-height: 88rpx !important;
+    font-size: 30rpx;
   }

@@ -51,9 +51,9 @@ export default {
   filters: {
     contentText(item) {
       if (item.category_type === 1) {
-        return `开始时间：${item.stime} \n 结束时间：${item.etime}`
+        return `开始时间：${item.stime} \n结束时间：${item.etime}`
       } else {
-        return `借用时间：${item.stime} \n 归还时间：${item.etime}`
+        return `借用时间：${item.stime} \n归还时间：${item.etime}`
       }
     }
   }
