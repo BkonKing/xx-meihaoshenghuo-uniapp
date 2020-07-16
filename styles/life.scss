@@ -101,6 +101,9 @@
 .color-eb5841 {
 	color: $uni-color-error;
 }
+.color-919499 {
+	color: #919499;
+}
 .text-right {
 	text-align: right;
 }
@@ -128,6 +131,9 @@
 	align-items: center;
 	justify-content: center;
 }
+.submit-btn-unable {
+	background-color: $uni-icon-color-grey;
+}
 
 .common-list{
 	padding: 0 30rpx;
@@ -149,4 +155,21 @@
 	width: 16rpx;
 	height: 26rpx;
 	margin-left: 20rpx;
+}
+
+.bottom-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+.mask-bg {
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
 }
