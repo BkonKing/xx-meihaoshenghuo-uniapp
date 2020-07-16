@@ -52,8 +52,8 @@
 					</view>
 					<view class="detail-price-list">
 						<view class="flex-sart-item">
-							<text class="color-222 font-28 flex-sart-item-left">换货原因：</text>
-							<text class="color-222 font-28">发错货</text>
+							<text class="color-222 font-28 flex-sart-item-left">退款原因：</text>
+							<text class="color-222 font-28">尺码拍错/不喜欢/效果不好</text>
 						</view>
 						<view class="flex-sart-item">
 							<text class="color-222 font-28 flex-sart-item-left">换货编号：</text>
@@ -63,16 +63,16 @@
 							<text class="color-222 font-28 flex-sart-item-left">下单时间：</text>
 							<text class="color-222 font-28">2020-07-02  12:00:00</text>
 						</view>
-						<view class="flex-sart-item">
+						<!-- <view class="flex-sart-item">
 							<text class="color-222 font-28 flex-sart-item-left">完成时间：</text>
 							<text class="color-222 font-28">2020-07-02  12:00:00</text>
-						</view>
+						</view> -->
 					</view>
 					<view class="order-total order-total-detail">
 						<text class="color-8f8f94 font-24">共 1 件</text>
 					</view>
 				</view>
-				<view class="cont-session address-logistics">
+				<!-- <view class="cont-session address-logistics">
 					<view class="shipping-address">
 						<view class="shipping-address-item">
 							<text class="shipping-address-item-left color-222 font-28">收货地址:</text>
@@ -106,28 +106,28 @@
 							</view>
 						</view>
 					</view>
-				</view>
-				<!-- <view class="cont-session order-message">
+				</view> -->
+				<view class="cont-session order-message">
 					<view class="order-tip-item">
-						<text class="order-tip-item-left order-tip-text color-222 font-28">换货规格:</text>
-						<text class="color-222 font-28 order-tip-text">粉色</text>
+						<text class="order-tip-item-left order-tip-text color-222 font-28">退款总额:</text>
+						<text class="color-222 font-28 order-tip-text">￥100、幸福币500</text>
 					</view>
 					<view class="order-tip-item">
-						<text class="order-tip-item-left order-tip-text color-222 font-28">换货说明：</text>
+						<text class="order-tip-item-left order-tip-text color-222 font-28">退款说明:</text>
 						<text class="order-tip-item-right color-222 font-28 order-tip-text">颜色不喜欢买错色号，希望能换一个颜色和样式</text>
 					</view>
 					<view class="order-tip-item">
 						<text class="order-tip-item-left order-tip-text color-222 font-28">寄出物流: </text>
 						<text class="color-eb5841 font-28 order-tip-text">请及时寄出并填写物流单号</text>
 					</view>
-				</view> -->
-				<view class="cont-session order-message">
+				</view>
+				<!-- <view class="cont-session order-message">
 					<view class="order-tip-item">
-						<text class="order-tip-item-left order-tip-text color-222 font-28">换货规格:</text>
-						<text class="color-222 font-28 order-tip-text">粉色</text>
+						<text class="order-tip-item-left order-tip-text color-222 font-28">退款总额:</text>
+						<text class="color-222 font-28 order-tip-text">￥100、幸福币500</text>
 					</view>
 					<view class="order-tip-item">
-						<text class="order-tip-item-left order-tip-text color-222 font-28">换货说明：</text>
+						<text class="order-tip-item-left order-tip-text color-222 font-28">退款说明：</text>
 						<text class="order-tip-item-right color-8f8f94 font-28 order-tip-text">无</text>
 					</view>
 					<view class="order-tip-item">
@@ -135,7 +135,7 @@
 						<text class="color-222 font-28 order-tip-text">顺丰速运</text>
 						<text class="color-8f8f94 font-28 order-tip-text">(已签收)</text>
 					</view>
-				</view>
+				</view> -->
 			</view>
 			<view class="fixed-empty"></view>
 			<view class="btn-fixed-buttom">

@@ -9,6 +9,10 @@
 	@extend %fx-row;
 	justify-content: flex-end;
 }
+%fx-flex-center {
+	@extend %fx-row;
+	align-items: center;
+}
 @mixin border-radius($radius) {
 					border-radius: $radius;
 			-ms-border-radius: $radius;
@@ -100,14 +104,23 @@
 .text-right {
 	text-align: right;
 }
+.width-146 {
+	width: 146rpx;
+}
 
 .scroll-body {
 	position: fixed;
-	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	background-color: $uni-bg-color;
+	/* #ifndef H5 */
+	
+	/* #endif */
+	top: 88rpx;
+	/* #ifdef APP-PLUS */
+	top: 0;
+	/* #endif */
 }
 .cont-session {
 	width: 710rpx;
@@ -136,8 +149,7 @@
 .order-header {
 	height: 90rpx;
 	color: $uni-text-color-grey;
-	@extend %fx-row;
-	align-items: center;
+	@extend %fx-flex-center;
 	@extend %border-bottom;
 	margin-bottom: $uni-spacing-col-lg;
 }
@@ -239,8 +251,7 @@
 	@include border-radius(6rpx);
 	@extend %border-all;
 	padding: 0 $uni-spacing-row-base;
-	@extend %fx-row;
-	align-items: center;
+	@extend %fx-flex-center;
 	display: flex;
 }
 .order-border-btn {
@@ -304,7 +315,7 @@
 	align-items: center;
 }
 .flex-sart-item-left {
-	width: 146rpx;
+	@extend .width-146;
 }
 .order-total-detail {
 	height: 90rpx;
@@ -331,11 +342,10 @@
 	align-items: center;
 }
 .shipping-logistics-item {
-	@extend %fx-row;
-	align-items: center;
+	@extend %fx-flex-center;
 }
 .shipping-address-item-left,.order-remarks-item-left,.order-message-item-left {
-	width: 146rpx;
+	@extend .width-146;
 }
 .shipping-address-item-right,.order-remarks-item-right,.order-message-item-right {
 	@extend %fx-row;
@@ -367,7 +377,7 @@
 	width: 8rpx;
 	height: 8rpx;
 	background-color: $uni-icon-color-grey;
-	border-radius: 4rpx;
+	@include border-radius(4rpx);
 }
 .shipping-logistics-line {
 	position: absolute;
@@ -377,7 +387,7 @@
 	width: 2rpx;
 	height: 36rpx;
 	background-color: $uni-icon-color-grey;
-	border-radius: 4rpx;
+	@include border-radius(4rpx);
 }
 .shipping-logistics-text {
 	line-height: 40rpx;
@@ -405,7 +415,7 @@
 	align-items: flex-start;
 }
 .order-tip-item-left {
-	width: 146rpx;
+	@extend .width-146;
 }
 .order-tip-item-right {
 	width: 466rpx;
@@ -442,4 +452,43 @@
 	@extend %fx-flex-end;
 	@extend %border-top;
 	background-color: $uni-text-color-inverse;
+}
+.fixed-submit-empty {
+	height: 168rpx;
+}
+.submit-fixed-buttom {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 168rpx;
+	padding: 40rpx 20rpx;
+}
+.submit-btn {
+	@include border-radius(10rpx);
+	height: 88rpx;
+	background-color: $uni-color-error;
+	align-items: center;
+	justify-content: center;
+}
+
+.common-list{
+	padding: 0 30rpx;
+}
+.common-item {
+	height: 100rpx;
+	align-items: center;
+	@extend %fx-space-between;
+	@extend %border-top;
+}
+.common-item-first {
+	border-top-width: 0;
+}
+.common-item-left,.common-item-right {
+	@extend %fx-flex-center;
+}
+.common-item-arrow {
+	width: 16rpx;
+	height: 26rpx;
+	margin-left: 20rpx;
 }

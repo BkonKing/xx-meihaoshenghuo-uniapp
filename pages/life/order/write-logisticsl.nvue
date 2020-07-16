@@ -1,0 +1,220 @@
+<template>
+	<view class="app-body tf-bg">
+		<!-- <placeholderNavBar></placeholderNavBar> -->
+		<scroll-view scroll-y="true" class="scroll-body">
+			<view class="order-session">
+				<view class="cont-session goods-session">
+					<view class="order-goods-info">
+						<view class="order-pic-block">
+							<image class="order-pic" mode="aspectFill" src="http://192.168.1.158/library/uploads/image/20181220/20181220142322_65224.jpg"></image>
+						</view>
+						<view class="order-info">
+							<view class="order-name-price">
+								<view class="order-name"><text class="color-222 font-28 order-name-text">yeah jewelry U形项链yeah jewelry U形项链ry U形项链yeah jewelry U形</text></view>
+							</view>
+							<view class="order-sku-num">
+								<view class="order-sku"><text class="color-8f8f94 font-24 order-sku-text">规格：银色</text></view>
+							</view>
+							<view class="order-action-session">
+								<view class="order-action-text">
+									<text class="color-eb5841 font-24">换货规格：粉色</text>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="order-goods-info">
+						<view class="order-pic-block">
+							<image class="order-pic" mode="aspectFill" src="http://192.168.1.158/library/uploads/image/20181220/20181220142322_65224.jpg"></image>
+						</view>
+						<view class="order-info">
+							<view class="order-name-price">
+								<view class="order-name"><text class="color-222 font-28 order-name-text">yeah jewelry U形项链yeah jewelry U形项链</text></view>
+							</view>
+							<view class="order-sku-num">
+								<view class="order-sku"><text class="color-8f8f94 font-24 order-sku-text">规格：银色</text></view>
+							</view>
+							<view class="order-action-session">
+								<view class="order-action-text">
+									<text class="color-eb5841 font-24">换货规格：粉色</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="cont-session common-list">
+					<view class="common-item common-item-first">
+						<view class="common-item-left">
+							<text class="color-222 font-28 width-146">物流公司</text>
+							<text class="color-222 font-28">顺丰速运</text>
+						</view>
+						<view class="common-item-right">
+							<text class="color-8f8f94 font-28">请选择</text>
+							<image class="common-item-arrow" src="../../../static/app-icon.png" mode=""></image>
+						</view>
+					</view>
+					<view class="common-item">
+						<view class="common-item-left">
+							<text class="color-222 font-28 width-146">物流单号</text>
+							<text class="color-222 font-28">SF123456789012</text>
+						</view>
+						<view class="common-item-right">
+							<view class="common-item-code">
+								<image class="code-pic" src="../../../static/app-icon.png" mode=""></image>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="cont-session common-list common-list-pic">
+					<view class="common-item common-item-first">
+						<view class="common-item-left">
+							<text class="color-222 font-28">上传凭证</text>
+							<text class="color-8f8f94 font-28">(最多5张)</text>
+						</view>
+					</view>
+					<view class="common-item pic-list">
+						<view class="pic-item">
+							<view class="pic-del">
+								<view class="del-bg">
+									<text class="del-line"></text>
+								</view>
+							</view>
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
+						</view>
+						<view class="pic-item">
+							<view class="pic-del">
+								<view class="del-bg">
+									<text class="del-line"></text>
+								</view>
+							</view>
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
+						</view>
+						<view class="pic-item">
+							<view class="pic-del">
+								<view class="del-bg">
+									<text class="del-line"></text>
+								</view>
+							</view>
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
+						</view>
+						<view class="pic-item">
+							<view class="pic-del">
+								<view class="del-bg">
+									<text class="del-line"></text>
+								</view>
+							</view>
+							<image class="pic-url" src="../../../static/app-icon.png" mode="aspectFill"></image>
+						</view>
+						<view class="pic-item">
+							<view class="upload-pic">
+								<text class="upload-add">+</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="fixed-submit-empty"></view>
+			<view class="submit-fixed-buttom">
+				<view class="submit-btn">
+					<text class="color-fff font-30">提交</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			};
+		},
+		onLoad() {
+			
+		},
+		methods: {
+			
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	@import '../../../styles/order.scss';
+	.scroll-body {
+		padding-top: 30rpx;
+	}
+	.goods-session {
+		padding: 20px 15px 10rpx;
+	}
+	.order-name-text,.order-sku-text {
+		max-width: 500rpx;
+	}
+	.common-item-code {
+		width: 80rpx;
+		height: 80rpx;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.code-pic {
+		width: 44rpx;
+		height: 44rpx;
+	}
+	
+	.common-list-pic {
+		padding-right: 0;
+	}
+	.pic-list {
+		height: 194rpx;
+		@extend %fx-row;
+		justify-content: flex-start;
+	}
+	.pic-item {
+		width: 134rpx;
+		height: 134rpx;
+		position: relative;
+	}
+	.pic-url,.upload-pic {
+		width: 114rpx;
+		height: 114rpx;
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		bottom: 0;
+	}
+	.pic-del {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 54rpx;
+		height: 54rpx;
+		justify-content: center;
+		align-items: center;
+		z-index: 5;
+	}
+	.del-bg {
+		width: 34rpx;
+		height: 34rpx;
+		@include border-radius(17rpx);
+		background-color: $uni-color-error;
+		z-index: 5;
+		position: relative;
+	}
+	.del-line {
+		width: 20rpx;
+		height: 2rpx;
+		@include border-radius(1rpx);
+		position: absolute;
+		top: 16rpx;
+		left: 7rpx;
+		background-color: $uni-text-color-inverse;
+	}
+	.upload-pic {
+		background-color: $uni-bg-color;
+		align-items: center;
+		justify-content: center;
+	}
+	.upload-add {
+		color: $uni-icon-color-grey;
+		font-size: 60rpx;
+	}
+</style>
