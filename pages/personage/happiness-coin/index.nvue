@@ -1,61 +1,94 @@
 <template>
   <view class="tf-bg-white" :style="{ height: height }">
+    <placeholderNavBar></placeholderNavBar>
     <view class="page-bg"></view>
     <view class="nav-bar">
       <text class="tf-icon navbar-text">&#xe857;</text>
       <text class="navbar-title">幸福币</text>
-      <text class="navbar-text">明细</text>
+      <text class="navbar-text" @tap="goCoinRecord">明细</text>
     </view>
     <view class="tf-row-space-between">
       <view class="tf-row-center tf-flex-item">
         <text class="tf-icon coin-icon">&#xe80b;</text>
         <text class="coin-number">2333</text>
       </view>
-      <text class="sign-tag">签到</text>
+      <text class="sign-tag sign-tag--complete">签到</text>
     </view>
-    <view class="tf-row-space-between tf-padding-lg">
-      <view>
-        <text></text>
-        <text>扫一扫</text>
-      </view>
-      <view>
-        <text></text>
-        <text>付款码</text>
-      </view>
-      <view>
-        <text></text>
-        <text>收款码</text>
-      </view>
-    </view>
-    <text>幸福币任务</text>
-    <view>
-      <view>
-        <view></view>
-        <view>
-          <text></text>
-          <text></text>
+    <scroll-view :scroll-y="true">
+      <view class="tf-row-space-between tf-padding-lg">
+        <view class="function-box">
+          <text class="tf-icon function-box__icon">&#xe819;</text>
+          <text class="function-box__text">扫一扫</text>
         </view>
-        <view></view>
-      </view>
-    </view>
-    <text>幸福币特卖区</text>
-    <view>
-      <view>
-        <view></view>
-        <view>
-          <text></text>
-          <text></text>
+        <view class="function-box">
+          <text class="tf-icon function-box__icon function-box__icon--pay">&#xe81f;</text>
+          <text class="function-box__text">付款码</text>
         </view>
-        <view></view>
+        <view class="function-box">
+          <text class="tf-icon function-box__icon function-box__icon--payreceipt">&#xe80b;</text>
+          <text class="function-box__text">收款码</text>
+        </view>
       </view>
-    </view>
+      <text class="happiness-coin-title">幸福币任务</text>
+      <view class="task-box">
+        <view class="task-item">
+          <view class="tf-row tf-flex-item">
+            <text class="task-item__icon"></text>
+            <view class="tf-space-between">
+              <text class="task-item__title">完成房间认证</text>
+              <view class="tf-row">
+                <text class="task-item__remarks">开门认证成功获得</text>
+                <text class="task-item__remarks--gold">20幸福币</text>
+              </view>
+            </view>
+          </view>
+          <!-- <text class="task-item__number">+20</text> -->
+          <text class="task-item__btn">去完成</text>
+        </view>
+      </view>
+      <view style="margin-top: 80rpx;">
+        <text class="happiness-coin-title">幸福币特卖区</text>
+        <text class="purchase-history" @tap="goBuyRecord">购买记录</text>
+      </view>
+      <view class="sale-area">
+        <view class="commodity-box">
+          <image class="commodity-image" src="/static/app-icon.png"></image>
+          <text class="commodity-name">雨前西湖龙井</text>
+          <view class="tf-row" style="align-items: flex-end;">
+            <text class="commodity-current-price">￥240</text>
+            <text class="commodity-original-price">￥260</text>
+          </view>
+          <text class="commodity-coin">1000幸福币</text>
+        </view>
+        <view class="commodity-box">
+          <image class="commodity-image" src="/static/app-icon.png"></image>
+          <text class="commodity-name">雨前西湖龙井</text>
+          <view class="tf-row" style="align-items: flex-end;">
+            <text class="commodity-current-price">￥240</text>
+            <text class="commodity-original-price">￥260</text>
+          </view>
+          <text class="commodity-coin">1000幸福币</text>
+        </view>
+        <view class="commodity-box">
+          <image class="commodity-image" src="/static/app-icon.png"></image>
+          <text class="commodity-name">雨前西湖龙井</text>
+          <view class="tf-row" style="align-items: flex-end;">
+            <text class="commodity-current-price">￥240</text>
+            <text class="commodity-original-price">￥260</text>
+          </view>
+          <text class="commodity-coin">1000幸福币</text>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </template>
 
 <script>
+import placeholderNavBar from '@/pages/components/placeholder-nav-bar/index.nvue';
 import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
 export default {
   components: {
+    placeholderNavBar,
     uniNavBar
   },
   data() {
@@ -64,14 +97,26 @@ export default {
     };
   },
   onLoad() {
-  	const res = uni.getSystemInfoSync();
-  	this.height = `${res.windowHeight}px`;
+    const res = uni.getSystemInfoSync();
+    this.height = `${res.windowHeight}px`;
   },
+  methods: {
+    goCoinRecord() {
+      uni.navigateTo({
+        url: '/pages/personage/happiness-coin/coin-record'
+      })
+    },
+    goBuyRecord() {
+      uni.navigateTo({
+        url: '/pages/personage/happiness-coin/buy-record'
+      })
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-$gold-color: #CA864E;
+$gold-color: #ca864e;
 .page-bg {
   position: absolute;
   top: 0;
@@ -92,37 +137,162 @@ $gold-color: #CA864E;
   line-height: 44px;
   text-align: center;
   font-weight: 500;
-  color: #CA864E;
+  color: #ca864e;
 }
 .navbar-text {
-  color: #CA864E;
+  color: #ca864e;
   line-height: 44px;
-  font-size:26rpx;
+  font-size: 26rpx;
 }
 .sign-tag {
-  width:240rpx;
-  height:88rpx;
+  width: 240rpx;
+  height: 88rpx;
   line-height: 88rpx;
   text-align: center;
-  color: #FFF;
+  color: #fff;
   font-size: 30rpx;
-  background-image:linear-gradient(to right,rgba(249,134,107,1),rgba(235,88,65,1));
-  border-top-left-radius:44rpx;
-  border-bottom-left-radius:44rpx;
+  background-image: linear-gradient(to right, rgba(249, 134, 107, 1), rgba(235, 88, 65, 1));
+  border-top-left-radius: 44rpx;
+  border-bottom-left-radius: 44rpx;
+}
+.sign-tag--complete {
+  color: #8f8f94;
+  background-image: none;
+  background-color: #f0f0f0;
 }
 .tf-row-space-between {
   height: 290rpx;
   align-items: center;
 }
 .coin-number {
-  font-size:72rpx;
+  font-size: 72rpx;
   line-height: 72rpx;
-  font-weight:500;
+  font-weight: 500;
   color: $gold-color;
 }
 .coin-icon {
   font-size: 36rpx;
   color: $gold-color;
   justify-content: flex-end;
+}
+.function-box {
+  padding: 10rpx 46rpx;
+}
+.function-box__text {
+  font-size: 30rpx;
+  text-align: center;
+}
+.function-box__icon {
+  width: 98rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  background-image: linear-gradient(to bottom right, rgba(255, 192, 23, 1), rgba(255, 161, 16, 1));
+  border-radius: 49rpx;
+  margin-bottom: 15rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 50rpx;
+}
+.function-box__icon--pay {
+  background-image: linear-gradient(to bottom right, rgba(111, 202, 123, 1), rgba(85, 184, 98, 1));
+}
+.function-box__icon--payreceipt {
+  background-image: linear-gradient(to bottom right, rgba(99, 166, 241, 1), rgba(68, 143, 228, 1));
+}
+.happiness-coin-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: $gold-color;
+  text-align: center;
+  margin-bottom: 38rpx;
+}
+.task-box {
+  padding: 30rpx;
+  margin: 0 30rpx;
+  background-color: #fef8f2;
+  border-radius: 10rpx;
+}
+.task-item {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+}
+.task-item__icon {
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #ffdec8;
+  border-radius: 45rpx;
+  margin-right: 20rpx;
+}
+.task-item__title {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.task-item__remarks {
+  font-size: 24rpx;
+  color: $uni-text-color-grey;
+}
+.task-item__remarks--gold {
+  font-size: 24rpx;
+  color: $gold-color;
+}
+.task-item__number {
+  width: 150rpx;
+  text-align: center;
+  font-size: 38rpx;
+  line-height: 90rpx;
+  font-weight: 500;
+  color: #eb5841;
+}
+.task-item__btn {
+  width: 150rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(249, 134, 107, 1), rgba(235, 88, 65, 1));
+  border-radius: 23rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.purchase-history {
+  position: absolute;
+  right: 30rpx;
+  font-size: 24rpx;
+  color: $uni-text-color-grey;
+  line-height: 44rpx;
+}
+.sale-area {
+  padding: 0 30rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.commodity-box {
+  margin-bottom: 30rpx;
+}
+.commodity-image {
+  width: 330rpx;
+  height: 330rpx;
+}
+.commodity-name {
+  font-size: 28rpx;
+  margin: 20rpx 0;
+}
+.commodity-current-price {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+.commodity-original-price {
+  font-size: 24rpx;
+  color: $uni-text-color-grey;
+  text-decoration: line-through;
+}
+.commodity-coin {
+  margin-top: 15rpx;
+  font-size: 30rpx;
+  color: #eb5841;
 }
 </style>

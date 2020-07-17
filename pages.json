@@ -477,7 +477,19 @@
         "navigationStyle": "custom"
       }
     }
-  ],
+      ,{
+            "path" : "pages/personage/happiness-coin/coin-record",
+            "style" : {
+              "navigationBarTitleText": "幸福币记录"
+            }
+        }
+        ,{
+            "path" : "pages/personage/happiness-coin/buy-record",
+            "style" : {
+              "navigationBarTitleText": "购买记录"
+            }
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",

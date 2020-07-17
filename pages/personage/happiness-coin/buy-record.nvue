@@ -1,0 +1,79 @@
+<template>
+	<view>
+		<list class="buy-list" :scrollable="true">
+      <cell v-for="item in list" :key="item.id">
+        <view class="buy-list-item">
+          <image class="buy-list-item__image" src="/static/app-icon.png"></image>
+          <view class="buy-list-item-right">
+            <text class="buy-list-item__name">{{item.name}}</text>
+            <text class="buy-list-item__specification">规格：{{item.specification}}</text>
+            <view class="tf-row">
+              <text class="tf-icon buy-list-item__price">{{item.time}}</text>
+              <text class="buy-list-item__price">{{item.number}}</text>
+            </view>
+          </view>
+        </view>
+      </cell>
+    </list>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+        list: [
+          {
+            id: 1,
+            name: '签到送积分',
+            specification: '白色',
+            number: '1'
+          },
+          {
+            id: 1,
+            name: '签到送积分',
+            specification: '白色',
+            number: '1'
+          }
+        ]
+			};
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+  .buy-list {
+    width:750rpx;
+    padding: 30rpx 20rpx;
+    background-color: $uni-bg-color;
+  }
+  .buy-list-item {
+    width: 710rpx;
+    flex-direction: row;
+    align-items: center;
+    padding:30rpx;
+    background-color: #fff;
+    margin-bottom: 30rpx;
+    border-radius:10rpx;
+  }
+  .buy-list-item-right {
+    flex: 1;
+    height: 130rpx;
+    justify-content: space-around;
+  }
+  .buy-list-item__image {
+    width: 130rpx;
+    height: 130rpx;
+    margin-right: 20rpx;
+  }
+  .buy-list-item__specification {
+    font-size: 24rpx;
+    color: $uni-text-color-grey;
+  }
+  .buy-list-item__name {
+    font-size: 30rpx;
+  }
+  .buy-list-item__price {
+    font-size: 28rpx;
+  }
+</style>
