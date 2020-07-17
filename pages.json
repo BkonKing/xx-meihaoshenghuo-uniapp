@@ -341,8 +341,8 @@
             "titleSize": "17",
             "buttons": [{
               "text": "全部已读",
-              "fontSize": "16",
-              "width": "120"
+              "fontSize": "13",
+              "width": "60"
             }]
           }
         }

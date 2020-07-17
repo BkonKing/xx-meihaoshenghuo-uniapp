@@ -1,7 +1,7 @@
 <template>
 	<view :class="[styleType === 'text'?'segmented-control--text' : 'segmented-control--button' ]" :style="{ borderColor: styleType === 'text' ? '' : activeColor }"
 	 class="segmented-control">
-		<view v-for="(item, index) in values" :class="[ styleType === 'text'?'segmented-control__item--text': 'segmented-control__item--button' , index === currentIndex&&styleType === 'button'?'segmented-control__item--button--active': '' , index === 0&&styleType === 'button'?'segmented-control__item--button--first': '',index === values.length - 1&&styleType === 'button'?'segmented-control__item--button--last': '' ]"
+		<view v-for="(item, index) in values" :class="[ index === currentIndex&&styleType === 'button'?'segmented-control__item--button--active': '' , index === 0&&styleType === 'button'?'segmented-control__item--button--first': '',index === values.length - 1&&styleType === 'button'?'segmented-control__item--button--last': '' ]"
 		 :key="index" :style="{
         backgroundColor: index === currentIndex && styleType === 'button' ? activeColor : '',borderColor: index === currentIndex&&styleType === 'text'||styleType === 'button'?activeColor:'transparent'
       }"
@@ -15,6 +15,15 @@
               ? '#8f8f94'
               : activeColor, 'font-size': index === currentIndex ? '34rpx' : '30rpx'}"
 			 class="segmented-control__text">{{ item }}</text>
+      <view class="segmented-control__mark">
+        <slot></slot>
+      </view>
+      <text class="segmented-control__item--line" :style="{backgroundColor:
+          index === currentIndex
+            ? styleType === 'text'
+              ? activeColor
+              : '#fff'
+            : ''}"></text>
 		</view>
 	</view>
 </template>
@@ -115,10 +124,21 @@
 		border-bottom-style: solid;
 		border-bottom-width: 3px;
 	}
+  
+  .segmented-control__item--line {
+    width: 64rpx;
+    height:4rpx;
+    border-radius:2rpx;
+  }
 
 	.segmented-control__text {
 		font-size: 30rpx;
-		line-height: 20px;
+		line-height: 94rpx;
 		text-align: center;
 	}
+  
+  .segmented-control__mark {
+    position: absolute;
+    right: 0;
+  }
 </style>

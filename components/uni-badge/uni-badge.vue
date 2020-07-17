@@ -57,7 +57,7 @@
 		},
 		methods: {
 			setStyle() {
-				this.badgeStyle = `width: ${String(this.text).length * 8 + 6}px`
+				this.badgeStyle = `width: ${String(this.text).length * 8 + 8}px`
 			},
 			onClick() {
 				this.$emit('click');

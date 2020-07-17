@@ -19,7 +19,7 @@
         <block v-else>
           <view class="list__option" v-for="(item, index) in list" :key="index" @click="choose(item)">
             <view>{{item.text}}</view>
-            <icon v-if="item.value === value" type="success_no_circle" size="26" color="#fff" />
+            <icon v-if="item.value === value" type="success_no_circle" size="16" color="#8f8f94" />
           </view>
         </block>
       </view>
@@ -149,6 +149,7 @@
 
       .dropdown-item__title {
         flex-direction: row;
+        flex: 1;
 
         .tf-icon {
           color: #fff;
@@ -156,11 +157,16 @@
       }
 
       .selected__name {
+        flex: 1;
         font-size: 32rpx;
+        text-align: center;
+        color: #aaa;
       }
 
       .selected__icon {
         margin-left: 20rpx;
+        width: 28rpx;
+        color: #aaa;
 
         &.down {
           transition: transform .3s;
@@ -202,10 +208,12 @@
           font-size: 32rpx;
           padding: 10rpx 30rpx;
           display: flex;
+          flex-direction: row;
           justify-content: space-between;
+          color: #aaa;
 
           &:not(:last-child) {
-            border-bottom: 1rpx solid #DDDDDD;
+            border-bottom: 1rpx solid $uni-color-divider;
           }
         }
       }
@@ -226,7 +234,7 @@
     }
 
     &:not(:last-child):after {
-      content: ' ';
+      content: '';
       position: absolute;
       width: 2rpx;
       top: 36rpx;

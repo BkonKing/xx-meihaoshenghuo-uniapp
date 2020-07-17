@@ -1,7 +1,9 @@
 <template>
 	<view>
 		<uni-segmented-control style="background-color: #fff;" :current="current" :values="items" @clickItem="onClickItem"
-		  style-type="text" active-color="#EB5841"></uni-segmented-control>
+		  style-type="text" active-color="#EB5841">
+        <uni-badge class="badge" text="2" type="error"></uni-badge>
+      </uni-segmented-control>
       <message-list type="transaction" v-show="current === 0"></message-list>
       <interaction v-show="current === 1"></interaction>
       <message-list type="butler" v-show="current === 2"></message-list>
@@ -15,11 +17,13 @@
   import uniSegmentedControl from "@/components/uni-segmented-control/uni-segmented-control.vue"
   import messageList from './components/message-list.nvue'
   import interaction from './components/interaction.nvue'
+  import uniBadge from '@/components/uni-badge/uni-badge.vue'
 	export default {
     components: {
       uniSegmentedControl,
       messageList,
       interaction,
+      uniBadge
     },
 		data() {
 			return {

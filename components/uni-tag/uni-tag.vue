@@ -132,7 +132,7 @@
 	}
 
 	.uni-tag-text--small {
-    line-height: 32rpx;
+    line-height: 34rpx;
 		font-size: 22rpx !important;
 	}
 
