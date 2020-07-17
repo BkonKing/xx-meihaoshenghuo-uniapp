@@ -119,11 +119,12 @@
       "style": {}
     }, {
       "path": "pages/neighbours/index",
-      "style": {}
+      "style": {
+        "navigationStyle": "custom"
+      }
     }, {
       "path": "pages/personage/index",
       "style": {
-        "navigationBarTitleText": "",
         "navigationStyle": "custom"
       }
     }, {

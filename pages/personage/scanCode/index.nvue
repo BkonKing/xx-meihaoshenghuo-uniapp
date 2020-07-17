@@ -45,8 +45,8 @@ export default {
       ]
     };
   },
-  onReady() {
-    this.toStart();
+  mounted() {
+    this.toStart()
   },
   onHide() {
     this.tocancel();

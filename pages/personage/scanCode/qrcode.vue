@@ -64,6 +64,7 @@ export default {
   methods: {
     switchTab(value) {
       if (value === 1) {
+        // uni.navigateTo()
         uni.redirectTo({
           url: '/pages/personage/scanCode/index'
         });
