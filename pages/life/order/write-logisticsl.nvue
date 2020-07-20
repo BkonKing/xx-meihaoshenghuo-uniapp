@@ -139,6 +139,7 @@
 </script>
 
 <style lang="scss" scoped>
+	@import '../../../styles/life.scss';
 	@import '../../../styles/order.scss';
 	.scroll-body {
 		padding-top: 30rpx;

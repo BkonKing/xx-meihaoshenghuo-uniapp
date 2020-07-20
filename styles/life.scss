@@ -15,9 +15,9 @@
 }
 @mixin border-radius($radius) {
 					border-radius: $radius;
-			-ms-border-radius: $radius;
-		 -moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
+	// 		-ms-border-radius: $radius;
+	// 	 -moz-border-radius: $radius;
+	// -webkit-border-radius: $radius;
 }
 @mixin border($color) {
 	border-top-width: 1px;
@@ -63,9 +63,9 @@
 	text-overflow: ellipsis;
 	/* endif */
 	/* ifndef H5 */
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	// overflow: hidden;
+	// text-overflow: ellipsis;
+	// white-space: nowrap;
 	/* endif */
 }
 .font-24 {

@@ -163,5 +163,6 @@
 </script>
 
 <style lang="scss" scoped>
+	@import '../../../styles/life.scss';
 	@import '../../../styles/order.scss';
 </style>

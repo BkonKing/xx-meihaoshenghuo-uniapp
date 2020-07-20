@@ -45,7 +45,7 @@
         console.log(token);
       } else {
         uni.reLaunch({
-          url: '/pages/login/index'
+          url: '/pages/personage/happiness-coin/index'
         })
       }
     },
